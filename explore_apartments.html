@@ -66,25 +66,25 @@
     </div>
 
     <!-- SEARCH HEADER -->
-    <div class="search-header gsap-reveal">
-        <div class="search-bar-container">
-            <button class="search-filter-btn">
-                <span>All Residential</span> <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <button class="search-filter-btn">
-                <span>Buy</span> <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="search-input-group">
-                <i class="fa-solid fa-location-dot"></i>
-                <input type="text" placeholder="Add more locations (e.g. Whitefield, Indiranagar)..." value="Bangalore">
-            </div>
-            <button class="search-submit-btn">Search</button>
-        </div>
+  <div class="search-header">
+    <div class="search-bar-container">
+
+        <div class="search-input-group">
+    <i class="fa-solid fa-location-dot"></i>
+    <input type="text" id="locationInput" placeholder="Enter location">
+
+    <!-- NEW DROPDOWN -->
+    <div class="location-dropdown" id="locationDropdown"></div>
+</div>
+
+        <button class="search-submit-btn" id="searchBtn">Search</button>
+
     </div>
+</div>
 
     <!-- MAIN LISTING LAYOUT -->
     <section class="listing-page">
-        <div class="listing-container" style="display: flex; flex-direction: column; gap: 20px;">
+        <div class="listing-container">
             
             <!-- Breadcrumb and Title Header -->
             <div class="listing-header gsap-reveal-left">
@@ -125,7 +125,7 @@
             <main class="property-list stagger-container" id="property-feed">
                 
                 <!-- Card 1 (3 BHK, 240 Lacs, Apartment) -->
-                <div class="property-card filter-target" data-budget="240" data-bhk="3" data-type="apartment">
+                <div class="property-card filter-target" data-budget="240" data-bhk="3" data-type="apartment" data-location="whitefield">
                     <div class="property-image-wrapper">
                         <span class="property-badge">Verified Builder</span>
                         <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80" alt="Prestige White Meadows">
@@ -233,7 +233,7 @@
                 </div>
                 
                 <!-- Card 4 (3 BHK, 310 Lacs, Villa) -->
-                <div class="property-card filter-target" data-budget="310" data-bhk="3" data-type="villa">
+                <div class="property-card filter-target" data-budget="310" data-bhk="3" data-type="villa" data-location="whitefield">
                     <div class="property-image-wrapper">
                         <span class="property-badge" style="background: var(--black);">Featured</span>
                         <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Contemporary Villa">
@@ -269,59 +269,7 @@
                 </div>
 
             </main>
-            
-            <script>
-                // Filter Logic
-                document.addEventListener("DOMContentLoaded", () => {
-                    const checkboxes = document.querySelectorAll(".filter-cb");
-                    const cards = document.querySelectorAll(".filter-target");
-
-                    function updateFilters() {
-                        let selectedBudgets = [];
-                        let selectedBHKs = [];
-                        let selectedTypes = [];
-
-                        // Collect checked values
-                        checkboxes.forEach(cb => {
-                            if (cb.checked) {
-                                if (cb.dataset.category === 'budget') selectedBudgets.push(cb.value);
-                                if (cb.dataset.category === 'bhk') selectedBHKs.push(cb.value);
-                                if (cb.dataset.category === 'type') selectedTypes.push(cb.value);
-                            }
-                        });
-
-                        // Verify each card against selected filters
-                        cards.forEach(card => {
-                            const cBudget = parseFloat(card.dataset.budget); // in lacs
-                            const cBhk = card.dataset.bhk;
-                            const cType = card.dataset.type;
-
-                            let showBudget = false;
-                            if (selectedBudgets.length === 0) {
-                                showBudget = true; // no filter = show all
-                            } else {
-                                selectedBudgets.forEach(range => {
-                                    let [min, max] = range.split('-').map(Number);
-                                    if (cBudget >= min && cBudget <= max) showBudget = true;
-                                });
-                            }
-
-                            let showBhk = selectedBHKs.length === 0 || selectedBHKs.includes(cBhk);
-                            let showType = selectedTypes.length === 0 || selectedTypes.includes(cType);
-
-                            if (showBudget && showBhk && showType) {
-                                card.style.display = "flex";
-                            } else {
-                                card.style.display = "none";
-                            }
-                        });
-                    }
-
-                    checkboxes.forEach(cb => {
-                        cb.addEventListener("change", updateFilters);
-                    });
-                });
-            </script>
+        
         </div>
     </section>
 
@@ -374,50 +322,82 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const menuClose = document.getElementById('menuClose');
-        if (menuToggle && mobileMenu && menuClose) {
-            menuToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
-            menuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
-            mobileMenu.addEventListener('click', (e) => {
-                if (e.target === mobileMenu) mobileMenu.classList.remove('open');
-            });
-        }
+document.addEventListener("DOMContentLoaded", () => {
 
-        // Property filter logic
-        document.addEventListener("DOMContentLoaded", () => {
-            const checkboxes = document.querySelectorAll(".filter-cb");
-            const cards = document.querySelectorAll(".filter-target");
+    const checkboxes = document.querySelectorAll(".filter-cb");
+    const cards = document.querySelectorAll(".filter-target");
 
-            function updateFilters() {
-                let selectedBudgets = [], selectedBHKs = [], selectedTypes = [];
-                checkboxes.forEach(cb => {
-                    if (cb.checked) {
-                        if (cb.dataset.category === 'budget') selectedBudgets.push(cb.value);
-                        if (cb.dataset.category === 'bhk') selectedBHKs.push(cb.value);
-                        if (cb.dataset.category === 'type') selectedTypes.push(cb.value);
-                    }
-                });
-                cards.forEach(card => {
-                    const cBudget = parseFloat(card.dataset.budget);
-                    const cBhk = card.dataset.bhk;
-                    const cType = card.dataset.type;
-                    let showBudget = selectedBudgets.length === 0;
-                    if (!showBudget) {
-                        selectedBudgets.forEach(range => {
-                            const [min, max] = range.split('-').map(Number);
-                            if (cBudget >= min && cBudget <= max) showBudget = true;
-                        });
-                    }
-                    const showBhk = selectedBHKs.length === 0 || selectedBHKs.includes(cBhk);
-                    const showType = selectedTypes.length === 0 || selectedTypes.includes(cType);
-                    card.style.display = (showBudget && showBhk && showType) ? 'flex' : 'none';
+    function updateFilters() {
+
+        let selectedBudgets = [];
+        let selectedBHKs = [];
+        let selectedTypes = [];
+
+        checkboxes.forEach(cb => {
+            if (cb.checked) {
+                if (cb.dataset.category === "budget") selectedBudgets.push(cb.value);
+                if (cb.dataset.category === "bhk") selectedBHKs.push(cb.value);
+                if (cb.dataset.category === "type") selectedTypes.push(cb.value);
+            }
+        });
+
+        cards.forEach(card => {
+
+            const cBudget = parseFloat(card.dataset.budget);
+            const cBhk = card.dataset.bhk;
+            const cType = card.dataset.type;
+
+            let show = true;
+
+            // budget
+            if (selectedBudgets.length > 0) {
+                show = selectedBudgets.some(range => {
+                    let [min, max] = range.split("-").map(Number);
+                    return cBudget >= min && cBudget <= max;
                 });
             }
-            checkboxes.forEach(cb => cb.addEventListener('change', updateFilters));
+
+            // bhk
+            if (show && selectedBHKs.length > 0) {
+                show = selectedBHKs.includes(cBhk);
+            }
+
+            // type
+            if (show && selectedTypes.length > 0) {
+                show = selectedTypes.includes(cType);
+            }
+
+            card.style.display = show ? "flex" : "none";
         });
-    </script>
+    }
+
+    checkboxes.forEach(cb => {
+        cb.addEventListener("change", updateFilters);
+    });
+
+});
+</script>
+
+<script>
+const searchBtn = document.getElementById("searchBtn");
+const locationInput = document.getElementById("locationInput");
+
+searchBtn.addEventListener("click", () => {
+
+    const value = locationInput.value.toLowerCase().trim();
+    const cards = document.querySelectorAll(".filter-target");
+
+    cards.forEach(card => {
+        const location = card.dataset.location;
+
+        if (location.includes(value) || value === "") {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+});
+</script>
 </body>
 </html>
