@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntentNet - Property Guidance</title>
+    <link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/favicon/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script defer src="main.js"></script>
+</head>
+<body class="page-offset">
+
+    <!-- TWO-TIER NAVBAR -->
+    <div class="navbar-wrapper">
+        <div class="navbar-top">
+            <div class="navbar-top-left">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo/intentnet-logo.png" alt="IntentNet Logo" onerror="this.src=''; this.alt='IntentNet';">
+                </a>
+                <div class="nav-location">
+                    Kozhikode <i class="fa-solid fa-chevron-down" style="font-size: 0.8rem;"></i>
+                </div>
+            </div>
+            <div class="navbar-top-right">
+                <div class="nav-social-icons">
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <a href="contact.html" class="nav-cta-pill">Get Started</a>
+                <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+        <div class="navbar-bottom">
+            <div class="nav-bottom-links">
+                <a href="index.html">Home</a>
+                <a href="explore_apartments.html">Explore Apartments</a>
+                <a href="property_guidance.html" class="active">Property Guidance</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <button class="mobile-menu-close" id="menuClose"><i class="fa-solid fa-xmark"></i></button>
+        <nav class="mobile-menu-links">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="explore_apartments.html"><i class="fa-solid fa-building"></i> Explore Apartments</a>
+            <a href="property_guidance.html"><i class="fa-solid fa-handshake"></i> Property Guidance</a>
+            <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+        </nav>
+        <div class="mobile-menu-social">
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+    </div>
+    <!-- PREMIUM HERO SECTION -->
+    <section class="premium-hero" style="background: linear-gradient(rgba(5, 5, 5, 0.7), rgba(5, 5, 5, 0.9)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=80') center/cover; padding: 180px 5% 120px; color: #fff; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <div class="container gsap-reveal">
+            <h1 style="font-size: clamp(3.5rem, 6vw, 5rem); font-family: 'Outfit', sans-serif; font-weight: 700; margin-bottom: 20px; letter-spacing: -1px; text-shadow: 0 10px 30px rgba(0,0,0,0.5);">Partner With IntentNet</h1>
+            <p style="font-size: 1.4rem; color: #ccc; max-width: 800px; margin: 0 auto 40px; font-weight: 300;">Elevate your brand. Connect directly with high-intent buyers exploring real estate, bespoke interiors, and advanced solar ecosystems.</p>
+            <div class="hero-actions" style="justify-content: center;">
+                <a href="contact.html" class="btn btn-light">Apply for Partnership <i class="fa-solid fa-arrow-right icon-rotate"></i></a>
+                <a href="#benefits" class="btn btn-outline-dark" style="color: #fff; border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05); backdrop-filter: blur(10px);">Explore Benefits <i class="fa-solid fa-arrow-right icon-rotate"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREMIUM GLASS CARDS SECTION -->
+    <section id="benefits" style="background: #050505; padding: 100px 5%; position: relative; overflow: hidden;">
+        <!-- Abstract Glows -->
+        <div style="position: absolute; top: 10%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%); border-radius: 50%; filter: blur(40px);"></div>
+        <div style="position: absolute; bottom: 10%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%); border-radius: 50%; filter: blur(40px);"></div>
+        
+        <div class="container relative z-2">
+            <div class="text-center mb-5 gsap-reveal">
+                <span style="color: #888; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; font-weight: 600;">The Ecosystem Advantage</span>
+                <h2 style="color: #fff; font-size: 3rem; margin-top: 10px;">Exclusive Partner Benefits</h2>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;" class="stagger-container">
+                <!-- Card -->
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 40px; backdrop-filter: blur(20px); transition: transform 0.4s ease; text-align: center;">
+                    <i class="fa-solid fa-gem" style="color: #fff; font-size: 2.5rem; margin-bottom: 25px; display: block;"></i>
+                    <h3 style="color: #fff; font-size: 1.5rem; margin-bottom: 15px;">Qualified Buyer Access</h3>
+                    <p style="color: #999; line-height: 1.6;">Gain direct access to elite buyers actively exploring and comparing projects before they make absolute decisions.</p>
+                </div>
+                <!-- Card -->
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 40px; backdrop-filter: blur(20px); transition: transform 0.4s ease; text-align: center;">
+                    <i class="fa-solid fa-route" style="color: #fff; font-size: 2.5rem; margin-bottom: 25px; display: block;"></i>
+                    <h3 style="color: #fff; font-size: 1.5rem; margin-bottom: 15px;">Structured Journey</h3>
+                    <p style="color: #999; line-height: 1.6;">Our platform seamlessly integrates your project portfolio into the buyer's natural digital discovery phase.</p>
+                </div>
+                <!-- Card -->
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 40px; backdrop-filter: blur(20px); transition: transform 0.4s ease; text-align: center;">
+                    <i class="fa-solid fa-shield-halved" style="color: #fff; font-size: 2.5rem; margin-bottom: 25px; display: block;"></i>
+                    <h3 style="color: #fff; font-size: 1.5rem; margin-bottom: 15px;">Verified Trust</h3>
+                    <p style="color: #999; line-height: 1.6;">Align your brand with India's most trusted home ecosystem, elevating your visibility alongside top-tier professionals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO WE PARTNER WITH: LUXURY IMAGE STRIP -->
+    <section style="background: var(--silver-gradient-1); padding: 100px 5%;">
+        <div class="container">
+            <div class="text-center mb-5 gsap-reveal">
+                <h2 style="font-size: 3rem;">Who We Partner With</h2>
+                <p style="color: #666; font-size: 1.2rem; max-width: 600px; margin: 10px auto 0;">A highly curated network of visionaries.</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch;" class="stagger-container">
+                <!-- Image Card 1 -->
+                <div style="position: relative; border-radius: 20px; overflow: hidden; height: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80" style="width:100%; height:100%; object-fit:cover;" alt="Real Estate Developers">
+                    <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px 30px 30px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);">
+                        <h3 style="color: #fff; font-size: 1.8rem;">Developers</h3>
+                        <p style="color: #ccc; margin-top: 5px;">Residential builders.</p>
+                    </div>
+                </div>
+                <!-- Image Card 2 -->
+                <div style="position: relative; border-radius: 20px; overflow: hidden; height: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" style="width:100%; height:100%; object-fit:cover;" alt="Interior Firms">
+                    <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px 30px 30px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);">
+                        <h3 style="color: #fff; font-size: 1.8rem;">Interior Firms</h3>
+                        <p style="color: #ccc; margin-top: 5px;">Architecture & Design.</p>
+                    </div>
+                </div>
+                <!-- Image Card 3 -->
+                <div style="position: relative; border-radius: 20px; overflow: hidden; height: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=600&q=80" style="width:100%; height:100%; object-fit:cover;" alt="Solar Solutions">
+                    <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px 30px 30px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);">
+                        <h3 style="color: #fff; font-size: 1.8rem;">Solar Pioneers</h3>
+                        <p style="color: #ccc; margin-top: 5px;">Energy infrastructures.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 900px) {
+                    .stagger-container[style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
+                }
+            </style>
+        </div>
+    </section>
+
+    <!-- PREMIUM FINAL CTA -->
+    <section class="premium-cta" style="background: #111; padding: 100px 5%; text-align: center; color: white;">
+        <div class="container gsap-reveal">
+            <h2 style="font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 20px; font-family: 'Outfit'; color: #fff;">Become Part of the IntentNet Network</h2>
+            <p style="font-size: 1.2rem; color: #888; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Join the ecosystem defining the future of sophisticated home discovery and architectural planning.
+            </p>
+            <a href="contact.html" class="btn btn-light">Request Partnership <i class="fa-solid fa-arrow-right icon-rotate"></i></a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div>
+                    <div class="footer-logo">
+                        <img src="assets/logo/intentnet-logo.png" alt="IntentNet Logo" onerror="this.src=''; this.alt='IntentNet';">
+                    </div>
+                    <p class="footer-about">IntentNet helps you make structured, informed home decisions through verified platforms and connections.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="explore_apartments.html">Explore Apartments</a></li>
+                        <li><a href="property_guidance.html">Property Guidance</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Real Estate</a></li>
+                        <li><a href="#">Interiors</a></li>
+                        <li><a href="#">Solar Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <div class="footer-address">
+                        <p><i class="fa-solid fa-location-dot"></i> 3rd floor, HeadQ Pvt Ltd, Phase 1</p>
+                        <p style="margin-left: 30px;">HiLITE Business Park, Kozhikode</p>
+                        <p style="margin-top: 15px;"><i class="fa-solid fa-envelope"></i> contact@intentnet.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 IntentNet. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuClose = document.getElementById('menuClose');
+        if (menuToggle && mobileMenu && menuClose) {
+            menuToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
+            menuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+        }
+    </script>
+</body>
+</html>

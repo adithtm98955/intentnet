@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntentNet - Explore Home Options</title>
+    <link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/favicon/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="listing-styles.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script defer src="main.js"></script>
+    <style>
+        .mb-hero {
+            padding: 60px 5% 100px;
+            background: var(--silver-gradient-1);
+            position: relative;
+        }
+    </style>
+</head>
+<body class="page-offset">
+
+    <!-- TWO-TIER NAVBAR -->
+    <div class="navbar-wrapper">
+        <div class="navbar-top">
+            <div class="navbar-top-left">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo/intentnet-logo.png" alt="IntentNet Logo" onerror="this.src=''; this.alt='IntentNet';">
+                </a>
+                <div class="nav-location">
+                    <i class="fa-solid fa-location-dot" style="color:#e44;"></i>
+                    Kozhikode <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                </div>
+            </div>
+            <div class="navbar-top-right">
+                <!-- Social icons in navbar -->
+                <div class="nav-social-icons">
+                    <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <a href="contact.html" class="nav-cta-pill">Get Started</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div class="navbar-bottom">
+            <div class="nav-bottom-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="explore_apartments.html">Explore Apartments</a>
+                <a href="property_guidance.html">Property Guidance</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <button class="mobile-menu-close" id="menuClose"><i class="fa-solid fa-xmark"></i></button>
+        <nav class="mobile-menu-links">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="explore_apartments.html"><i class="fa-solid fa-building"></i> Explore Apartments</a>
+            <a href="property_guidance.html"><i class="fa-solid fa-handshake"></i> Property Guidance</a>
+            <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+        </nav>
+        <div class="mobile-menu-social">
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+    </div>
+
+    <!-- 1. HERO SECTION (Replaced Search with Image 1 Stat Card) -->
+    <section class="mb-hero">
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        <div class="container hero-layout relative z-2">
+            <!-- Left Side Text -->
+            <div class="hero-text-block">
+                <div style="display: inline-block; background: rgba(0,0,0,0.05); padding: 5px 15px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; margin-bottom: 15px; border: 1px solid rgba(0,0,0,0.1);" class="hero-badge">Smart Home Decisions Platform</div>
+                <h1>Make Better Home Decisions with IntentNet</h1>
+                <p class="subtext">IntentNet helps you explore builders, interiors, and solar solutions with clarity before making your decision.</p>
+                <div class="hero-actions">
+                    <a href="explore_apartments.html" class="btn btn-dark">Start Your Home Journey <span class="btn-circle-arrow"><i class="fa-solid fa-arrow-right"></i></span></a>
+                    <a href="explore_apartments.html" class="btn btn-outline-dark">Our Strategy <span class="btn-circle-arrow"><i class="fa-solid fa-arrow-right"></i></span></a>
+                </div>
+            </div>
+            
+            <!-- Right Side Stats Card (Image 1 Style) -->
+            <div class="hero-stat-card">
+                <div class="stat-header">
+                    <img src="assets/logo/intentnet-logo.png" alt="IntentNet" onerror="this.style.display='none';">
+                    <h3>IntentNet</h3>
+                </div>
+                <div class="stat-numbers-row">
+                    <div class="stat-num-box">
+                        <h4>500+</h4>
+                        <p>Verified<br>Partners</p>
+                    </div>
+                    <div class="stat-num-box">
+                        <h4>10k+</h4>
+                        <p>Buyers<br>Guided</p>
+                    </div>
+                    <div class="stat-num-box">
+                        <h4>3</h4>
+                        <p>Ecosystems</p>
+                    </div>
+                </div>
+                <ul class="stat-checklist">
+                    <li><i class="fa-solid fa-circle-check"></i> Verified Real Estate Builders</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Interior & Solar Solutions</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Data-Driven Buyer Guidance</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. BIG STATEMENT SECTION WITH IMAGE -->
+    <section style="padding: 0; overflow: hidden;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; min-height: 420px;">
+            <div style="background: #0a0a0a; padding: 80px 60px; display: flex; flex-direction: column; justify-content: center;">
+                <span style="color: #888; text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 20px;">The Challenge</span>
+                <h2 style="font-size: clamp(1.8rem, 3vw, 2.8rem); color: #fff; font-weight: 700; line-height: 1.2; margin-bottom: 20px;">Home Decisions Involve Many Choices</h2>
+                <p style="color: #aaa; font-size: 1.1rem; line-height: 1.7;">Choosing a builder, planning interiors, and exploring solar solutions can feel overwhelming without clear information.</p>
+            </div>
+            <div style="position: relative; overflow: hidden; min-height: 350px;">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80" alt="Home decisions" style="width:100%; height:100%; object-fit:cover;">
+                <div style="position:absolute; inset:0; background: linear-gradient(to right, rgba(10,10,10,0.3), transparent);"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. STORY & HOPE WITH IMAGES -->
+    <section style="padding: 0; overflow: hidden;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; min-height: 380px;">
+            <div style="position: relative; overflow: hidden;">
+                <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=80" alt="Home Planning" style="width:100%; height:100%; object-fit:cover;">
+                <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%); padding: 40px; display: flex; flex-direction: column; justify-content: flex-end;">
+                    <h2 style="color:#fff; font-size: clamp(1.5rem, 2.5vw, 2.2rem); margin-bottom: 10px;">Every Home Journey Starts With A Plan</h2>
+                    <p style="color: #ccc; font-size: 1rem;">People explore locations, projects, and possibilities before deciding.</p>
+                </div>
+            </div>
+            <div style="position: relative; overflow: hidden;">
+                <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=900&q=80" alt="Home Decision" style="width:100%; height:100%; object-fit:cover;">
+                <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%); padding: 40px; display: flex; flex-direction: column; justify-content: flex-end;">
+                    <h2 style="color:#fff; font-size: clamp(1.5rem, 2.5vw, 2.2rem); margin-bottom: 10px;">A Home Is One of Life's Biggest Decisions</h2>
+                    <p style="color: #ccc; font-size: 1rem;">The right information helps buyers evaluate options with confidence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PROCESS SECTION WITH ICONS + IMAGES -->
+    <section style="background: #f8f8f8; padding: 100px 5%;">
+        <div class="container">
+            <div class="text-center mb-5 gsap-reveal">
+                <span style="color: #888; text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem;">Step by Step</span>
+                <h2 style="font-size: clamp(2rem, 3.5vw, 3rem); margin-top: 10px;">The Home Decision Process</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px;" class="stagger-container process-grid">
+                <div class="premium-process-card">
+                    <div class="ppc-image" style="background-image: url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="ppc-body">
+                        <div class="ppc-num">01</div>
+                        <h3>Explore Projects</h3>
+                        <p>Discover builders and residential developments across top locations.</p>
+                    </div>
+                </div>
+                <div class="premium-process-card">
+                    <div class="ppc-image" style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="ppc-body">
+                        <div class="ppc-num">02</div>
+                        <h3>Understand Costs</h3>
+                        <p>Evaluate pricing, payment plans, and financing options with clarity.</p>
+                    </div>
+                </div>
+                <div class="premium-process-card">
+                    <div class="ppc-image" style="background-image: url('https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="ppc-body">
+                        <div class="ppc-num">03</div>
+                        <h3>Compare Options</h3>
+                        <p>Review locations, layouts, and long-term value side by side.</p>
+                    </div>
+                </div>
+                <div class="premium-process-card">
+                    <div class="ppc-image" style="background-image: url('https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="ppc-body">
+                        <div class="ppc-num">04</div>
+                        <h3>Plan Your Home</h3>
+                        <p>Consider interiors, solar solutions and future energy needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. DARK STATEMENT -->
+    <section style="background: linear-gradient(135deg,#0a0a0a,#1a1a2e); padding: 100px 5%; text-align: center; position: relative; overflow: hidden;">
+        <div style="position:absolute; width:600px; height:600px; background:radial-gradient(circle, rgba(255,255,255,0.04),transparent 70%); top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%;"></div>
+        <div class="container gsap-reveal" style="position:relative; z-index:2;">
+            <h2 style="font-size: clamp(2rem, 4vw, 3.5rem); color:#fff; margin-bottom: 20px; font-weight: 700;">Many Options. One Clear Decision.</h2>
+            <p style="font-size: 1.2rem; color: #999; max-width: 650px; margin: 0 auto 40px;">IntentNet helps organize information and connect buyers with trusted builders and service providers.</p>
+            <a href="contact.html" class="btn btn-light">Start Your Journey <span class="btn-circle-arrow"><i class="fa-solid fa-arrow-right"></i></span></a>
+        </div>
+    </section>
+
+    <!-- 7. WHAT INTENTNET DOES — IMAGE SPLIT -->
+    <section style="padding: 0; overflow: hidden;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; min-height: 500px;">
+            <div style="position: relative; overflow: hidden;">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80" alt="What IntentNet Does" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div style="background: #fff; padding: 80px 60px; display: flex; flex-direction: column; justify-content: center;">
+                <span style="color: #888; text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 20px;">Our Platform</span>
+                <h2 style="font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 700; margin-bottom: 25px;">What IntentNet Does</h2>
+                <p style="font-size: 1.1rem; color: #666; line-height: 1.8; margin-bottom: 15px;">IntentNet helps buyers explore the home market in a structured way — with clarity, data, and trusted connections.</p>
+                <p style="font-size: 1.1rem; color: #666; line-height: 1.8;">We organise project information, explain options, and connect buyers with builders, interior professionals, and solar providers.</p>
+                <a href="explore_apartments.html" class="btn btn-dark" style="margin-top: 30px; align-self: flex-start;">Explore Platform <span class="btn-circle-arrow"><i class="fa-solid fa-arrow-right"></i></span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. HOW INTENTNET WORKS — PREMIUM TIMELINE -->
+    <section style="background: #f8f8f8; padding: 100px 5%;">
+        <div class="container">
+            <div class="text-center mb-5 gsap-reveal">
+                <span style="color: #888; text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem;">Simple & Clear</span>
+                <h2 style="font-size: clamp(2rem, 3.5vw, 3rem); margin-top: 10px;">How IntentNet Works</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; position: relative;" class="stagger-container how-grid">
+                <!-- Connector line -->
+                <div style="position: absolute; top: 55px; left: 12.5%; right: 12.5%; height: 2px; background: linear-gradient(to right, #000, #555, #000); opacity: 0.15; z-index: 0;"></div>
+                <div class="how-step-card">
+                    <div class="how-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+                    <div class="how-step-label">Step 1</div>
+                    <h3>Share Your Requirement</h3>
+                    <p>Tell us your preferred location, budget, and timeline.</p>
+                </div>
+                <div class="how-step-card">
+                    <div class="how-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <div class="how-step-label">Step 2</div>
+                    <h3>Explore Options</h3>
+                    <p>IntentNet presents relevant builders and solutions tailored to you.</p>
+                </div>
+                <div class="how-step-card">
+                    <div class="how-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <div class="how-step-label">Step 3</div>
+                    <h3>Visit Projects</h3>
+                    <p>Explore and experience shortlisted properties and services.</p>
+                </div>
+                <div class="how-step-card">
+                    <div class="how-icon"><i class="fa-solid fa-circle-check"></i></div>
+                    <div class="how-step-label">Step 4</div>
+                    <h3>Make Your Decision</h3>
+                    <p>Choose the option that perfectly fits your goals and budget.</p>
+                </div>
+            </div>
+        </div>
+    </section>n>
+
+    <!-- 9. FEATURED ECOSYSTEM SHOWCASE (10+ Images) -->
+    <section class="silver-section alt">
+        <div class="container">
+            <div class="text-center mb-5 gsap-reveal">
+                <h2 style="font-size: 3rem; margin-bottom: 10px;">The IntentNet Ecosystem</h2>
+                <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">Experience premium Real Estate, World-Class Interiors, and Advanced Solar Solutions.</p>
+            </div>
+            
+            <style>
+                .ecosystem-gallery {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    grid-auto-rows: 250px;
+                    gap: 15px;
+                }
+                .gallery-item {
+                    position: relative;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                    transition: transform 0.4s ease, box-shadow 0.4s ease;
+                }
+                .gallery-item:hover {
+                    transform: translateY(-5px) scale(1.02);
+                    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+                    z-index: 2;
+                }
+                .gallery-item img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.8s ease;
+                }
+                .gallery-item:hover img {
+                    transform: scale(1.1);
+                }
+                .gallery-overlay {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+                    padding: 30px 20px 20px;
+                    color: white;
+                    text-align: left;
+                }
+                .gallery-overlay h3 {
+                    font-size: 1.2rem;
+                    margin-bottom: 5px;
+                }
+                .gallery-overlay span {
+                    font-size: 0.8rem;
+                    background: rgba(255,255,255,0.2);
+                    padding: 3px 8px;
+                    border-radius: 20px;
+                }
+                .item-wide { grid-column: span 2; }
+                .item-tall { grid-row: span 2; }
+                @media (max-width: 768px) {
+                    .ecosystem-gallery { grid-template-columns: repeat(2, 1fr); }
+                    .item-wide { grid-column: span 2; }
+                }
+                @media (max-width: 480px) {
+                    .ecosystem-gallery { grid-template-columns: 1fr; }
+                    .item-wide { grid-column: span 1; }
+                }
+            </style>
+
+            <div class="ecosystem-gallery stagger-container">
+                <!-- 1 -->
+                <div class="gallery-item item-tall">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury Villa">
+                    <div class="gallery-overlay">
+                        <span>Real Estate</span>
+                        <h3>Premium Villas</h3>
+                    </div>
+                </div>
+                <!-- 2 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600607687931-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Interiors">
+                    <div class="gallery-overlay">
+                        <span>Interiors</span>
+                        <h3>Bespoke Living Rooms</h3>
+                    </div>
+                </div>
+                <!-- 3 -->
+                <div class="gallery-item item-wide">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Resort Style Home">
+                    <div class="gallery-overlay">
+                        <span>Real Estate</span>
+                        <h3>Resort-Style Developments</h3>
+                    </div>
+                </div>
+                <!-- 4 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Solar Array">
+                    <div class="gallery-overlay">
+                        <span>Solar</span>
+                        <h3>Residential Solar Arrays</h3>
+                    </div>
+                </div>
+                <!-- 5 -->
+                <div class="gallery-item item-tall">
+                    <img src="https://images.unsplash.com/photo-1600566753086-00f18efc2291?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury Kitchen">
+                    <div class="gallery-overlay">
+                        <span>Interiors</span>
+                        <h3>Smart Kitchens</h3>
+                    </div>
+                </div>
+                <!-- 6 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Highrise Apartment">
+                    <div class="gallery-overlay">
+                        <span>Real Estate</span>
+                        <h3>Urban Highrises</h3>
+                    </div>
+                </div>
+                <!-- 7 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Master Bedroom">
+                    <div class="gallery-overlay">
+                        <span>Interiors</span>
+                        <h3>Master Suites</h3>
+                    </div>
+                </div>
+                <!-- 8 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Solar Roof Setup">
+                    <div class="gallery-overlay">
+                        <span>Solar</span>
+                        <h3>Integrated Roof Tech</h3>
+                    </div>
+                </div>
+                <!-- 9 -->
+                <div class="gallery-item item-wide">
+                    <img src="https://images.unsplash.com/photo-1600607687644-aac4c15cecb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Minimalist Architecture">
+                    <div class="gallery-overlay">
+                        <span>Interiors</span>
+                        <h3>Minimalist Architecture</h3>
+                    </div>
+                </div>
+                <!-- 10 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Smart Home Automation">
+                    <div class="gallery-overlay">
+                        <span>Ecosystem</span>
+                        <h3>Full Smart Integrations</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. FINAL CALL TO ACTION -->
+    <section class="dark-section text-center">
+        <div class="container gsap-reveal">
+            <h2 style="font-size: 3rem; margin-bottom: 15px;">Start Exploring Your Home Options</h2>
+            <p style="font-size: 1.3rem; color: #ccc; margin-bottom: 40px;">Connect with IntentNet and begin your home journey.</p>
+            <a href="contact.html" class="btn btn-light" style="padding: 15px 35px; border-radius: 40px;">Get Started <i class="fa-solid fa-arrow-right icon-rotate"></i></a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div>
+                    <div class="footer-logo">
+                        <img src="assets/logo/intentnet-logo.png" alt="IntentNet Logo" onerror="this.src=''; this.alt='IntentNet';">
+                    </div>
+                    <p class="footer-about">IntentNet helps you make structured, informed home decisions through verified platforms and connections.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="explore_apartments.html">Explore Apartments</a></li>
+                        <li><a href="property_guidance.html">Property Guidance</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Real Estate</a></li>
+                        <li><a href="#">Interiors</a></li>
+                        <li><a href="#">Solar Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <div class="footer-address">
+                        <p><i class="fa-solid fa-location-dot"></i> 3rd floor, HeadQ Pvt Ltd, Phase 1</p>
+                        <p style="margin-left: 30px;">HiLITE Business Park, Kozhikode</p>
+                        <p style="margin-top: 15px;"><i class="fa-solid fa-envelope"></i> contact@intentnet.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 IntentNet. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE MENU SCRIPT -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuClose = document.getElementById('menuClose');
+        if (menuToggle && mobileMenu && menuClose) {
+            menuToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
+            menuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target === mobileMenu) mobileMenu.classList.remove('open');
+            });
+        }
+    </script>
+</body>
+</html>

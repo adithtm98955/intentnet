@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntentNet - Explore Apartments in Bangalore</title>
+    <link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/favicon/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="listing-styles.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script defer src="main.js"></script>
+</head>
+<body class="page-offset">
+
+    <!-- TWO-TIER NAVBAR -->
+    <div class="navbar-wrapper">
+        <div class="navbar-top">
+            <div class="navbar-top-left">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo/intentnet-logo.png" alt="IntentNet Logo" onerror="this.src=''; this.alt='IntentNet';">
+                </a>
+                <div class="nav-location">
+                    Kozhikode <i class="fa-solid fa-chevron-down" style="font-size: 0.8rem;"></i>
+                </div>
+            </div>
+            <div class="navbar-top-right">
+                <div class="nav-social-icons">
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <a href="contact.html" class="nav-cta-pill">Get Started</a>
+                <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+        <div class="navbar-bottom">
+            <div class="nav-bottom-links">
+                <a href="index.html">Home</a>
+                <a href="explore_apartments.html" class="active">Explore Apartments</a>
+                <a href="property_guidance.html">Property Guidance</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <button class="mobile-menu-close" id="menuClose"><i class="fa-solid fa-xmark"></i></button>
+        <nav class="mobile-menu-links">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="explore_apartments.html"><i class="fa-solid fa-building"></i> Explore Apartments</a>
+            <a href="property_guidance.html"><i class="fa-solid fa-handshake"></i> Property Guidance</a>
+            <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+        </nav>
+        <div class="mobile-menu-social">
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+    </div>
+
+    <!-- SEARCH HEADER -->
+    <div class="search-header gsap-reveal">
+        <div class="search-bar-container">
+            <button class="search-filter-btn">
+                <span>All Residential</span> <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <button class="search-filter-btn">
+                <span>Buy</span> <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="search-input-group">
+                <i class="fa-solid fa-location-dot"></i>
+                <input type="text" placeholder="Add more locations (e.g. Whitefield, Indiranagar)..." value="Bangalore">
+            </div>
+            <button class="search-submit-btn">Search</button>
+        </div>
+    </div>
+
+    <!-- MAIN LISTING LAYOUT -->
+    <section class="listing-page">
+        <div class="listing-container" style="display: flex; flex-direction: column; gap: 20px;">
+            
+            <!-- Breadcrumb and Title Header -->
+            <div class="listing-header gsap-reveal-left">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a> > <a href="#">Property in India</a> > <a href="#">Property in Bangalore</a> > Real Estate in Bangalore
+                </div>
+                <h1>Property for Sale in Bangalore</h1>
+            </div>
+
+            <!-- SIDEBAR FILTERS -->
+            <aside class="filters-sidebar gsap-reveal-left">
+                <div class="filter-group">
+                    <h3>Budget</h3>
+                    <div style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">Select Price Range</div>
+                    <!-- Using min-max values -->
+                    <label class="checkbox-item"><input type="checkbox" class="filter-cb" data-category="budget" value="0-100"> Under ₹ 1 Cr</label>
+                    <label class="checkbox-item"><input type="checkbox" class="filter-cb" data-category="budget" value="100-200"> ₹ 1 Cr - ₹ 2 Cr</label>
+                    <label class="checkbox-item"><input type="checkbox" class="filter-cb" data-category="budget" value="200-500"> ₹ 2 Cr - ₹ 5 Cr</label>
+                    <label class="checkbox-item"><input type="checkbox" class="filter-cb" data-category="budget" value="500-10000"> Above ₹ 5 Cr</label>
+                </div>
+
+                <div class="filter-group">
+                    <h3>BHK</h3>
+                    <label class="checkbox-item"><input type="checkbox" class="filter-cb" data-category="bhk" value="1"> 1 BHK</label>
+                    <label class="checkbox-item"><input type="checkbox" class="filter-cb" data-category="bhk" value="2"> 2 BHK</label>
+                    <label class="checkbox-item"><input type="checkbox" class="filter-cb" data-category="bhk" value="3"> 3 BHK</label>
+                    <label class="checkbox-item"><input type="checkbox" class="filter-cb" data-category="bhk" value="4"> 4 BHK</label>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Property Type</h3>
+                    <label class="checkbox-item"><input type="checkbox" class="filter-cb" data-category="type" value="apartment"> Flat / Apartment</label>
+                    <label class="checkbox-item"><input type="checkbox" class="filter-cb" data-category="type" value="villa"> Villa / House</label>
+                </div>
+            </aside>
+
+            <!-- LISTING FEED -->
+            <main class="property-list stagger-container" id="property-feed">
+                
+                <!-- Card 1 (3 BHK, 240 Lacs, Apartment) -->
+                <div class="property-card filter-target" data-budget="240" data-bhk="3" data-type="apartment">
+                    <div class="property-image-wrapper">
+                        <span class="property-badge">Verified Builder</span>
+                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80" alt="Prestige White Meadows">
+                    </div>
+                    <div class="property-details">
+                        <div class="property-header">
+                            <div>
+                                <h2 class="property-title">3 BHK Apartment / Flat for Sale</h2>
+                                <div class="property-location"><i class="fa-solid fa-map-marker-alt"></i> Whitefield, Bangalore</div>
+                            </div>
+                            <div class="property-price">₹ 2.4 Cr</div>
+                        </div>
+                        <div class="property-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Carpet Area</span>
+                                <span class="stat-value">1800 sqft</span>
+                            </div>
+                            <div class="stat-item" style="border-left: 1px solid #ccc; padding-left: 15px;">
+                                <span class="stat-label">Status</span>
+                                <span class="stat-value">Ready to Move</span>
+                            </div>
+                            <div class="stat-item" style="border-left: 1px solid #ccc; padding-left: 15px;">
+                                <span class="stat-label">Floor</span>
+                                <span class="stat-value">8 out of 15</span>
+                            </div>
+                        </div>
+                        <p class="property-desc">Located in the heart of Whitefield, this premium 3 BHK features luxury interiors, smart home integrations, and unblocked views of the lake. Close proximity to IT parks and international schools makes it an ideal choice for professionals.</p>
+                        <div class="property-actions">
+                            <button class="btn-contact">Contact Builder</button>
+                            <button class="btn-view">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 (4 BHK, 410 Lacs, Villa) -->
+                <div class="property-card filter-target" data-budget="410" data-bhk="4" data-type="villa">
+                    <div class="property-image-wrapper">
+                        <span class="property-badge" style="background: green;">New Launch</span>
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80" alt="Luxury Villa">
+                    </div>
+                    <div class="property-details">
+                        <div class="property-header">
+                            <div>
+                                <h2 class="property-title">4 BHK Luxury Villa for Sale</h2>
+                                <div class="property-location"><i class="fa-solid fa-map-marker-alt"></i> Sarjapur Road, Bangalore</div>
+                            </div>
+                            <div class="property-price">₹ 4.1 Cr</div>
+                        </div>
+                        <div class="property-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Carpet Area</span>
+                                <span class="stat-value">3200 sqft</span>
+                            </div>
+                            <div class="stat-item" style="border-left: 1px solid #ccc; padding-left: 15px;">
+                                <span class="stat-label">Status</span>
+                                <span class="stat-value">Under Construction</span>
+                            </div>
+                            <div class="stat-item" style="border-left: 1px solid #ccc; padding-left: 15px;">
+                                <span class="stat-label">Transaction</span>
+                                <span class="stat-value">New Property</span>
+                            </div>
+                        </div>
+                        <p class="property-desc">Experience exclusive gated community living with this magnificent 4 BHK villa. Designed with solar integrations, private garden spaces, and a dedicated home theater room. Expected possession by late 2026.</p>
+                        <div class="property-actions">
+                            <button class="btn-contact">Contact Builder</button>
+                            <button class="btn-view">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 (2 BHK, 125 Lacs, Apartment) -->
+                <div class="property-card filter-target" data-budget="125" data-bhk="2" data-type="apartment">
+                    <div class="property-image-wrapper">
+                        <span class="property-badge">Ready to Move</span>
+                        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=600&q=80" alt="Modern Kitchen">
+                    </div>
+                    <div class="property-details">
+                        <div class="property-header">
+                            <div>
+                                <h2 class="property-title">2 BHK Premium Apartment</h2>
+                                <div class="property-location"><i class="fa-solid fa-map-marker-alt"></i> HSR Layout, Bangalore</div>
+                            </div>
+                            <div class="property-price">₹ 1.25 Cr</div>
+                        </div>
+                        <div class="property-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Carpet Area</span>
+                                <span class="stat-value">1150 sqft</span>
+                            </div>
+                            <div class="stat-item" style="border-left: 1px solid #ccc; padding-left: 15px;">
+                                <span class="stat-label">Status</span>
+                                <span class="stat-value">Ready to Move</span>
+                            </div>
+                            <div class="stat-item" style="border-left: 1px solid #ccc; padding-left: 15px;">
+                                <span class="stat-label">Furnishing</span>
+                                <span class="stat-value">Semi-Furnished</span>
+                            </div>
+                        </div>
+                        <p class="property-desc">Spacious 2 BHK located in Sector 2, HSR Layout. Fully upgraded interiors with modular kitchen, premium fittings, and Vastu-compliant architecture. Excellent connectivity to ORR and Koramangala.</p>
+                        <div class="property-actions">
+                            <button class="btn-contact">Contact Builder</button>
+                            <button class="btn-view">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 4 (3 BHK, 310 Lacs, Villa) -->
+                <div class="property-card filter-target" data-budget="310" data-bhk="3" data-type="villa">
+                    <div class="property-image-wrapper">
+                        <span class="property-badge" style="background: var(--black);">Featured</span>
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Contemporary Villa">
+                    </div>
+                    <div class="property-details">
+                        <div class="property-header">
+                            <div>
+                                <h2 class="property-title">3 BHK Contemporary Villa</h2>
+                                <div class="property-location"><i class="fa-solid fa-map-marker-alt"></i> Yelahanka, Bangalore</div>
+                            </div>
+                            <div class="property-price">₹ 3.1 Cr</div>
+                        </div>
+                        <div class="property-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Carpet Area</span>
+                                <span class="stat-value">2200 sqft</span>
+                            </div>
+                            <div class="stat-item" style="border-left: 1px solid #ccc; padding-left: 15px;">
+                                <span class="stat-label">Status</span>
+                                <span class="stat-value">Ready to Move</span>
+                            </div>
+                            <div class="stat-item" style="border-left: 1px solid #ccc; padding-left: 15px;">
+                                <span class="stat-label">Special</span>
+                                <span class="stat-value">Solar Equipped</span>
+                            </div>
+                        </div>
+                        <p class="property-desc">Beautifully styled 3 BHK villa with complete 10kW solar roof panel tracking system installed. Move-in ready. Experience sustainable luxury.</p>
+                        <div class="property-actions">
+                            <button class="btn-contact">Contact Builder</button>
+                            <button class="btn-view">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+            
+            <script>
+                // Filter Logic
+                document.addEventListener("DOMContentLoaded", () => {
+                    const checkboxes = document.querySelectorAll(".filter-cb");
+                    const cards = document.querySelectorAll(".filter-target");
+
+                    function updateFilters() {
+                        let selectedBudgets = [];
+                        let selectedBHKs = [];
+                        let selectedTypes = [];
+
+                        // Collect checked values
+                        checkboxes.forEach(cb => {
+                            if (cb.checked) {
+                                if (cb.dataset.category === 'budget') selectedBudgets.push(cb.value);
+                                if (cb.dataset.category === 'bhk') selectedBHKs.push(cb.value);
+                                if (cb.dataset.category === 'type') selectedTypes.push(cb.value);
+                            }
+                        });
+
+                        // Verify each card against selected filters
+                        cards.forEach(card => {
+                            const cBudget = parseFloat(card.dataset.budget); // in lacs
+                            const cBhk = card.dataset.bhk;
+                            const cType = card.dataset.type;
+
+                            let showBudget = false;
+                            if (selectedBudgets.length === 0) {
+                                showBudget = true; // no filter = show all
+                            } else {
+                                selectedBudgets.forEach(range => {
+                                    let [min, max] = range.split('-').map(Number);
+                                    if (cBudget >= min && cBudget <= max) showBudget = true;
+                                });
+                            }
+
+                            let showBhk = selectedBHKs.length === 0 || selectedBHKs.includes(cBhk);
+                            let showType = selectedTypes.length === 0 || selectedTypes.includes(cType);
+
+                            if (showBudget && showBhk && showType) {
+                                card.style.display = "flex";
+                            } else {
+                                card.style.display = "none";
+                            }
+                        });
+                    }
+
+                    checkboxes.forEach(cb => {
+                        cb.addEventListener("change", updateFilters);
+                    });
+                });
+            </script>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div>
+                    <div class="footer-logo">
+                        <img src="assets/logo/intentnet-logo.png" alt="IntentNet Logo" onerror="this.src=''; this.alt='IntentNet';">
+                    </div>
+                    <p class="footer-about">IntentNet helps you make structured, informed home decisions through verified platforms and connections.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="explore_apartments.html">Explore Apartments</a></li>
+                        <li><a href="property_guidance.html">Property Guidance</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Real Estate</a></li>
+                        <li><a href="#">Interiors</a></li>
+                        <li><a href="#">Solar Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <div class="footer-address">
+                        <p><i class="fa-solid fa-location-dot"></i> 3rd floor, HeadQ Pvt Ltd, Phase 1</p>
+                        <p style="margin-left: 30px;">HiLITE Business Park, Kozhikode</p>
+                        <p style="margin-top: 15px;"><i class="fa-solid fa-envelope"></i> contact@intentnet.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 IntentNet. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuClose = document.getElementById('menuClose');
+        if (menuToggle && mobileMenu && menuClose) {
+            menuToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
+            menuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target === mobileMenu) mobileMenu.classList.remove('open');
+            });
+        }
+
+        // Property filter logic
+        document.addEventListener("DOMContentLoaded", () => {
+            const checkboxes = document.querySelectorAll(".filter-cb");
+            const cards = document.querySelectorAll(".filter-target");
+
+            function updateFilters() {
+                let selectedBudgets = [], selectedBHKs = [], selectedTypes = [];
+                checkboxes.forEach(cb => {
+                    if (cb.checked) {
+                        if (cb.dataset.category === 'budget') selectedBudgets.push(cb.value);
+                        if (cb.dataset.category === 'bhk') selectedBHKs.push(cb.value);
+                        if (cb.dataset.category === 'type') selectedTypes.push(cb.value);
+                    }
+                });
+                cards.forEach(card => {
+                    const cBudget = parseFloat(card.dataset.budget);
+                    const cBhk = card.dataset.bhk;
+                    const cType = card.dataset.type;
+                    let showBudget = selectedBudgets.length === 0;
+                    if (!showBudget) {
+                        selectedBudgets.forEach(range => {
+                            const [min, max] = range.split('-').map(Number);
+                            if (cBudget >= min && cBudget <= max) showBudget = true;
+                        });
+                    }
+                    const showBhk = selectedBHKs.length === 0 || selectedBHKs.includes(cBhk);
+                    const showType = selectedTypes.length === 0 || selectedTypes.includes(cType);
+                    card.style.display = (showBudget && showBhk && showType) ? 'flex' : 'none';
+                });
+            }
+            checkboxes.forEach(cb => cb.addEventListener('change', updateFilters));
+        });
+    </script>
+</body>
+</html>

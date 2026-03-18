@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntentNet - Contact Us</title>
+    <link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/favicon/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+    <script defer src="main.js"></script>
+    <style>
+        .map-wrapper {
+            width: 100%;
+            height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+            margin-top: 30px;
+        }
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body class="page-offset">
+
+    <!-- TWO-TIER NAVBAR -->
+    <div class="navbar-wrapper">
+        <div class="navbar-top">
+            <div class="navbar-top-left">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo/intentnet-logo.png" alt="IntentNet Logo" onerror="this.src=''; this.alt='IntentNet';">
+                </a>
+                <div class="nav-location">
+                    <i class="fa-solid fa-location-dot" style="color:#e44;"></i>
+                    Kozhikode <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                </div>
+            </div>
+            <div class="navbar-top-right">
+                <div class="nav-social-icons">
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <a href="contact.html" class="nav-cta-pill">Get Started</a>
+                <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+        <div class="navbar-bottom">
+            <div class="nav-bottom-links">
+                <a href="index.html">Home</a>
+                <a href="explore_apartments.html">Explore Apartments</a>
+                <a href="property_guidance.html">Property Guidance</a>
+                <a href="contact.html" class="active">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <button class="mobile-menu-close" id="menuClose"><i class="fa-solid fa-xmark"></i></button>
+        <nav class="mobile-menu-links">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="explore_apartments.html"><i class="fa-solid fa-building"></i> Explore Apartments</a>
+            <a href="property_guidance.html"><i class="fa-solid fa-handshake"></i> Property Guidance</a>
+            <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+        </nav>
+        <div class="mobile-menu-social">
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+    </div>
+
+    <!-- CONTACT HERO SECTION -->
+    <section class="mb-hero text-center" style="padding: 100px 5% 60px;">
+        <div class="container relative z-2">
+            <h1>Get in Touch</h1>
+            <p class="subtext" style="font-size: 1.25rem; color: var(--text-muted); max-width: 700px; margin: 0 auto;">Our team is ready to guide you through your home decisions. Reach out to us below.</p>
+        </div>
+    </section>
+
+    <!-- CONTACT CONTENT -->
+    <section class="contact-wrapper">
+        <!-- Left Sidebar: Info & Map -->
+        <div class="contact-info-card">
+            <h2>Contact Information</h2>
+            
+            <div class="contact-detail">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                    <h4 style="font-family: 'Outfit'; font-size: 1.2rem; margin-bottom: 5px;">Headquarters</h4>
+                    <p style="color: var(--text-muted); line-height: 1.6;">
+                        3rd floor, HeadQ Pvt Ltd, Phase 1<br>
+                        HiLITE Business Park<br>
+                        Kozhikode, Kerala 673014
+                    </p>
+                </div>
+            </div>
+
+            <div class="contact-detail">
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                    <h4 style="font-family: 'Outfit'; font-size: 1.2rem; margin-bottom: 5px;">Email Us</h4>
+                    <p style="color: var(--text-muted);">contact@intentnet.com</p>
+                </div>
+            </div>
+
+            <!-- Google Maps Embed -->
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.340244199859!2d75.82914177481232!3d11.23635778894101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65bc93c042911%3A0xc3fec3f1fc53a1a9!2sHiLITE%20Business%20Park!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <!-- Right Sidebar: Form -->
+        <div class="contact-form-box">
+            <h2 style="font-family: 'Outfit'; font-size: 2.2rem; margin-bottom: 30px;">Send an Enquiry</h2>
+            <form onsubmit="event.preventDefault(); alert('We have received your message. Thank you!');">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" class="form-control" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" class="form-control" placeholder="+91 9876543210" required>
+                </div>
+                <div class="form-group">
+                    <label>Your Message / Requirements</label>
+                    <textarea class="form-control" placeholder="Tell us what you are exploring..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark" style="width: 100%;">Submit Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div>
+                    <div class="footer-logo">
+                        <img src="assets/logo/intentnet-logo.png" alt="IntentNet Logo" onerror="this.src=''; this.alt='IntentNet';">
+                    </div>
+                    <p class="footer-about">IntentNet helps you make structured, informed home decisions through verified platforms and connections.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="explore_apartments.html">Explore Apartments</a></li>
+                        <li><a href="property_guidance.html">Property Guidance</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Real Estate</a></li>
+                        <li><a href="#">Interiors</a></li>
+                        <li><a href="#">Solar Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <div class="footer-address">
+                        <p><i class="fa-solid fa-location-dot"></i> 3rd floor, HeadQ Pvt Ltd, Phase 1</p>
+                        <p style="margin-left: 30px;">HiLITE Business Park, Kozhikode</p>
+                        <p style="margin-top: 15px;"><i class="fa-solid fa-envelope"></i> contact@intentnet.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 IntentNet. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuClose = document.getElementById('menuClose');
+        if (menuToggle && mobileMenu && menuClose) {
+            menuToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
+            menuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target === mobileMenu) mobileMenu.classList.remove('open');
+            });
+        }
+    </script>
+</body>
+</html>
