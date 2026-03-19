@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - sumith   # your working branch
+      - master   # your working branch
 
 permissions:
   contents: read
