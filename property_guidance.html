@@ -1,417 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IntentNet - Property Guidance</title>
-    <link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="assets/favicon/favicon.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="listing-styles.css">
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script defer src="main.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Guidance — IntentNet | Kerala Real Estate</title>
+<link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="page-styles.css">
 </head>
 <body class="page-offset">
 
-    <!-- TWO-TIER NAVBAR -->
-    <div class="navbar-wrapper">
-        <div class="navbar-top">
-            <div class="navbar-top-left">
-                <a href="index.html" class="logo">
-                    <img src="assets/logo/intentnet-logo.png" alt="IntentNet Logo" onerror="this.src=''; this.alt='IntentNet';">
-                </a>
-                <div class="nav-location">
-                    Kozhikode <i class="fa-solid fa-chevron-down" style="font-size: 0.8rem;"></i>
-                </div>
-            </div>
-            <div class="navbar-top-right">
-                <div class="nav-social-icons">
-                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                </div>
-                <a href="contact.html" class="nav-cta-pill">Get Started</a>
-                <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
-            </div>
-        </div>
-        <div class="navbar-bottom">
-            <div class="nav-bottom-links">
-                <a href="index.html">Home</a>
-                <a href="explore_apartments.html">Explore Apartments</a>
-                <a href="property_guidance.html" class="active">Property Guidance</a>
-                <a href="contact.html">Contact Us</a>
-            </div>
-        </div>
+<!-- PROGRESS BAR -->
+<div class="pbar" id="pbar"></div>
+
+<!-- ============================================================ NAVBAR ============================================================ -->
+<nav class="navbar" id="navbar">
+  <div class="nt">
+    <a href="index.html" class="nl">
+      <img src="assets/logo/intentnet-logo.png" alt="IntentNet" onerror="this.style.display='none'">
+      <div class="nl-text"><strong>IntentNet</strong><span>Real Estate Platform</span></div>
+    </a>
+    <div class="nav-loc">
+      <i class="fa-solid fa-location-dot pin"></i>
+      <span>Kozhikode, Kerala</span>
+      <i class="fa-solid fa-chevron-down chev"></i>
     </div>
-
-    <!-- MOBILE MENU OVERLAY -->
-    <div class="mobile-menu-overlay" id="mobileMenu">
-        <button class="mobile-menu-close" id="menuClose"><i class="fa-solid fa-xmark"></i></button>
-        <nav class="mobile-menu-links">
-            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-            <a href="explore_apartments.html"><i class="fa-solid fa-building"></i> Explore Apartments</a>
-            <a href="property_guidance.html"><i class="fa-solid fa-handshake"></i> Property Guidance</a>
-            <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact Us</a>
-        </nav>
-        <div class="mobile-menu-social">
-            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-        </div>
+    <div class="nr">
+      <div class="nsoc">
+        <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+      <a href="contact.html" class="nav-pill">Get Started</a>
+      <button class="ham" id="ham" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
-    <!-- PREMIUM HERO SECTION -->
-    <section class="premium-hero" style="background: linear-gradient(rgba(5, 5, 5, 0.7), rgba(5, 5, 5, 0.9)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=80') center/cover; padding: 180px 5% 120px; color: #fff; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">
-        <div class="container gsap-reveal">
-            <h1 style="font-size: clamp(3.5rem, 6vw, 5rem); font-family: 'Outfit', sans-serif; font-weight: 700; margin-bottom: 20px; letter-spacing: -1px; text-shadow: 0 10px 30px rgba(0,0,0,0.5);">Partner With IntentNet</h1>
-            <p style="font-size: 1.4rem; color: #ccc; max-width: 800px; margin: 0 auto 40px; font-weight: 300;">Elevate your brand. Connect directly with high-intent buyers exploring real estate, bespoke interiors, and advanced solar ecosystems.</p>
-            <div class="hero-actions" style="justify-content: center;">
-                <a href="contact.html" class="btn btn-light">Apply for Partnership <i class="fa-solid fa-arrow-right icon-rotate"></i></a>
-                <a href="#benefits" class="btn btn-outline-dark" style="color: #fff; border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05); backdrop-filter: blur(10px);">Explore Benefits <i class="fa-solid fa-arrow-right icon-rotate"></i></a>
-            </div>
-        </div>
-    </section>
+  </div>
+  <div class="nb">
+    <div class="nb-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="explore_apartments.html">Explore Apartments</a>
+      <a href="property_guidance.html" class="active">Property Guidance</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </div>
+</nav>
 
-    <!-- PREMIUM GLASS CARDS SECTION -->
-    <section id="benefits" style="background: #050505; padding: 100px 5%; position: relative; overflow: hidden;">
-        <!-- Abstract Glows -->
-        <div style="position: absolute; top: 10%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%); border-radius: 50%; filter: blur(40px);"></div>
-        <div style="position: absolute; bottom: 10%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%); border-radius: 50%; filter: blur(40px);"></div>
-        
-        <div class="container relative z-2">
-            <div class="text-center mb-5 gsap-reveal">
-                <span style="color: #888; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; font-weight: 600;">The Ecosystem Advantage</span>
-                <h2 style="color: #fff; font-size: 3rem; margin-top: 10px;">Exclusive Partner Benefits</h2>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;" class="stagger-container">
-                <!-- Card -->
-                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 40px; backdrop-filter: blur(20px); transition: transform 0.4s ease; text-align: center;">
-                    <i class="fa-solid fa-gem" style="color: #fff; font-size: 2.5rem; margin-bottom: 25px; display: block;"></i>
-                    <h3 style="color: #fff; font-size: 1.5rem; margin-bottom: 15px;">Qualified Buyer Access</h3>
-                    <p style="color: #999; line-height: 1.6;">Gain direct access to elite buyers actively exploring and comparing projects before they make absolute decisions.</p>
-                </div>
-                <!-- Card -->
-                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 40px; backdrop-filter: blur(20px); transition: transform 0.4s ease; text-align: center;">
-                    <i class="fa-solid fa-route" style="color: #fff; font-size: 2.5rem; margin-bottom: 25px; display: block;"></i>
-                    <h3 style="color: #fff; font-size: 1.5rem; margin-bottom: 15px;">Structured Journey</h3>
-                    <p style="color: #999; line-height: 1.6;">Our platform seamlessly integrates your project portfolio into the buyer's natural digital discovery phase.</p>
-                </div>
-                <!-- Card -->
-                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 40px; backdrop-filter: blur(20px); transition: transform 0.4s ease; text-align: center;">
-                    <i class="fa-solid fa-shield-halved" style="color: #fff; font-size: 2.5rem; margin-bottom: 25px; display: block;"></i>
-                    <h3 style="color: #fff; font-size: 1.5rem; margin-bottom: 15px;">Verified Trust</h3>
-                    <p style="color: #999; line-height: 1.6;">Align your brand with India's most trusted home ecosystem, elevating your visibility alongside top-tier professionals.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHO WE PARTNER WITH: LUXURY IMAGE STRIP -->
-    <section style="background: var(--silver-gradient-1); padding: 100px 5%;">
-        <div class="container">
-            <div class="text-center mb-5 gsap-reveal">
-                <h2 style="font-size: 3rem;">Who We Partner With</h2>
-                <p style="color: #666; font-size: 1.2rem; max-width: 600px; margin: 10px auto 0;">A highly curated network of visionaries.</p>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch;" class="stagger-container">
-                <!-- Image Card 1 -->
-               <!DOCTYPE html>
-
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IntentNet - Property Guidance</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-}
-
-/* NAVBAR */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: black;
-  color: white;
-  padding: 15px 5%;
-  z-index: 1000;
-}
-
-.navbar h2 {
-  margin: 0;
-}
-
-/* HERO */
-.hero {
-  margin-top: 70px;
-  padding: 120px 5%;
-  text-align: center;
-  color: white;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
-  url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9') center/cover;
-}
-
-.hero h1 {
-  font-size: 3rem;
-}
-
-/* BENEFITS */
-.section {
-  padding: 80px 5%;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 20px;
-}
-
-.card {
-  background: #f5f5f5;
-  padding: 30px;
-  border-radius: 12px;
-}
-
-/* PROPERTY LIST */
-.listing-page {
-  padding: 60px 5%;
-  background: #f7f7f7;
-}
-
-.property-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.property-card {
-  display: flex;
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-}
-
-.property-image {
-  width: 300px;
-}
-
-.property-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.property-details {
-  padding: 20px;
-  flex: 1;
-}
-
-.property-price {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.property-title {
-  font-size: 18px;
-}
-
-.property-actions button {
-  margin-right: 10px;
-  padding: 10px 15px;
-  border: none;
-  cursor: pointer;
-}
-
-.btn-dark {
-  background: black;
-  color: white;
-}
-
-.btn-outline {
-  border: 1px solid black;
-  background: transparent;
-}
-
-/* FOOTER */
-.footer {
-  background: black;
-  color: white;
-  text-align: center;
-  padding: 40px;
-}
-</style>
-
-</head>
-<body>
-
-<!-- NAVBAR -->
-
-<div class="navbar">
-  <h2>IntentNet</h2>
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" id="mc" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+  <nav class="mob-nav">
+    <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+    <a href="explore_apartments.html"><i class="fa-solid fa-building"></i> Explore Apartments</a>
+    <a href="property_guidance.html"><i class="fa-solid fa-handshake"></i> Property Guidance</a>
+    <a href="about.html"><i class="fa-solid fa-users"></i> About Us</a>
+    <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+  </nav>
+  <div class="mob-soc">
+    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+  </div>
 </div>
 
-<!-- HERO -->
-
-<section class="hero">
-  <h1>Partner With IntentNet</h1>
-  <p>Connect with high-intent property buyers</p>
-</section>
-
-<!-- BENEFITS -->
-
-<section class="section">
-  <h2 style="text-align:center;">Benefits</h2>
-  <div class="grid">
-    <div class="card">Qualified Buyers</div>
-    <div class="card">Structured Journey</div>
-    <div class="card">Trusted Platform</div>
+<!-- ============================================================ PAGE HERO ============================================================ -->
+<section class="pg-hero">
+  <div class="pg-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=80');"></div>
+  <div class="pg-hero-ov"></div>
+  <div class="pg-hero-content rv">
+    <span class="kicker">Partner With IntentNet</span>
+    <h1>Connect With High-Intent Property Buyers</h1>
+    <p>IntentNet helps builders, developers and real estate partners reach qualified buyers who are actively researching and comparing projects across Kerala — before they make a booking decision.</p>
+    <div class="pg-hero-btns">
+      <a href="contact.html" class="btn btn-wh"><span class="btn-rip"></span>Apply for Partnership<span class="btn-arr"><i class="fa-solid fa-arrow-right"></i></span></a>
+      <a href="#benefits" class="btn" style="background:rgba(255,255,255,.08);color:#fff;border:2px solid rgba(255,255,255,.22);backdrop-filter:blur(10px);"><span class="btn-rip"></span>Explore Benefits<span class="btn-arr" style="background:rgba(255,255,255,.12);"><i class="fa-solid fa-arrow-right"></i></span></a>
+    </div>
+  </div>
+  <div class="pg-breadcrumb">
+    <a href="index.html">Home</a>
+    <i class="fa-solid fa-chevron-right"></i>
+    <span>Property Guidance</span>
   </div>
 </section>
 
-<!-- ✅ PROPERTY LIST (FIXED POSITION) -->
-
-<section class="listing-page">
-  <h2>Available Properties</h2>
-
-  <div class="property-list">
-
-```
-<!-- CARD 1 -->
-<div class="property-card">
-  <div class="property-image">
-    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
-  </div>
-  <div class="property-details">
-    <div class="property-price">₹75 Lakhs</div>
-    <div class="property-title">3 BHK Apartment / Flat for Sale</div>
-    <p>Kozhikode, Kerala</p>
-
-    <div class="property-actions">
-      <button class="btn-dark">Contact</button>
-      <button class="btn-outline">View</button>
-    </div>
-  </div>
-</div>
-
-<!-- CARD 2 -->
-<div class="property-card">
-  <div class="property-image">
-    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
-  </div>
-  <div class="property-details">
-    <div class="property-price">₹1.2 Cr</div>
-    <div class="property-title">Luxury Villa for Sale</div>
-    <p>Kochi, Kerala</p>
-
-    <div class="property-actions">
-      <button class="btn-dark">Contact</button>
-      <button class="btn-outline">View</button>
-    </div>
-  </div>
-</div>
-```
-
+<!-- ============================================================ STATS BAR ============================================================ -->
+<section class="pg-section pg-section-dark" style="padding:70px 5%;">
+  <div class="pg-stats rv">
+    <div class="pg-stat"><span class="pg-stat-n cnt" data-to="500" data-s="+">500+</span><span class="pg-stat-l">Verified Partners</span></div>
+    <div class="pg-stat"><span class="pg-stat-n cnt" data-to="10" data-s="k+">10k+</span><span class="pg-stat-l">Buyers Guided</span></div>
+    <div class="pg-stat"><span class="pg-stat-n cnt" data-to="4" data-s="">4</span><span class="pg-stat-l">Major Cities</span></div>
+    <div class="pg-stat"><span class="pg-stat-n cnt" data-to="3" data-s="">3</span><span class="pg-stat-l">Ecosystems</span></div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ============================================================ BENEFIT CARDS ============================================================ -->
+<section id="benefits" class="pg-section pg-section-dark">
+  <div class="pg-title-block dark-mode rv">
+    <span class="kicker" style="color:rgba(255,255,255,.4);">The Ecosystem Advantage</span>
+    <h2>Exclusive Partner Benefits</h2>
+    <p>Join Kerala's most structured property discovery platform and connect with serious, informed buyers at every stage of their journey.</p>
+  </div>
+  <div class="pg-benefit-grid">
+    <div class="pg-bcard sg">
+      <div class="pg-bcard-ic"><i class="fa-solid fa-gem"></i></div>
+      <h3>Qualified Buyer Access</h3>
+      <p>Connect directly with buyers who are actively comparing projects, budgets, and builders — not casual browsers.</p>
+    </div>
+    <div class="pg-bcard sg">
+      <div class="pg-bcard-ic"><i class="fa-solid fa-route"></i></div>
+      <h3>Structured Discovery Journey</h3>
+      <p>Your listings integrate naturally into the buyer's research phase — reaching them when intent is highest.</p>
+    </div>
+    <div class="pg-bcard sg">
+      <div class="pg-bcard-ic"><i class="fa-solid fa-shield-halved"></i></div>
+      <h3>Verified Brand Trust</h3>
+      <p>Be listed alongside Kerala's most reputable developers and align your brand with a trusted, independent platform.</p>
+    </div>
+    <div class="pg-bcard sg">
+      <div class="pg-bcard-ic"><i class="fa-solid fa-chart-line"></i></div>
+      <h3>Market Insights</h3>
+      <p>Access buyer search data, pricing trends, and location interest data across Kochi, Kozhikode, Thrissur, and Thiruvananthapuram.</p>
+    </div>
+    <div class="pg-bcard sg">
+      <div class="pg-bcard-ic"><i class="fa-solid fa-solar-panel"></i></div>
+      <h3>Ecosystem Integration</h3>
+      <p>Real estate listings connect seamlessly with IntentNet's interior and solar verticals for a complete project experience.</p>
+    </div>
+    <div class="pg-bcard sg">
+      <div class="pg-bcard-ic"><i class="fa-solid fa-handshake"></i></div>
+      <h3>Dedicated Support</h3>
+      <p>Every partner gets a dedicated onboarding session, profile setup assistance, and ongoing listing management support.</p>
+    </div>
+  </div>
+</section>
 
-<div class="footer">
-  © 2026 IntentNet
-</div>
+<!-- ============================================================ HOW IT WORKS ============================================================ -->
+<section class="pg-section pg-section-grey">
+  <div class="pg-title-block rv">
+    <span class="kicker">Simple Process</span>
+    <h2>How Partnering With IntentNet Works</h2>
+    <p>From registration to receiving qualified buyer inquiries — our process is structured, transparent, and fast.</p>
+  </div>
+  <div class="pg-steps">
+    <div class="pg-step sg">
+      <div class="pg-step-num">01</div>
+      <div class="pg-step-ic"><i class="fa-solid fa-file-pen"></i></div>
+      <span class="pg-step-label">Step 01</span>
+      <h3>Apply &amp; Register</h3>
+      <p>Submit your partnership application. Our team reviews your project portfolio and builder credentials within 48 hours.</p>
+    </div>
+    <div class="pg-step sg">
+      <div class="pg-step-num">02</div>
+      <div class="pg-step-ic"><i class="fa-solid fa-building-circle-check"></i></div>
+      <span class="pg-step-label">Step 02</span>
+      <h3>List Your Projects</h3>
+      <p>Create detailed project profiles with images, floor plans, pricing, amenities, and location details on our platform.</p>
+    </div>
+    <div class="pg-step sg">
+      <div class="pg-step-num">03</div>
+      <div class="pg-step-ic"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+      <span class="pg-step-label">Step 03</span>
+      <h3>Buyers Discover You</h3>
+      <p>Qualified buyers exploring Kerala's apartment market find your projects through search, comparison tools, and curated results.</p>
+    </div>
+    <div class="pg-step sg">
+      <div class="pg-step-num">04</div>
+      <div class="pg-step-ic"><i class="fa-solid fa-circle-check"></i></div>
+      <span class="pg-step-label">Step 04</span>
+      <h3>Receive Inquiries</h3>
+      <p>Get direct, verified inquiries from interested buyers. Schedule site visits and convert serious leads into bookings.</p>
+    </div>
+  </div>
+</section>
 
-</body>
-</html>
+<!-- ============================================================ WHO WE PARTNER WITH ============================================================ -->
+<section class="pg-section pg-section-light">
+  <div class="pg-title-block rv">
+    <span class="kicker">Our Network</span>
+    <h2>Who We Partner With</h2>
+    <p>A curated network of residential developers, interior studios, and solar solution providers across Kerala.</p>
+  </div>
+  <div class="pg-partner-grid">
+    <div class="pg-pcard sg">
+      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Residential Developers">
+      <div class="pg-pcard-ov">
+        <span class="pg-pcard-tag">Real Estate</span>
+        <h3>Residential Developers</h3>
+        <p>Builders of premium apartments, villas, and gated communities across Kerala's major cities.</p>
+      </div>
+    </div>
+    <div class="pg-pcard sg">
+      <img src="https://images.unsplash.com/photo-1600607687931-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Interior Studios">
+      <div class="pg-pcard-ov">
+        <span class="pg-pcard-tag">Interiors</span>
+        <h3>Interior Design Studios</h3>
+        <p>World-class interior studios offering bespoke home design, modular kitchens, and full-home turnkey solutions.</p>
+      </div>
+    </div>
+    <div class="pg-pcard sg">
+      <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80" alt="Solar Providers">
+      <div class="pg-pcard-ov">
+        <span class="pg-pcard-tag">Solar</span>
+        <h3>Solar Solution Providers</h3>
+        <p>Advanced residential solar system installers offering rooftop panels, battery storage, and grid integration.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-            </div>
-            
-            <style>
-                @media (max-width: 900px) {
-                    .stagger-container[style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
-                }
-            </style>
+<!-- ============================================================ FAQ ============================================================ -->
+<section class="pg-section pg-section-white">
+  <div class="pg-title-block rv">
+    <span class="kicker">Questions Answered</span>
+    <h2>Frequently Asked Questions</h2>
+    <p>Everything you need to know about partnering with IntentNet.</p>
+  </div>
+  <div class="pg-faq rv" style="transition-delay:.2s">
+    <div class="pg-faq-item open">
+      <div class="pg-faq-q">Is IntentNet free to join as a partner? <i class="fa-solid fa-plus"></i></div>
+      <div class="pg-faq-a"><div class="pg-faq-a-inner">IntentNet offers both free basic listings and premium partnership tiers. Contact our team to understand which plan best suits your project portfolio and buyer acquisition goals.</div></div>
+    </div>
+    <div class="pg-faq-item">
+      <div class="pg-faq-q">What types of projects can be listed? <i class="fa-solid fa-plus"></i></div>
+      <div class="pg-faq-a"><div class="pg-faq-a-inner">We list residential apartments, villas, gated communities, and plotted developments across Kerala. Interior and solar solution providers can also list their services in the respective ecosystem categories.</div></div>
+    </div>
+    <div class="pg-faq-item">
+      <div class="pg-faq-q">How does IntentNet verify buyer intent? <i class="fa-solid fa-plus"></i></div>
+      <div class="pg-faq-a"><div class="pg-faq-a-inner">Our platform is structured so buyers complete a multi-step discovery process — defining location, budget, and preferences — before they reach a project detail page. This filters casual browsing and ensures only genuinely interested buyers contact you.</div></div>
+    </div>
+    <div class="pg-faq-item">
+      <div class="pg-faq-q">Can I list projects from multiple cities? <i class="fa-solid fa-plus"></i></div>
+      <div class="pg-faq-a"><div class="pg-faq-a-inner">Yes. Partners can list projects across all four major cities — Kochi, Kozhikode, Thrissur, and Thiruvananthapuram — under a single partnership account.</div></div>
+    </div>
+    <div class="pg-faq-item">
+      <div class="pg-faq-q">What is the typical onboarding timeline? <i class="fa-solid fa-plus"></i></div>
+      <div class="pg-faq-a"><div class="pg-faq-a-inner">From application to live listing, the onboarding process typically takes 3–5 working days. Our team assists with profile setup, image guidelines, and project content to ensure listings are accurate and compelling.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CONTACT / APPLY STRIP ============================================================ -->
+<section class="pg-section pg-section-dark">
+  <div class="pg-contact-strip">
+    <div class="rl">
+      <span class="kicker" style="color:rgba(255,255,255,.4);">Get In Touch</span>
+      <h2 style="color:#fff;font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:16px;">Ready to Partner With IntentNet?</h2>
+      <p style="color:#888;font-size:1rem;line-height:1.8;margin-bottom:24px;">Tell us about your project and we'll reach out within 24 hours to discuss the best partnership plan for your needs.</p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;">
+        <li style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.65);font-size:.9rem;"><i class="fa-solid fa-circle-check" style="color:#00e676;flex-shrink:0;"></i>No upfront commitment required</li>
+        <li style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.65);font-size:.9rem;"><i class="fa-solid fa-circle-check" style="color:#00e676;flex-shrink:0;"></i>Dedicated onboarding support included</li>
+        <li style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.65);font-size:.9rem;"><i class="fa-solid fa-circle-check" style="color:#00e676;flex-shrink:0;"></i>Live within 5 working days</li>
+      </ul>
+    </div>
+    <div class="rr">
+      <form class="pg-cform" onsubmit="return false;">
+        <input type="text" placeholder="Your Name" required>
+        <input type="text" placeholder="Company / Builder Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Phone Number">
+        <select>
+          <option value="" disabled selected>Partnership Type</option>
+          <option>Real Estate Developer</option>
+          <option>Interior Design Studio</option>
+          <option>Solar Solution Provider</option>
+          <option>Other</option>
+        </select>
+        <textarea placeholder="Tell us about your projects and cities of operation…"></textarea>
+        <button type="submit" class="btn btn-wh" style="justify-content:center;"><span class="btn-rip"></span>Send Partnership Request<span class="btn-arr"><i class="fa-solid fa-arrow-right"></i></span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FINAL CTA ============================================================ -->
+<section class="fcta">
+  <div class="fwm">INTENTNET</div>
+  <div class="container" style="position:relative;z-index:1;">
+    <h2 class="rv">Become Part of the<br>IntentNet Network</h2>
+    <p class="rv" style="transition-delay:.2s">Join the ecosystem defining structured, intelligent home discovery across Kerala.</p>
+    <div class="fbtns rv" style="transition-delay:.4s">
+      <a href="contact.html" class="btn btn-wh"><span class="btn-rip"></span>Apply Now<span class="btn-arr"><i class="fa-solid fa-arrow-right"></i></span></a>
+      <a href="explore_apartments.html" class="btn" style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,.28);"><span class="btn-rip"></span>Explore Listings<span class="btn-arr" style="background:rgba(255,255,255,.1);color:#fff;"><i class="fa-solid fa-arrow-right"></i></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FOOTER ============================================================ -->
+<footer class="foot">
+  <div class="container">
+    <div class="ftgrid">
+      <div class="ftbrand">
+        <img src="assets/logo/intentnet-logo.png" alt="IntentNet" onerror="this.alt='IntentNet'">
+        <p>IntentNet helps apartment buyers understand Kerala's residential market — with clarity, structure, and verified connections.</p>
+        <div class="ftsoc">
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
         </div>
-    </section>
+      </div>
+      <div class="ftcol">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="explore_apartments.html">Explore Apartments</a></li>
+          <li><a href="property_guidance.html">Property Guidance</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="ftcol">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#">Real Estate</a></li>
+          <li><a href="#">Interiors</a></li>
+          <li><a href="#">Solar Solutions</a></li>
+          <li><a href="property_guidance.html">Property Guidance</a></li>
+        </ul>
+      </div>
+      <div class="ftcol ftadr">
+        <h5>Contact</h5>
+        <p><i class="fa-solid fa-location-dot"></i>3rd Floor, HeadQ Pvt Ltd, Phase 1, HiLITE Business Park, Kozhikode</p>
+        <p><i class="fa-solid fa-envelope"></i>contact@intentnet.com</p>
+      </div>
+    </div>
+    <div class="ftbar">
+      <p>&copy; 2026 IntentNet. All rights reserved.</p>
+      <p>Kerala's Property Discovery Platform</p>
+    </div>
+  </div>
+</footer>
 
-    <!-- PREMIUM FINAL CTA -->
-    <section class="premium-cta" style="background: #111; padding: 100px 5%; text-align: center; color: white;">
-        <div class="container gsap-reveal">
-            <h2 style="font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 20px; font-family: 'Outfit'; color: #fff;">Become Part of the IntentNet Network</h2>
-            <p style="font-size: 1.2rem; color: #888; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
-                Join the ecosystem defining the future of sophisticated home discovery and architectural planning.
-            </p>
-            <a href="contact.html" class="btn btn-light">Request Partnership <i class="fa-solid fa-arrow-right icon-rotate"></i></a>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-top">
-                <div>
-                    <div class="footer-logo">
-                        <img src="assets/logo/intentnet-logo.png" alt="IntentNet Logo" onerror="this.src=''; this.alt='IntentNet';">
-                    </div>
-                    <p class="footer-about">IntentNet helps you make structured, informed home decisions through verified platforms and connections.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Explore</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="explore_apartments.html">Explore Apartments</a></li>
-                        <li><a href="property_guidance.html">Property Guidance</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#">Real Estate</a></li>
-                        <li><a href="#">Interiors</a></li>
-                        <li><a href="#">Solar Solutions</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Contact</h4>
-                    <div class="footer-address">
-                        <p><i class="fa-solid fa-location-dot"></i> 3rd floor, HeadQ Pvt Ltd, Phase 1</p>
-                        <p style="margin-left: 30px;">HiLITE Business Park, Kozhikode</p>
-                        <p style="margin-top: 15px;"><i class="fa-solid fa-envelope"></i> contact@intentnet.com</p>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2026 IntentNet. All rights reserved.
-            </div>
-        </div>
-    </footer>
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const menuClose = document.getElementById('menuClose');
-        if (menuToggle && mobileMenu && menuClose) {
-            menuToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
-            menuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
-        }
-    </script>
+<script src="main.js"></script>
+<script>
+/* FAQ accordion */
+document.querySelectorAll('.pg-faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.pg-faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
 </body>
 </html>

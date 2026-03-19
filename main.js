@@ -1,118 +1,186 @@
-// Mobile Menu Toggle
-document.addEventListener('DOMContentLoaded', () => {
-    const mobileMenuBtn = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (mobileMenuBtn && navLinks) {
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const icon = mobileMenuBtn.querySelector('i');
-            if (icon) {
-                if (navLinks.classList.contains('active')) {
-                    icon.classList.replace('fa-bars', 'fa-times');
-                } else {
-                    icon.classList.replace('fa-times', 'fa-bars');
-                }
-            }
-        });
+/* ============================================================
+   main.js — IntentNet
+   ============================================================ */
+
+/* ── PROGRESS BAR ─────────────────────────────────────────── */
+const pb = document.getElementById('pbar');
+if (pb) {
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - innerHeight)) * 100;
+    pb.style.width = pct + '%';
+  }, { passive: true });
+}
+
+/* ── NAVBAR HIDE / SHOW ON SCROLL ────────────────────────── */
+const navEl = document.getElementById('navbar');
+let lastY = 0;
+if (navEl) {
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y > lastY && y > 200) {
+      navEl.classList.add('hide');
+    } else {
+      navEl.classList.remove('hide');
     }
-    
-    // Close menu on link click
-    const links = document.querySelectorAll('.nav-links a');
-    links.forEach(link => {
-        link.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                if (mobileMenuBtn.querySelector('i')) {
-                    mobileMenuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
-                }
-            }
-        });
+    navEl.classList.toggle('scrolled', y > 60);
+    lastY = y;
+  }, { passive: true });
+}
+
+/* ── HAMBURGER / MOBILE MENU ─────────────────────────────── */
+const hamBtn  = document.getElementById('ham');
+const mobMenu = document.getElementById('mobMenu');
+const mcBtn   = document.getElementById('mc');
+
+if (hamBtn && mobMenu && mcBtn) {
+  hamBtn.addEventListener('click', () => {
+    hamBtn.classList.toggle('open');
+    mobMenu.classList.toggle('open');
+  });
+  mcBtn.addEventListener('click', () => {
+    hamBtn.classList.remove('open');
+    mobMenu.classList.remove('open');
+  });
+  mobMenu.addEventListener('click', (e) => {
+    if (e.target === mobMenu) {
+      hamBtn.classList.remove('open');
+      mobMenu.classList.remove('open');
+    }
+  });
+}
+
+/* ── HERO BACKGROUND — local first, Unsplash fallback ──────── */
+(function () {
+  const bg = document.getElementById('heroBg');
+  if (!bg) return;
+  const probe = new Image();
+  probe.onload = () => {
+    bg.style.backgroundImage = "url('assets/test.jpg')";
+  };
+  probe.onerror = () => {
+    bg.style.backgroundImage =
+      "url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=90')";
+  };
+  probe.src = 'assets/luxury.jpg';
+  bg.style.backgroundSize     = 'cover';
+  bg.style.backgroundPosition = 'center';
+})();
+
+/* ── HERO TITLE WORD-BY-WORD ANIMATION ───────────────────── */
+const heroTitleEl = document.getElementById('htit');
+if (heroTitleEl) {
+  const words = heroTitleEl.textContent.trim().split(' ');
+  heroTitleEl.innerHTML = words
+    .map(w => `<span class="hw">${w}&nbsp;</span>`)
+    .join('');
+  document.querySelectorAll('.hw').forEach((w, i) => {
+    setTimeout(() => w.classList.add('show'), i * 50 + 300);
+  });
+}
+
+/* ── HERO BG MOUSE PARALLAX ──────────────────────────────── */
+window.addEventListener('mousemove', (e) => {
+  const bg = document.getElementById('heroBg');
+  if (!bg) return;
+  const x = (e.clientX / innerWidth  - 0.5) * 7;
+  const y = (e.clientY / innerHeight - 0.5) * 5;
+  bg.style.transform = `scale(1.1) translate(calc(-1.5% + ${x}px), calc(-1% + ${y}px))`;
+}, { passive: true });
+
+/* ── INTERSECTION OBSERVER — REVEAL ─────────────────────── */
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('on');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+document.querySelectorAll('.rv, .rl, .rr, .rs')
+  .forEach(el => revealObs.observe(el));
+
+/* ── INTERSECTION OBSERVER — STAGGER ─────────────────────── */
+const staggerObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.sg').forEach((child, i) => {
+        setTimeout(() => child.classList.add('on'), i * 90);
+      });
+      staggerObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+
+document.querySelectorAll(
+  '.fac-grid, .jg, .cit-g, .how-grid, .bld-g, .eco-g'
+).forEach(el => staggerObs.observe(el));
+
+/* ── COUNT-UP ANIMATION ──────────────────────────────────── */
+function doCount(el) {
+  const to  = parseInt(el.dataset.to) || 0;
+  const s   = el.dataset.s || '';
+  const isK = s === 'k+';
+  const dur = 1600;
+  const start = Date.now();
+
+  (function update() {
+    const progress = Math.min((Date.now() - start) / dur, 1);
+    const eased    = 1 - Math.pow(1 - progress, 4);
+    const val      = Math.floor(eased * to);
+    el.textContent = isK
+      ? (val >= to ? to + 'k+' : val + 'k+')
+      : (val + s);
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      el.textContent = to + (isK ? 'k+' : s);
+    }
+  })();
+}
+
+const countObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      doCount(e.target);
+      countObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.cnt').forEach(el => countObs.observe(el));
+
+/* ── HOW CARD — CROSS-HIGHLIGHT DOTS ────────────────────── */
+document.querySelectorAll('.hcard').forEach((card, idx) => {
+  card.addEventListener('mouseenter', () => {
+    document.querySelectorAll('.hcard').forEach(c => {
+      c.querySelectorAll('.hdot').forEach((d, j) => {
+        d.classList.toggle('active', j === idx);
+      });
     });
+  });
+  card.addEventListener('mouseleave', () => {
+    document.querySelectorAll('.hcard').forEach((c, i) => {
+      c.querySelectorAll('.hdot').forEach((d, j) => {
+        d.classList.toggle('active', j === i);
+      });
+    });
+  });
+});
 
-    // Setup basic GSAP hero animations automatically
-    if (typeof gsap !== 'undefined') {
-        const heroTitle = document.querySelector('.hero h1');
-        const heroSub = document.querySelector('.hero .subtext');
-        const heroBtns = document.querySelector('.hero-actions');
-        
-        const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-        
-        if (heroTitle) {
-            heroTl.to(heroTitle, { y: 0, opacity: 1, duration: 1, delay: 0.2 });
-        }
-        if (heroSub) {
-            heroTl.to(heroSub, { y: 0, opacity: 1, duration: 1 }, '-=0.6');
-        }
-        if (heroBtns) {
-            heroTl.to(heroBtns, { y: 0, opacity: 1, duration: 1 }, '-=0.6');
-        }
+/* ── ECOSYSTEM FILTER ────────────────────────────────────── */
+document.querySelectorAll('.eco-f').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.eco-f').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
 
-        // Setup ScrollTrigger for all elements with .gsap-reveal
-        if (typeof ScrollTrigger !== 'undefined') {
-            gsap.registerPlugin(ScrollTrigger);
-            
-            gsap.utils.toArray('.gsap-reveal').forEach((elem) => {
-                gsap.to(elem, {
-                    scrollTrigger: {
-                        trigger: elem,
-                        start: 'top 85%',
-                        toggleActions: 'play none none reverse'
-                    },
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.8,
-                    ease: 'power3.out'
-                });
-            });
-
-            gsap.utils.toArray('.gsap-reveal-left').forEach((elem) => {
-                gsap.to(elem, {
-                    scrollTrigger: {
-                        trigger: elem,
-                        start: 'top 85%',
-                        toggleActions: 'play none none reverse'
-                    },
-                    x: 0,
-                    opacity: 1,
-                    duration: 0.8,
-                    ease: 'power3.out'
-                });
-            });
-
-            gsap.utils.toArray('.gsap-reveal-right').forEach((elem) => {
-                gsap.to(elem, {
-                    scrollTrigger: {
-                        trigger: elem,
-                        start: 'top 85%',
-                        toggleActions: 'play none none reverse'
-                    },
-                    x: 0,
-                    opacity: 1,
-                    duration: 0.8,
-                    ease: 'power3.out'
-                });
-            });
-
-            // Stagger animations for grid items container
-            gsap.utils.toArray('.stagger-container').forEach((container) => {
-                const items = container.children;
-                gsap.fromTo(items, 
-                    { y: 50, opacity: 0 },
-                    {
-                        scrollTrigger: {
-                            trigger: container,
-                            start: 'top 80%',
-                            toggleActions: 'play none none reverse'
-                        },
-                        y: 0,
-                        opacity: 1,
-                        duration: 0.6,
-                        stagger: 0.15,
-                        ease: 'power2.out'
-                    }
-                );
-            });
-        }
-    }
+    const cat = btn.textContent.trim().toLowerCase();
+    document.querySelectorAll('.eitem').forEach(item => {
+      const tag = (item.querySelector('.etag')?.textContent || '').toLowerCase();
+      const match = (cat === 'all') || tag.includes(cat.split(' ')[0]);
+      item.style.opacity   = match ? '1' : '.2';
+      item.style.transform = match ? '' : 'scale(.97)';
+      item.style.transition = 'opacity .4s, transform .4s';
+    });
+  });
 });
