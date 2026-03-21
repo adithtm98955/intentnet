@@ -1,0 +1,352 @@
+INTENTNET — REAL ESTATE DECISION PLATFORM
+Brand Line
+
+IntentNet — Clarity Before You Buy
+
+Short Explanation
+
+IntentNet helps apartment buyers understand projects, compare builders, and evaluate property decisions before booking.
+
+PAGE 1 — HOME
+
+(Authority + Trust + Curiosity)
+
+HERO SECTION
+Headline
+
+Understand Kerala’s Apartment Market Before You Buy
+
+Subheadline
+
+IntentNet helps buyers explore residential projects, compare builders, and evaluate property decisions with clarity.
+
+Trust Statement
+
+Independent Project Discovery • Builder Comparison • Property Decision Guidance
+
+Buttons
+
+Explore Apartments
+
+Get Property Guidance
+
+MARKET REALITY SECTION
+Title
+
+Buying an Apartment Is a Major Financial Decision
+
+Most home buyers explore several projects before making a final booking.
+
+Important factors usually include:
+
+• builder credibility
+• location growth potential
+• apartment quality
+• project pricing and payment plans
+• long-term property value.
+
+Without proper research, these decisions can feel confusing.
+
+IntentNet exists to simplify the discovery stage of buying an apartment.
+
+WHAT INTENTNET DOES
+Title
+
+IntentNet Helps Buyers Understand Before They Buy
+
+IntentNet is a property discovery platform designed to help buyers evaluate residential developments across Kerala.
+
+Instead of depending only on advertisements or sales pitches, buyers can explore projects in a structured way.
+
+IntentNet focuses on helping buyers understand:
+
+• which builders operate in the market
+• what types of projects exist in different locations
+• typical apartment price ranges
+• key project differences.
+
+This helps buyers make better decisions before visiting properties.
+
+BUYER JOURNEY SECTION
+Title
+
+How Most Buyers Choose an Apartment
+
+Step 1
+Explore different locations and neighbourhoods.
+
+Step 2
+Compare builders and project reputations.
+
+Step 3
+Evaluate layouts, amenities, and price ranges.
+
+Step 4
+Visit shortlisted projects.
+
+IntentNet helps organise this process.
+
+CITY DISCOVERY SECTION
+Title
+
+Explore Apartments Across Kerala
+
+Popular cities where buyers explore projects:
+
+📍 Kochi
+📍 Kozhikode
+📍 Thrissur
+📍 Thiruvananthapuram
+
+Each city has multiple residential developments from well-known builders.
+
+IntentNet helps buyers explore these options.
+
+BUILDER DISCOVERY SECTION
+Title
+
+Residential Developers in Kerala
+
+Examples of developers with projects in the market:
+
+Asset Homes
+
+ABAD Builders
+
+Varma Homes
+
+Prestige Group
+
+Kent Constructions
+
+IntentNet helps buyers explore projects from different developers and compare options.
+
+MARKET INSIGHT SECTION
+Title
+
+Kerala Apartment Market Overview
+
+Premium apartments in Kerala typically fall within the price range of:
+
+₹80 lakh to ₹2 crore
+
+depending on:
+
+• location
+• project scale
+• developer reputation
+• amenities offered.
+
+Many buyers evaluate three to five projects before making a booking decision.
+
+IntentNet helps organise this research stage.
+
+HOW INTENTNET WORKS
+Step 1 — Share Your Requirement
+
+Tell us your preferred location, budget, and apartment type.
+
+Step 2 — Explore Relevant Projects
+
+IntentNet helps you review suitable residential developments.
+
+Step 3 — Compare Options
+
+Evaluate builders, amenities, and project features.
+
+Step 4 — Visit Projects
+
+Shortlist properties and plan site visits.
+
+FINAL CTA
+Headline
+
+Planning to Buy an Apartment in Kerala?
+
+Text
+
+Explore residential projects and compare builders before making a booking decision.
+
+Buttons
+
+Explore Apartments
+Get Property Guidance
+
+PAGE 2 — EXPLORE APARTMENTS
+
+(Discovery Page)
+
+PAGE TITLE
+
+Explore Residential Projects Across Kerala
+
+Subtext
+
+Compare locations, builders, and apartment options.
+
+FILTER SECTION
+
+Location
+
+Kochi
+Kozhikode
+Thrissur
+Thiruvananthapuram
+
+Budget
+
+₹60L–₹1Cr
+₹1Cr–₹1.5Cr
+₹1.5Cr+
+
+Apartment type
+
+2BHK
+3BHK
+
+PROJECT CARD STRUCTURE
+
+Example
+
+Developer
+Asset Homes
+
+Location
+Kakkanad
+
+Apartment Types
+2BHK / 3BHK
+
+Price Range
+₹95L – ₹1.5Cr
+
+Amenities Preview
+Clubhouse • Gym • Landscaped spaces
+
+Button
+
+Unlock Project Details
+
+Example
+
+Developer
+ABAD Builders
+
+Location
+Edappally
+
+Apartment Types
+2BHK / 3BHK
+
+Price Range
+₹1Cr – ₹1.8Cr
+
+Button
+
+Request Project Information
+
+LEAD CAPTURE SYSTEM
+
+When visitor clicks Unlock Details:
+
+Show a short form.
+
+Title
+
+Get Full Project Information
+
+Fields
+
+Name
+Phone
+Preferred city
+Budget
+
+Button
+
+Show Projects
+
+PAGE 3 — PROPERTY GUIDANCE
+
+(Lead Conversion Page)
+
+PAGE TITLE
+
+Property Guidance
+
+Subtext
+
+Share your requirements and explore suitable apartment options.
+
+FORM STRUCTURE
+
+Name
+
+Phone
+
+Preferred City
+
+Kochi
+Kozhikode
+Thrissur
+Thiruvananthapuram
+
+Budget
+
+₹60L–₹1Cr
+₹1Cr–₹1.5Cr
+₹1.5Cr+
+
+Apartment Type
+
+2BHK
+3BHK
+Flexible
+
+Buying Timeline
+
+Within 3 months
+Within 6 months
+Within 1 year
+Research stage
+
+FINAL CTA
+Headline
+
+Explore the Right Apartment With Confidence
+
+IntentNet helps buyers understand projects and compare builders before making their final decision.
+
+Button
+
+Request Project Recommendations
+
+TRUST ELEMENTS
+Founder
+
+Dawood Jalil
+Founder — IntentNet
+
+Property Decision Platform
+
+WhatsApp
+
+Floating button:
+
+Talk to Property Consultant
+
+FINAL WEBSITE FLOW
+
+Ad → Website
+↓
+Explore apartments
+↓
+Unlock project details
+↓
+Submit enquiry
+↓
+WhatsApp conversation
+↓
+Site visit
+↓
+Booking
