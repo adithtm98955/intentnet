@@ -83,7 +83,7 @@
 </section>
 
 <!-- ===== CITY COVERAGE STRIP ===== -->
-<div class="contact-cities">
+<div class="contact-cities section-space" style="margin-top: 10px;margin-bottom:10px;">
   <div class="cc-item rv">
     <span class="cc-city">Headquarters</span>
     <div class="cc-name">Kozhikode</div>
@@ -107,7 +107,7 @@
 </div>
 
 <!-- ===== CONTACT LAYOUT: INFO LEFT + FORM RIGHT ===== -->
-<div class="contact-layout">
+<div class="contact-layout section-spacea">
 
   <!-- LEFT: contact info -->
   <div class="contact-info rl">
@@ -248,70 +248,13 @@
 
 <!-- ===== GOOGLE MAP ===== -->
 <div class="contact-map rv">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.9898099780297!2d75.98245731534283!3d11.27369185555474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba659e46c04b3b1%3A0x2b2c35b0b2b0b2b0!2sHiLITE%20Business%20Park%2C%20Kozhikode%2C%20Kerala!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-    allowfullscreen=""
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-    title="IntentNet Office — HiLITE Business Park, Kozhikode">
-  </iframe>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15652.74045054653!2d75.8150015026331!3d11.247789104170351!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65b987d157b75%3A0x1cb91250aa9a210a!2sHeadQ!5e0!3m2!1sen!2sin!4v1774088388832!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   <div class="contact-map-overlay">
     <strong>IntentNet HQ</strong>
     <span>HiLITE Business Park, Kozhikode</span>
   </div>
 </div>
 
-<!-- ===== QUICK CONTACT CARDS ===== -->
-<section class="pg-section pg-section-grey" style="padding:80px 5%;">
-  <div class="pg-title-block rv" style="margin-bottom:44px;">
-    <span class="kicker">Prefer a Direct Channel?</span>
-    <h2>Other Ways to Reach Us</h2>
-    <p>Choose whichever channel is most convenient for you.</p>
-  </div>
-  <div class="quick-contact-grid">
-    <div class="qc-card sg">
-      <div class="qc-icon"><i class="fa-brands fa-whatsapp"></i></div>
-      <h3>WhatsApp</h3>
-      <p>Chat with us directly for quick questions about properties, pricing, or partnerships.</p>
-      <a href="https://wa.me/919999999999" target="_blank" rel="noopener" class="btn btn-dk" style="font-size:.82rem;padding:11px 22px;">
-        <span class="btn-rip"></span>Chat Now<span class="btn-arr"><i class="fa-solid fa-arrow-right"></i></span>
-      </a>
-    </div>
-    <div class="qc-card sg">
-      <div class="qc-icon"><i class="fa-solid fa-envelope"></i></div>
-      <h3>Email</h3>
-      <p>Send us a detailed email and receive a structured response within one business day.</p>
-      <a href="mailto:contact@intentnet.com" class="btn btn-dk" style="font-size:.82rem;padding:11px 22px;">
-        <span class="btn-rip"></span>Email Us<span class="btn-arr"><i class="fa-solid fa-arrow-right"></i></span>
-      </a>
-    </div>
-    <div class="qc-card sg">
-      <div class="qc-icon"><i class="fa-solid fa-building"></i></div>
-      <h3>Visit Our Office</h3>
-      <p>Come meet us in person at HiLITE Business Park, Kozhikode. Mon–Fri, 9 AM – 6 PM.</p>
-      <a href="https://maps.google.com/?q=HiLITE+Business+Park+Kozhikode" target="_blank" rel="noopener" class="btn btn-dk" style="font-size:.82rem;padding:11px 22px;">
-        <span class="btn-rip"></span>Get Directions<span class="btn-arr"><i class="fa-solid fa-arrow-right"></i></span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FINAL CTA ===== -->
-<section class="fcta">
-  <div class="fwm">INTENTNET</div>
-  <div class="container" style="position:relative;z-index:1;">
-    <h2 class="rv">Ready to Explore<br>Kerala's Best Properties?</h2>
-    <p class="rv" style="transition-delay:.2s">Start your apartment search today and buy with complete confidence.</p>
-    <div class="fbtns rv" style="transition-delay:.4s">
-      <a href="explore_apartments.html" class="btn btn-wh">
-        <span class="btn-rip"></span>Explore Apartments<span class="btn-arr"><i class="fa-solid fa-arrow-right"></i></span>
-      </a>
-      <a href="property_guidance.html" class="btn" style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,.28);">
-        <span class="btn-rip"></span>Get Property Guidance<span class="btn-arr" style="background:rgba(255,255,255,.1);color:#fff;"><i class="fa-solid fa-arrow-right"></i></span>
-      </a>
-    </div>
-  </div>
-</section>
 
 <!-- ===== FOOTER ===== -->
 <footer class="foot">
@@ -397,6 +340,44 @@ if (contactForm) {
     cfSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   });
 }
+</script>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  // Get values
+  var fname = document.getElementById("cf-fname").value;
+  var lname = document.getElementById("cf-lname").value;
+  var email = document.getElementById("cf-email").value;
+  var phone = document.getElementById("cf-phone").value;
+  var reason = document.getElementById("cf-reason").value;
+  var city = document.getElementById("cf-city").value;
+  var message = document.getElementById("cf-msg").value;
+
+  // WhatsApp number
+  var whatsappNumber = "918129542337";
+
+  // Message format
+  var text =
+  "🏗 *New Website Inquiry*%0A%0A" +
+  "👤 *Name:* " + fname + " " + lname + "%0A" +
+  "📧 *Email:* " + email + "%0A" +
+  "📞 *Phone:* " + phone + "%0A" +
+  "📌 *Interest:* " + reason + "%0A" +
+  "📍 *City:* " + city + "%0A%0A" +
+  "📝 *Message:*%0A" + message;
+
+  // Open WhatsApp
+  var url = "https://wa.me/" + whatsappNumber + "?text=" + text;
+  window.open(url, '_blank');
+
+  // Show success message
+  document.getElementById("cfSuccess").style.display = "flex";
+
+  // Optional: reset form
+  document.getElementById("contactForm").reset();
+});
 </script>
 </body>
 </html>

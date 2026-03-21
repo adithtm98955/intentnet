@@ -837,3 +837,91 @@
 .qc-card:hover .qc-icon { background: var(--black); color: #fff; border-radius: 50%; }
 .qc-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
 .qc-card p  { color: var(--tm); font-size: .88rem; line-height: 1.65; margin-bottom: 18px; }
+
+
+
+
+/* GLOBAL SIDE SPACING */
+.section-space {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+/* FIX NAVBAR SCROLL MOBILE ISSUE */
+.navbar.scrolled .nt {
+  height: 54px;
+  padding: 0 4%;
+}
+
+.navbar.scrolled .nav-pill {
+  padding: 6px 12px;
+  font-size: 0.75rem;
+}
+
+.navbar.scrolled .ham {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+}
+
+/* Prevent overflow */
+.nt {
+  overflow: hidden;
+}
+.nr {
+  gap: 6px;   /* reduce space between Get Started & menu */
+}
+
+@media (max-width: 480px) {
+  .nt {
+    padding: 0 12px;   /* 🔥 FIX: use fixed px instead of % */
+  }
+
+
+  .nav-pill {
+    padding: 6px 7px;
+    font-size: 0.7rem;
+  }
+
+  .ham {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-pill {
+    display: none;
+  }
+}
+
+
+
+/* ===== FINAL MOBILE FIX ===== */
+@media (max-width: 480px) {
+
+  .nt {
+    padding: 0 10px;
+  }
+
+  .nr {
+    max-width: 60%;
+    gap: 4px;
+  }
+
+  .nav-pill {
+    padding: 5px 8px;
+    font-size: 0.65rem;
+  }
+
+  .ham {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    margin-right: 25px;
+  }
+}
