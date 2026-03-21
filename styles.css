@@ -1086,8 +1086,8 @@ body::after {
 }
 .hcard:hover { transform: translateY(-14px); box-shadow: 0 36px 65px rgba(0,0,0,.11); border-color: rgba(0,0,0,.1); }
 .hbg {
-  position: absolute; bottom: -18px; right: 8px;
-  font-family: 'Outfit', sans-serif; font-size: 7rem; font-weight: 900;
+  position: absolute; bottom: 28px; right: 28px;
+  font-family: 'Outfit', sans-serif; font-size: 3rem; font-weight: 900;
   color: rgba(0,0,0,.04); line-height: 1;
   pointer-events: none;
   transition: transform .55s var(--expo), color .35s;
