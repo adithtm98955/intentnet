@@ -53,7 +53,7 @@ if (hamBtn && mobMenu && mcBtn) {
 (function () {
   const bg = document.getElementById('heroBg');
   if (!bg) return;
-  bg.style.backgroundImage = "url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=90')";
+  bg.style.backgroundImage = "url('assets/banners/home.jpg')";
   bg.style.backgroundSize     = 'cover';
   bg.style.backgroundPosition = 'center';
 })();
@@ -105,7 +105,7 @@ const staggerObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
 
 document.querySelectorAll(
-  '.fac-grid, .jg, .cit-g, .how-grid, .bld-g, .eco-g'
+  '.fac-grid, .jg, .cit-g, .how-grid, .bld-g, .eco-g, .ab-timeline, .ab-team'
 ).forEach(el => staggerObs.observe(el));
 
 /* ── COUNT-UP ANIMATION ──────────────────────────────────── */
