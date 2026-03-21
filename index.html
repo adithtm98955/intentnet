@@ -1,161 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IntentNet — Clarity Before You Buy | Kerala Real Estate</title>
-<link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="page-styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IntentNet — Clarity Before You Buy | Kerala Real Estate</title>
+  <link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="page-styles.css">
 </head>
+
 <body class="page-offset">
 
-<!-- PROGRESS BAR -->
-<div class="pbar" id="pbar"></div>
-<div class="pbar" id="pbar"></div>
+  <!-- PAGE LOADER -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-content">
+      <img src="assets/logo/intentnet-logo.png" alt="IntentNet">
+      <div class="loader-spinner"></div>
+    </div>
+  </div>
 
-<!-- ============================================================
+  <!-- PROGRESS BAR -->
+  <div class="pbar" id="pbar"></div>
+  <div class="pbar" id="pbar"></div>
+
+  <!-- ============================================================
      NAVBAR
      ============================================================ -->
-<nav class="navbar" id="navbar">
-  <!-- Top bar: logo · location · socials · CTA · hamburger -->
-  <div class="nt">
-    <a href="index.html" class="nl">
-      <img src="assets/logo/intentnet-logo.png" alt="IntentNet">
-      <div class="nl-text">
-        <strong>IntentNet</strong>
-        <span>Real Estate Platform</span>
+  <nav class="navbar" id="navbar">
+    <!-- Top bar: logo · location · socials · CTA · hamburger -->
+    <div class="nt">
+      <a href="index.html" class="nl">
+        <img src="assets/logo/intentnet-logo.png" alt="IntentNet">
+        <div class="nl-text">
+          <strong>IntentNet</strong>
+          <span>Real Estate Platform</span>
+        </div>
+      </a>
+
+      <div class="nav-loc">
+        <i class="fa-solid fa-location-dot pin"></i>
+        <span>Kozhikode, Kerala</span>
+        <i class="fa-solid fa-chevron-down chev"></i>
       </div>
-    </a>
 
-    <div class="nav-loc">
-      <i class="fa-solid fa-location-dot pin"></i>
-      <span>Kozhikode, Kerala</span>
-      <i class="fa-solid fa-chevron-down chev"></i>
-    </div>
-
-    <div class="nr">
-      <div class="nsoc">
-        <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <div class="nr">
+        <div class="nsoc">
+          <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <a href="contact.html" class="nav-pill">Get Started</a>
+        <button class="ham" id="ham" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-      <a href="contact.html" class="nav-pill">Get Started</a>
-      <button class="ham" id="ham" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
     </div>
-  </div>
 
-  <!-- Bottom bar: page links -->
-  <div class="nb">
-    <div class="nb-links">
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="explore_apartments.html">Explore Apartments</a>
-      <a href="property_guidance.html">Property Guidance</a>
-      <a href="contact.html">Contact Us</a>
+    <!-- Bottom bar: page links -->
+    <div class="nb">
+      <div class="nb-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="explore_apartments.html">Explore Apartments</a>
+        <a href="property_guidance.html">Property Guidance</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<!-- ============================================================
+  <!-- ============================================================
      MOBILE MENU (full-screen overlay)
      ============================================================ -->
-<div class="mob-menu" id="mobMenu">
-  <button class="mob-close" id="mc" aria-label="Close menu">
-    <i class="fa-solid fa-xmark"></i>
-  </button>
-  <nav class="mob-nav">
-    <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-    <a href="explore_apartments.html"><i class="fa-solid fa-building"></i> Explore Apartments</a>
-    <a href="property_guidance.html"><i class="fa-solid fa-handshake"></i> Property Guidance</a>
-    <a href="about.html"><i class="fa-solid fa-users"></i> About Us</a>
-    <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact Us</a>
-  </nav>
-  <div class="mob-soc">
-    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+  <div class="mob-menu" id="mobMenu">
+    <button class="mob-close" id="mc" aria-label="Close menu">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <nav class="mob-nav">
+      <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="explore_apartments.html"><i class="fa-solid fa-building"></i> Explore Apartments</a>
+      <a href="property_guidance.html"><i class="fa-solid fa-handshake"></i> Property Guidance</a>
+      <a href="about.html"><i class="fa-solid fa-users"></i> About Us</a>
+      <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+    </nav>
+    <div class="mob-soc">
+      <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
   </div>
-</div>
 
-<!-- ============================================================
+  <!-- ============================================================
      HERO — CINEMATIC SPLIT
      ============================================================ -->
-<section class="hero">
+  <section class="hero">
 
-  <!-- LEFT: text content -->
-  <div class="hero-left">
-    <div class="hero-left-acc"></div>
+    <!-- LEFT: text content -->
+    <div class="hero-left">
+      <div class="hero-left-acc"></div>
 
-    <div class="hero-yr">
-      <span class="hero-yr-line"></span>
-      Kerala Real Estate · 2026
-    </div>
-
-    <div class="hbadge">
-      <span class="bdot"></span>
-      Property Discovery Platform
-    </div>
-
-    <h1 class="htit" id="htit">
-      Understand Kerala's Apartment Market Before You Buy
-    </h1>
-
-    <p class="hsub">
-      IntentNet helps buyers explore residential projects, compare builders,
-      and evaluate property decisions with clarity.
-    </p>
-
-    <div class="htrust">
-      <span class="htp"><i class="fa-solid fa-shield-halved"></i>Independent Discovery</span>
-      <span class="htp"><i class="fa-solid fa-scale-balanced"></i>Builder Comparison</span>
-      <span class="htp"><i class="fa-solid fa-lightbulb"></i>Decision Guidance</span>
-    </div>
-
-    <div class="ha">
-      <a href="explore_apartments.html" class="btn btn-dk">
-        <span class="btn-rip"></span>
-        Explore Apartments
-        <span class="btn-arr"><i class="fa-solid fa-arrow-right"></i></span>
-      </a>
-      <a href="property_guidance.html" class="btn btn-gh">
-        <span class="btn-rip"></span>
-        Get Guidance
-        <span class="btn-arr"><i class="fa-solid fa-arrow-right"></i></span>
-      </a>
-    </div>
-
-    <div class="hero-stats">
-      <div class="hsi">
-        <span class="hsi-n cnt" data-to="500" data-s="+">500+</span>
-        <span class="hsi-l">Verified Partners</span>
+      <div class="hero-yr">
+        <span class="hero-yr-line"></span>
+        Kerala Real Estate · 2026
       </div>
-      <div class="hsd"></div>
-      <div class="hsi">
-        <span class="hsi-n cnt" data-to="10" data-s="k+">10k+</span>
-        <span class="hsi-l">Buyers Guided</span>
+
+      <div class="hbadge">
+        <span class="bdot"></span>
+        Property Discovery Platform
       </div>
-      <div class="hsd"></div>
-      <div class="hsi">
-        <span class="hsi-n cnt" data-to="4" data-s="">4</span>
-        <span class="hsi-l">Major Cities</span>
+
+      <h1 class="htit" id="htit">
+        Understand Kerala's Apartment Market Before You Buy
+      </h1>
+
+      <p class="hsub">
+        IntentNet helps buyers explore residential projects, compare builders,
+        and evaluate property decisions with clarity.
+      </p>
+
+      <div class="htrust">
+        <span class="htp"><i class="fa-solid fa-shield-halved"></i>Independent Discovery</span>
+        <span class="htp"><i class="fa-solid fa-scale-balanced"></i>Builder Comparison</span>
+        <span class="htp"><i class="fa-solid fa-lightbulb"></i>Decision Guidance</span>
+      </div>
+
+      <div class="ha">
+        <a href="explore_apartments.html" class="btn btn-dk">
+          <span class="btn-rip"></span>
+          Explore Apartments
+          <span class="btn-arr"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="property_guidance.html" class="btn btn-gh">
+          <span class="btn-rip"></span>
+          Get Guidance
+          <span class="btn-arr"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hsi">
+          <span class="hsi-n cnt" data-to="500" data-s="+">500+</span>
+          <span class="hsi-l">Verified Partners</span>
+        </div>
+        <div class="hsd"></div>
+        <div class="hsi">
+          <span class="hsi-n cnt" data-to="10" data-s="k+">10k+</span>
+          <span class="hsi-l">Buyers Guided</span>
+        </div>
+        <div class="hsd"></div>
+        <div class="hsi">
+          <span class="hsi-n cnt" data-to="4" data-s="">4</span>
+          <span class="hsi-l">Major Cities</span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- RIGHT: image + glassmorphism stat card -->
-  <div class="hero-right">
-    <div class="hero-bg" id="heroBg"></div>
-    <div class="hero-ov"></div>
+    <!-- RIGHT: image + glassmorphism stat card -->
+    <div class="hero-right">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-ov"></div>
 
-    <!-- Floating decorative info badges -->
-    <!-- <div class="hfc hfc1">
+      <!-- Floating decorative info badges -->
+      <!-- <div class="hfc hfc1">
       <span class="hfc-l">Market Range</span>
       <span class="hfc-v">₹80L — ₹2Cr</span>
       <span class="hfc-s">Premium apartments · Kerala</span>
@@ -166,247 +178,241 @@
       <span class="hfc-s">Across 4 major cities</span>
     </div> -->
 
-    <!-- Floating tag (absolute — never affects card position) -->
-    <div class="hero-tag">Verified Listings · 2026</div>
+      <!-- Floating tag (absolute — never affects card position) -->
+      <div class="hero-tag">Verified Listings · 2026</div>
 
-    <!-- Stat card anchored to bottom via justify-content:flex-end -->
-    <div class="hero-rc">
-      <div class="hsp">
-        <div class="hsp-top">
-          <div class="hsp-logo">
-            <img src="assets/logo/intentnet-logo.png" alt="IntentNet"
-                 onerror="this.style.display='none'">
-            <span>IntentNet</span>
+      <!-- Stat card anchored to bottom via justify-content:flex-end -->
+      <div class="hero-rc">
+        <div class="hsp">
+          <div class="hsp-top">
+            <div class="hsp-logo">
+              <img src="assets/logo/intentnet-logo.png" alt="IntentNet" onerror="this.style.display='none'">
+              <span>IntentNet</span>
+            </div>
+            <div class="hsp-live">
+              <span class="hsp-ld"></span>
+              Live Data
+            </div>
           </div>
-          <div class="hsp-live">
-            <span class="hsp-ld"></span>
-            Live Data
+
+          <div class="hsp-nums">
+            <div class="hsp-n">
+              <h4 class="cnt" data-to="500" data-s="+">500+</h4>
+              <p>Verified<br>Partners</p>
+            </div>
+            <div class="hsp-n">
+              <h4 class="cnt" data-to="10" data-s="k+">10k+</h4>
+              <p>Buyers<br>Guided</p>
+            </div>
+            <div class="hsp-n">
+              <h4 class="cnt" data-to="3" data-s="">3</h4>
+              <p>Ecosystems</p>
+            </div>
           </div>
+
+          <ul class="hsp-list">
+            <li><i class="fa-solid fa-circle-check"></i>Verified Real Estate Builders</li>
+            <li><i class="fa-solid fa-circle-check"></i>Interior &amp; Solar Solutions</li>
+            <li><i class="fa-solid fa-circle-check"></i>Data-Driven Buyer Guidance</li>
+          </ul>
         </div>
-
-        <div class="hsp-nums">
-          <div class="hsp-n">
-            <h4 class="cnt" data-to="500" data-s="+">500+</h4>
-            <p>Verified<br>Partners</p>
-          </div>
-          <div class="hsp-n">
-            <h4 class="cnt" data-to="10" data-s="k+">10k+</h4>
-            <p>Buyers<br>Guided</p>
-          </div>
-          <div class="hsp-n">
-            <h4 class="cnt" data-to="3" data-s="">3</h4>
-            <p>Ecosystems</p>
-          </div>
-        </div>
-
-        <ul class="hsp-list">
-          <li><i class="fa-solid fa-circle-check"></i>Verified Real Estate Builders</li>
-          <li><i class="fa-solid fa-circle-check"></i>Interior &amp; Solar Solutions</li>
-          <li><i class="fa-solid fa-circle-check"></i>Data-Driven Buyer Guidance</li>
-        </ul>
       </div>
     </div>
-  </div>
 
-  <!-- Scroll hint (desktop only) -->
-  <div class="hscroll">
-    <span class="hst">Scroll</span>
-    <div class="hsb"></div>
-  </div>
-</section>
+    <!-- Scroll hint (desktop only) -->
+    <div class="hscroll">
+      <span class="hst">Scroll</span>
+      <div class="hsb"></div>
+    </div>
+  </section>
 
-<!-- ============================================================
+  <!-- ============================================================
      MARQUEE STRIP
      ============================================================ -->
-<div class="mq">
-  <div class="mq-t">
-    <div class="mq-i"><span class="mq-d"></span>Independent Project Discovery</div>
-    <div class="mq-i"><span class="mq-d"></span>Builder Comparison</div>
-    <div class="mq-i"><span class="mq-d"></span>Kerala Real Estate</div>
-    <div class="mq-i"><span class="mq-d"></span>Kochi · Kozhikode · Thrissur</div>
-    <div class="mq-i"><span class="mq-d"></span>Property Decision Guidance</div>
-    <div class="mq-i"><span class="mq-d"></span>500+ Verified Partners</div>
-    <div class="mq-i"><span class="mq-d"></span>Clarity Before You Buy</div>
-    <div class="mq-i"><span class="mq-d"></span>Premium Apartments Kerala</div>
-    <!-- duplicated for seamless loop -->
-    <div class="mq-i"><span class="mq-d"></span>Independent Project Discovery</div>
-    <div class="mq-i"><span class="mq-d"></span>Builder Comparison</div>
-    <div class="mq-i"><span class="mq-d"></span>Kerala Real Estate</div>
-    <div class="mq-i"><span class="mq-d"></span>Kochi · Kozhikode · Thrissur</div>
-    <div class="mq-i"><span class="mq-d"></span>Property Decision Guidance</div>
-    <div class="mq-i"><span class="mq-d"></span>500+ Verified Partners</div>
-    <div class="mq-i"><span class="mq-d"></span>Clarity Before You Buy</div>
-    <div class="mq-i"><span class="mq-d"></span>Premium Apartments Kerala</div>
+  <div class="mq">
+    <div class="mq-t">
+      <div class="mq-i"><span class="mq-d"></span>Independent Project Discovery</div>
+      <div class="mq-i"><span class="mq-d"></span>Builder Comparison</div>
+      <div class="mq-i"><span class="mq-d"></span>Kerala Real Estate</div>
+      <div class="mq-i"><span class="mq-d"></span>Kochi · Kozhikode · Thrissur</div>
+      <div class="mq-i"><span class="mq-d"></span>Property Decision Guidance</div>
+      <div class="mq-i"><span class="mq-d"></span>500+ Verified Partners</div>
+      <div class="mq-i"><span class="mq-d"></span>Clarity Before You Buy</div>
+      <div class="mq-i"><span class="mq-d"></span>Premium Apartments Kerala</div>
+      <!-- duplicated for seamless loop -->
+      <div class="mq-i"><span class="mq-d"></span>Independent Project Discovery</div>
+      <div class="mq-i"><span class="mq-d"></span>Builder Comparison</div>
+      <div class="mq-i"><span class="mq-d"></span>Kerala Real Estate</div>
+      <div class="mq-i"><span class="mq-d"></span>Kochi · Kozhikode · Thrissur</div>
+      <div class="mq-i"><span class="mq-d"></span>Property Decision Guidance</div>
+      <div class="mq-i"><span class="mq-d"></span>500+ Verified Partners</div>
+      <div class="mq-i"><span class="mq-d"></span>Clarity Before You Buy</div>
+      <div class="mq-i"><span class="mq-d"></span>Premium Apartments Kerala</div>
+    </div>
   </div>
-</div>
 
-<!-- ============================================================
+  <!-- ============================================================
      MARKET REALITY
      ============================================================ -->
-<section class="market">
-  <div class="mk-grid">
-    <div class="rl">
-      <span class="kicker">The Reality</span>
-      <h2>Buying an Apartment Is a Major Financial Decision</h2>
-      <p>Most home buyers explore several projects before making a final booking.
-         Without proper research, these decisions can feel confusing and overwhelming.</p>
-      <p>IntentNet exists to simplify the discovery stage of buying an apartment in Kerala.</p>
-      <div class="fac-grid">
-        <div class="fac sg"><i class="fa-solid fa-user-shield"></i> Builder Credibility</div>
-        <div class="fac sg"><i class="fa-solid fa-chart-line"></i> Location Growth</div>
-        <div class="fac sg"><i class="fa-solid fa-star"></i> Apartment Quality</div>
-        <div class="fac sg"><i class="fa-solid fa-rupee-sign"></i> Pricing &amp; Plans</div>
-        <div class="fac sg"><i class="fa-solid fa-arrow-trend-up"></i> Long-Term Value</div>
-        <div class="fac sg"><i class="fa-solid fa-map-pin"></i> Project Location</div>
+  <section class="market">
+    <div class="mk-grid">
+      <div class="rl">
+        <span class="kicker">The Reality</span>
+        <h2>Buying an Apartment Is a Major Financial Decision</h2>
+        <p>Most home buyers explore several projects before making a final booking.
+          Without proper research, these decisions can feel confusing and overwhelming.</p>
+        <p>IntentNet exists to simplify the discovery stage of buying an apartment in Kerala.</p>
+        <div class="fac-grid">
+          <div class="fac sg"><i class="fa-solid fa-user-shield"></i> Builder Credibility</div>
+          <div class="fac sg"><i class="fa-solid fa-chart-line"></i> Location Growth</div>
+          <div class="fac sg"><i class="fa-solid fa-star"></i> Apartment Quality</div>
+          <div class="fac sg"><i class="fa-solid fa-rupee-sign"></i> Pricing &amp; Plans</div>
+          <div class="fac sg"><i class="fa-solid fa-arrow-trend-up"></i> Long-Term Value</div>
+          <div class="fac sg"><i class="fa-solid fa-map-pin"></i> Project Location</div>
+        </div>
       </div>
-    </div>
 
-    <div class="rr">
-      <div class="mk-r">
-        <h3>What Buyers Evaluate</h3>
-        <p>IntentNet helps you understand key factors before visiting a single property —
-           saving time and building confidence.</p>
-        <div class="mkhigh">
-          <p>IntentNet helps buyers understand <strong>which builders operate in Kerala</strong>,
-             what types of projects exist, <strong>typical price ranges</strong>, and key project
-             differences — all before making a visit.</p>
+      <div class="rr">
+        <div class="mk-r">
+          <h3>What Buyers Evaluate</h3>
+          <p>IntentNet helps you understand key factors before visiting a single property —
+            saving time and building confidence.</p>
+          <div class="mkhigh">
+            <p>IntentNet helps buyers understand <strong>which builders operate in Kerala</strong>,
+              what types of projects exist, <strong>typical price ranges</strong>, and key project
+              differences — all before making a visit.</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============================================================
+  <!-- ============================================================
      WHAT INTENTNET DOES
      ============================================================ -->
-<section class="split">
-  <div class="scard rs">
-    <div class="simg simg-p">
-      <img src="assets\image-cards\villa.png">
-    </div>
-    <div class="sbody">
-      <span style="color:#999;text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;">
-        Our Platform
-      </span>
-      <h2 style="font-size:clamp(1.6rem,2.5vw,2.2rem);line-height:1.12;margin:0;">
-        IntentNet Helps Buyers Understand Before They Buy
-      </h2>
-      <p style="font-size:.97rem;color:#666;line-height:1.8;max-width:50ch;margin:0;">
-        A property discovery platform to help buyers evaluate residential developments
-        across Kerala — with structure, data, and trusted connections.
-      </p>
-      <div style="display:flex;flex-direction:column;gap:11px;margin-top:4px;">
-        <div class="sfeat">
-          <div class="sfeat-ic"><i class="fa-solid fa-building"></i></div>
-          <span>Which builders operate in the Kerala market</span>
-        </div>
-        <div class="sfeat">
-          <div class="sfeat-ic"><i class="fa-solid fa-map"></i></div>
-          <span>Types of projects in different locations</span>
-        </div>
-        <div class="sfeat">
-          <div class="sfeat-ic"><i class="fa-solid fa-tags"></i></div>
-          <span>Typical apartment price ranges by area</span>
-        </div>
-        <div class="sfeat">
-          <div class="sfeat-ic"><i class="fa-solid fa-sliders"></i></div>
-          <span>Key differences between projects and builders</span>
-        </div>
+  <section class="split">
+    <div class="scard rs">
+      <div class="simg simg-p">
+        <img loading="lazy" src="assets\image-cards\villa.png">
       </div>
-      <a href="explore_apartments.html" class="btn btn-dk"
-         style="margin-top:8px;align-self:flex-start;">
-        <span class="btn-rip"></span>
-        Explore Platform
-        <span class="btn-arr"><i class="fa-solid fa-arrow-right"></i></span>
-      </a>
+      <div class="sbody">
+        <span style="color:#999;text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;">
+          Our Platform
+        </span>
+        <h2 style="font-size:clamp(1.6rem,2.5vw,2.2rem);line-height:1.12;margin:0;">
+          IntentNet Helps Buyers Understand Before They Buy
+        </h2>
+        <p style="font-size:.97rem;color:#666;line-height:1.8;max-width:50ch;margin:0;">
+          A property discovery platform to help buyers evaluate residential developments
+          across Kerala — with structure, data, and trusted connections.
+        </p>
+        <div style="display:flex;flex-direction:column;gap:11px;margin-top:4px;">
+          <div class="sfeat">
+            <div class="sfeat-ic"><i class="fa-solid fa-building"></i></div>
+            <span>Which builders operate in the Kerala market</span>
+          </div>
+          <div class="sfeat">
+            <div class="sfeat-ic"><i class="fa-solid fa-map"></i></div>
+            <span>Types of projects in different locations</span>
+          </div>
+          <div class="sfeat">
+            <div class="sfeat-ic"><i class="fa-solid fa-tags"></i></div>
+            <span>Typical apartment price ranges by area</span>
+          </div>
+          <div class="sfeat">
+            <div class="sfeat-ic"><i class="fa-solid fa-sliders"></i></div>
+            <span>Key differences between projects and builders</span>
+          </div>
+        </div>
+        <a href="explore_apartments.html" class="btn btn-dk" style="margin-top:8px;align-self:flex-start;">
+          <span class="btn-rip"></span>
+          Explore Platform
+          <span class="btn-arr"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============================================================
+  <!-- ============================================================
      BUYER JOURNEY — equal-height cards, no bg watermark text
      ============================================================ -->
-<section class="jrny">
-  <div class="jrny-h rv">
-    <div>
-      <span class="kicker">The Buyer Journey</span>
-      <h2>How Most Buyers Choose an Apartment</h2>
+  <section class="jrny">
+    <div class="jrny-h rv">
+      <div>
+        <span class="kicker">The Buyer Journey</span>
+        <h2>How Most Buyers Choose an Apartment</h2>
+      </div>
+      <p>IntentNet helps organise each stage — from discovery to confident decision.</p>
     </div>
-    <p>IntentNet helps organise each stage — from discovery to confident decision.</p>
-  </div>
 
-  <div class="jg">
-    <!-- Card 1 — dark -->
-    <article class="jcard sg">
-      <div class="jmedia">
-        <img src="assets\image-cards\card1.png"
-             alt="Explore Locations">
-        <div class="jstep-badge">01</div>
-        <div class="jcta-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-      </div>
-      <div class="jbody">
-        <span class="jstep-tag">Step 01</span>
-        <h3 class="jtit">Explore Locations &amp; Neighbourhoods</h3>
-        <p class="jtxt">Understand which cities and localities suit your lifestyle
-           and investment goals before narrowing down.</p>
-      </div>
-    </article>
+    <div class="jg">
+      <!-- Card 1 — dark -->
+      <article class="jcard sg">
+        <div class="jmedia">
+          <img loading="lazy" src="assets\image-cards\card1.png" alt="Explore Locations">
+          <div class="jstep-badge">01</div>
+          <div class="jcta-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+        <div class="jbody">
+          <span class="jstep-tag">Step 01</span>
+          <h3 class="jtit">Explore Locations &amp; Neighbourhoods</h3>
+          <p class="jtxt">Understand which cities and localities suit your lifestyle
+            and investment goals before narrowing down.</p>
+        </div>
+      </article>
 
-    <!-- Card 2 -->
-    <article class="jcard sg">
-      <div class="jmedia">
-        <img src="assets\image-cards\card2.png"
-             alt="Compare Builders">
-        <div class="jstep-badge">02</div>
-        <div class="jcta-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-      </div>
-      <div class="jbody">
-        <span class="jstep-tag">Step 02</span>
-        <h3 class="jtit">Compare Builders &amp; Reputations</h3>
-        <p class="jtxt">Evaluate developer track records and quality standards
-           across Kerala.</p>
-      </div>
-    </article>
+      <!-- Card 2 -->
+      <article class="jcard sg">
+        <div class="jmedia">
+          <img loading="lazy" src="assets\image-cards\card2.png" alt="Compare Builders">
+          <div class="jstep-badge">02</div>
+          <div class="jcta-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+        <div class="jbody">
+          <span class="jstep-tag">Step 02</span>
+          <h3 class="jtit">Compare Builders &amp; Reputations</h3>
+          <p class="jtxt">Evaluate developer track records and quality standards
+            across Kerala.</p>
+        </div>
+      </article>
 
-    <!-- Card 3 -->
-    <article class="jcard sg">
-      <div class="jmedia">
-        <img src="assets\image-cards\card3.png"
-             alt="Evaluate Layouts">
-        <div class="jstep-badge">03</div>
-        <div class="jcta-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-      </div>
-      <div class="jbody">
-        <span class="jstep-tag">Step 03</span>
-        <h3 class="jtit">Evaluate Layouts, Amenities &amp; Pricing</h3>
-        <p class="jtxt">Compare floor plans and payment plans across shortlisted
-           projects.</p>
-      </div>
-    </article>
+      <!-- Card 3 -->
+      <article class="jcard sg">
+        <div class="jmedia">
+          <img loading="lazy" src="assets\image-cards\card3.png" alt="Evaluate Layouts">
+          <div class="jstep-badge">03</div>
+          <div class="jcta-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+        <div class="jbody">
+          <span class="jstep-tag">Step 03</span>
+          <h3 class="jtit">Evaluate Layouts, Amenities &amp; Pricing</h3>
+          <p class="jtxt">Compare floor plans and payment plans across shortlisted
+            projects.</p>
+        </div>
+      </article>
 
-    <!-- Card 4 -->
-    <article class="jcard sg">
-      <div class="jmedia">
-        <img src="assets\image-cards\card4.png"
-             alt="Visit Projects">
-        <div class="jstep-badge">04</div>
-        <div class="jcta-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-      </div>
-      <div class="jbody">
-        <span class="jstep-tag">Step 04</span>
-        <h3 class="jtit">Visit Shortlisted Projects</h3>
-        <p class="jtxt">Visit only the most relevant properties and book
-           with full confidence.</p>
-      </div>
-    </article>
-  </div>
-</section>
+      <!-- Card 4 -->
+      <article class="jcard sg">
+        <div class="jmedia">
+          <img loading="lazy" src="assets\image-cards\card4.png" alt="Visit Projects">
+          <div class="jstep-badge">04</div>
+          <div class="jcta-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+        <div class="jbody">
+          <span class="jstep-tag">Step 04</span>
+          <h3 class="jtit">Visit Shortlisted Projects</h3>
+          <p class="jtxt">Visit only the most relevant properties and book
+            with full confidence.</p>
+        </div>
+      </article>
+    </div>
+  </section>
 
-<!-- ============================================================
+  <!-- ============================================================
      CITIES
      ============================================================ -->
 
-<!-- 
+  <!-- 
 <section class="cities">
   <div class="container tc rv">
     <span class="kicker">City Discovery</span>
@@ -419,7 +425,7 @@
   </div>
   <div class="cit-g">
     <div class="jmedia">
-        <img src="assets\image-cards\kochi.png"
+        <img loading="lazy" src="assets\image-cards\kochi.png"
              alt="Visit Projects">
         <div class="jstep-badge">04</div>
         <div class="jcta-arrow"><i class="fa-solid fa-arrow-right"></i></div>
@@ -432,7 +438,7 @@
 
     <div class="citc sg">
       <div class="jmedia">
-        <img src="assets\image-cards\kozhikode.png"
+        <img loading="lazy" src="assets\image-cards\kozhikode.png"
              alt="Visit Projects">
         <div class="jstep-badge">04</div>
         <div class="jcta-arrow"><i class="fa-solid fa-arrow-right"></i></div>
@@ -444,7 +450,7 @@
 
     <div class="citc sg">
        <div class="jmedia">
-        <img src="assets\image-cards\thrissur.png"
+        <img loading="lazy" src="assets\image-cards\thrissur.png"
              alt="Visit Projects">
         <div class="jstep-badge">04</div>
         <div class="jcta-arrow"><i class="fa-solid fa-arrow-right"></i></div>
@@ -454,7 +460,7 @@
       <div class="cid">Cultural centre · Steady market</div>
     </div>
     <div class="citc sg">
-      <img src="assets\image-cards\thr.png"
+      <img loading="lazy" src="assets\image-cards\thr.png"
              alt="Visit Projects">
         <div class="jstep-badge">04</div>
         <div class="jcta-arrow"><i class="fa-solid fa-arrow-right"></i></div>
@@ -468,36 +474,32 @@
 
 
 
+  <!-- ============================================================
+     CITIES
+     ============================================================ -->
+  <section style="padding:80px 20px;background:#ffffff;">
 
-<section style="padding:60px 20px;background:#ffffff;">
-  
-  <!-- HEADING -->
-  <div style="text-align:center;margin-bottom:40px;">
-    <h2 style="font-size:clamp(1.9rem,3.2vw,2.8rem);margin:0;">
-      Explore Apartments Across Kerala
-    </h2>
-    <p style="color:#64748b;max-width:500px;margin:12px auto 0;font-size:.95rem;">
-      Popular cities where buyers explore residential projects.
-    </p>
-  </div>
+    <!-- HEADING -->
+    <div style="text-align:center;margin-bottom:40px;">
+      <h2 style="font-size:clamp(1.9rem,3.2vw,2.8rem);margin:0;">
+        Explore Apartments Across Kerala
+      </h2>
+      <p style="color:#64748b;max-width:500px;margin:12px auto 0;font-size:.95rem;">
+        Popular cities where buyers explore residential projects.
+      </p>
+    </div>
 
-  <!-- GRID -->
-  <div style="
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-    max-width:1200px;
-    margin:auto;
-  ">
+    <!-- GRID -->
+    <div class="cities-grid">
 
-    <!-- CARD -->
-    <div style="position:relative;border-radius:16px;overflow:hidden;aspect-ratio:1/1;">
-      
-      <img src="assets/image-cards/kochi.png"
-           style="width:100%;height:100%;object-fit:cover;display:block;">
+      <!-- CARD -->
+      <div style="position:relative;border-radius:16px;overflow:hidden;aspect-ratio:1/1;">
 
-      <!-- DARK GRADIENT -->
-      <div style="
+        <img loading="lazy" src="assets/image-cards/kochi.png"
+          style="width:100%;height:100%;object-fit:cover;display:block;">
+
+        <!-- DARK GRADIENT -->
+        <div style="
         position:absolute;
         bottom:0;
         left:0;
@@ -506,8 +508,8 @@
         background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);
       "></div>
 
-      <!-- BOTTOM TEXT -->
-      <div style="
+        <!-- BOTTOM TEXT -->
+        <div style="
         position:absolute;
         bottom:12px;
         width:100%;
@@ -516,11 +518,11 @@
         font-size:0.9rem;
         font-weight:500;
       ">
-        Commercial capital · Premium projects
-      </div>
+          Commercial capital · Premium projects
+        </div>
 
-      <!-- RIBBON -->
-      <div style="
+        <!-- RIBBON -->
+        <div style="
         position:absolute;
         top:18px;
         left:-55px;
@@ -534,416 +536,466 @@
         transform:rotate(-45deg);
         box-shadow:0 4px 10px rgba(0,0,0,0.3);
       ">
-        📍 KOCHI
+          📍 KOCHI
+        </div>
+
       </div>
 
-    </div>
+      <!-- CARD -->
+      <div style="position:relative;border-radius:16px;overflow:hidden;aspect-ratio:1/1;">
+        <img loading="lazy" src="assets/image-cards/th1.png" style="width:100%;height:100%;object-fit:cover;">
 
-    <!-- CARD -->
-    <div style="position:relative;border-radius:16px;overflow:hidden;aspect-ratio:1/1;">
-      <img src="assets/image-cards/th1.png"
-           style="width:100%;height:100%;object-fit:cover;">
+        <div
+          style="position:absolute;bottom:0;left:0;width:100%;height:40%;background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+        </div>
 
-      <div style="position:absolute;bottom:0;left:0;width:100%;height:40%;background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);"></div>
+        <div style="position:absolute;bottom:12px;width:100%;text-align:center;color:#fff;font-size:0.9rem;">
+          Growth hub · Mid-range & luxury
+        </div>
 
-      <div style="position:absolute;bottom:12px;width:100%;text-align:center;color:#fff;font-size:0.9rem;">
-        Growth hub · Mid-range & luxury
-      </div>
-
-      <div style="position:absolute;top:18px;left:-55px;width:180px;text-align:center;background:#ef4444;color:#fff;padding:8px 0;font-size:0.75rem;font-weight:600;transform:rotate(-45deg);">
-        📍 KOZHIKODE
-      </div>
-    </div>
-
-    <!-- CARD -->
-    <div style="position:relative;border-radius:16px;overflow:hidden;aspect-ratio:1/1;">
-      <img src="assets/image-cards/thrissur.png"
-           style="width:100%;height:100%;object-fit:cover;">
-
-      <div style="position:absolute;bottom:0;left:0;width:100%;height:40%;background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);"></div>
-
-      <div style="position:absolute;bottom:12px;width:100%;text-align:center;color:#fff;font-size:0.9rem;">
-        Cultural centre · Steady market
-      </div>
-
-      <div style="position:absolute;top:18px;left:-55px;width:180px;text-align:center;background:#ef4444;color:#fff;padding:8px 0;font-size:0.75rem;font-weight:600;transform:rotate(-45deg);">
-        📍 THRISSUR
-      </div>
-    </div>
-
-    <!-- CARD -->
-    <div style="position:relative;border-radius:16px;overflow:hidden;aspect-ratio:1/1;">
-      <img src="assets/image-cards/th.png"
-           style="width:100%;height:100%;object-fit:cover;">
-
-      <div style="position:absolute;bottom:0;left:0;width:100%;height:40%;background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);"></div>
-
-      <div style="position:absolute;bottom:12px;width:100%;text-align:center;color:#fff;font-size:0.9rem;">
-        State capital · Diverse options
-      </div>
-
-      <div style="position:absolute;top:18px;left:-55px;width:180px;text-align:center;background:#ef4444;color:#fff;padding:8px 0;font-size:0.75rem;font-weight:600;transform:rotate(-45deg);">
-        📍 TRIVANDRUM
-      </div>
-    </div>
-
-  </div>
-</section>
-<!-- ============================================================
-     DARK MARKET INSIGHT
-     ============================================================ -->
-<section class="insight">
-  <div class="io"></div>
-  <div class="container" style="position:relative;z-index:2;">
-    <span class="kicker" style="color:#666;margin-bottom:14px;">Market Overview</span>
-    <h2 class="rv">Kerala Apartment Market Overview</h2>
-    <p class="rv" style="transition-delay:.15s">
-      Premium apartments in Kerala typically range based on location, project scale,
-      developer reputation, and amenities — making comparison critical before booking.
-    </p>
-
-    <div class="istats rv" style="transition-delay:.28s">
-      <div class="istat">
-        <span class="in cnt" data-to="500" data-s="+">500+</span>
-        <span class="il">Verified Partners</span>
-      </div>
-      <div class="istat">
-        <span class="in cnt" data-to="10" data-s="k+">10k+</span>
-        <span class="il">Buyers Guided</span>
-      </div>
-      <div class="istat">
-        <span class="in cnt" data-to="4" data-s="">4</span>
-        <span class="il">Major Cities</span>
-      </div>
-      <div class="istat">
-        <span class="in cnt" data-to="100" data-s="%">100%</span>
-        <span class="il">Verified Listings</span>
-      </div>
-    </div>
-
-    <div class="pbox rv" style="transition-delay:.42s">
-      <div class="pnum">₹80L — ₹2Cr</div>
-      <div class="plbl">Typical premium apartment<br>price range across Kerala</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     HOW IT WORKS
-     ============================================================ -->
-<section class="how">
-  <div class="how-hd rv">
-    <div>
-      <span class="kicker">Simple &amp; Clear</span>
-      <h2>How IntentNet Works</h2>
-    </div>
-    <p>Four structured steps — from sharing your requirement to visiting
-       the right projects. IntentNet guides you every step of the way.</p>
-  </div>
-
-  <div class="how-grid">
-    <!-- animated connector line -->
-    <div class="hconn">
-      <div class="hconn-in"><div class="hconn-p"></div></div>
-    </div>
-
-    <div class="hcard sg">
-      <div class="hbg">01</div>
-      <div class="hic"><i class="fa-solid fa-pen-to-square"></i></div>
-      <span class="htag">Step 01</span>
-      <h3>Share Your Requirement</h3>
-      <p>Tell us your preferred location, budget range, and apartment type.
-         We tailor everything to your needs from day one.</p>
-      <div class="hdots">
-        <div class="hdot active"></div><div class="hdot"></div>
-        <div class="hdot"></div><div class="hdot"></div>
-      </div>
-    </div>
-
-    <div class="hcard sg">
-      <div class="hbg">02</div>
-      <div class="hic"><i class="fa-solid fa-magnifying-glass"></i></div>
-      <span class="htag">Step 02</span>
-      <h3>Explore Relevant Projects</h3>
-      <p>IntentNet helps you review suitable residential developments
-         across Kerala — curated to match your criteria.</p>
-      <div class="hdots">
-        <div class="hdot"></div><div class="hdot active"></div>
-        <div class="hdot"></div><div class="hdot"></div>
-      </div>
-    </div>
-
-    <div class="hcard sg">
-      <div class="hbg">03</div>
-      <div class="hic"><i class="fa-solid fa-sliders"></i></div>
-      <span class="htag">Step 03</span>
-      <h3>Compare Options</h3>
-      <p>Evaluate builders, amenities, project features, and pricing
-         side by side — with complete transparency.</p>
-      <div class="hdots">
-        <div class="hdot"></div><div class="hdot"></div>
-        <div class="hdot active"></div><div class="hdot"></div>
-      </div>
-    </div>
-
-    <div class="hcard sg">
-      <div class="hbg">04</div>
-      <div class="hic"><i class="fa-solid fa-circle-check"></i></div>
-      <span class="htag">Step 04</span>
-      <h3>Visit &amp; Decide</h3>
-      <p>Shortlist properties, plan informed site visits, and make your
-         booking decision with total confidence.</p>
-      <div class="hdots">
-        <div class="hdot"></div><div class="hdot"></div>
-        <div class="hdot"></div><div class="hdot active"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     BUILDERS
-     ============================================================ -->
-
-<section class="builders">
-  <div class="container tc rv">
-    <span class="kicker">Developer Discovery</span>
-
-    <h2 style="font-size:clamp(1.8rem,3vw,2.7rem);margin-top:10px;">
-      Residential Developers in Kerala
-    </h2>
-
-    <p style="color:var(--tm);max-width:480px;margin:12px auto 0;font-size:.95rem;">
-      IntentNet helps buyers explore projects from different developers
-      and compare options.
-    </p>
-  </div>
-
-  <!-- Cards Row -->
-  <div class="bld-g"
-       style="display:flex;flex-wrap:wrap;gap:18px;justify-content:center;
-       margin-top:35px;">
-
-    <!-- Card -->
-    <div style="background:#fff;border-radius:14px;padding:18px;
-         width:18%;min-width:150px;
-         display:flex;flex-direction:column;align-items:center;justify-content:center;
-         box-shadow:0 8px 20px rgba(0,0,0,0.08);">
-
-      <img src="assets/logo/assets.webp"
-           style="width:60px;height:60px;object-fit:contain;margin-bottom:10px;">
-
-      <h4 style="margin:0;font-size:15px;">Asset Homes</h4>
-      <span style="color:#777;font-size:13px;">Kochi · Thrissur</span>
-    </div>
-
-    <div style="background:#fff;border-radius:14px;padding:18px;
-         width:18%;min-width:150px;
-         display:flex;flex-direction:column;align-items:center;justify-content:center;
-         box-shadow:0 8px 20px rgba(0,0,0,0.08);">
-
-      <img src="assets/logo/abad.webp"
-           style="width:60px;height:60px;object-fit:contain;margin-bottom:10px;">
-
-      <h4 style="margin:0;font-size:15px;">ABAD Builders</h4>
-      <span style="color:#777;font-size:13px;">Kochi · Ernakulam</span>
-    </div>
-
-    <div style="background:#fff;border-radius:14px;padding:18px;
-         width:18%;min-width:150px;
-         display:flex;flex-direction:column;align-items:center;justify-content:center;
-         box-shadow:0 8px 20px rgba(0,0,0,0.08);">
-
-      <img src="assets/logo/varma.webp"
-           style="width:80px;height:60px;object-fit:contain;margin-bottom:10px;">
-
-      <h4 style="margin:0;font-size:15px;">Varma Homes</h4>
-      <span style="color:#777;font-size:13px;">Kozhikode</span>
-    </div>
-
-    <div style="background:#fff;border-radius:14px;padding:18px;
-         width:18%;min-width:150px;
-         display:flex;flex-direction:column;align-items:center;justify-content:center;
-         box-shadow:0 8px 20px rgba(0,0,0,0.08);">
-
-      <img src="assets/logo/prestige.webp"
-           style="width:60px;height:60px;object-fit:contain;margin-bottom:10px;">
-
-      <h4 style="margin:0;font-size:15px;">Prestige Group</h4>
-      <span style="color:#777;font-size:13px;">Pan Kerala</span>
-    </div>
-
-    <div style="background:#fff;border-radius:14px;padding:18px;
-         width:18%;min-width:150px;
-         display:flex;flex-direction:column;align-items:center;justify-content:center;
-         box-shadow:0 8px 20px rgba(0,0,0,0.08);">
-
-      <img src="assets/logo/kenthomes.webp"
-           style="width:80px;height:60px;object-fit:contain;margin-bottom:10px;">
-
-      <h4 style="margin:0;font-size:15px;">Kent Constructions</h4>
-      <span style="color:#777;font-size:13px;">Thrissur</span>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================================================
-     ECOSYSTEM GALLERY (bento mosaic)
-     ============================================================ -->
-<section class="eco">
-  <div class="eco-header rv">
-    <div>
-      <span class="kicker">The Ecosystem</span>
-      <h2>The IntentNet Ecosystem</h2>
-    </div>
-    <p>Real Estate · World-Class Interiors · Advanced Solar Solutions</p>
-  </div>
-
-  <!-- Filter pills -->
-  <div class="eco-filters rv" style="transition-delay:.15s">
-    <span class="eco-f active"><i class="fa-solid fa-border-all"></i>All</span>
-    <span class="eco-f"><i class="fa-solid fa-building"></i>Real Estate</span>
-    <span class="eco-f"><i class="fa-solid fa-couch"></i>Interiors</span>
-    <span class="eco-f"><i class="fa-solid fa-solar-panel"></i>Solar</span>
-  </div>
-
-  <!-- Bento grid -->
-  <div class="eco-g">
-    <div class="eitem e1 sg">
-      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Villa">
-      <div class="eov"><span class="etag">Real Estate</span><h3>Premium Villas</h3></div>
-    </div>
-    <div class="eitem e2 sg">
-      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80" alt="Resort">
-      <div class="eov"><span class="etag">Real Estate</span><h3>Resort-Style Developments</h3></div>
-    </div>
-    <div class="eitem e3 sg">
-      <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80" alt="Solar">
-      <div class="eov"><span class="etag">Solar</span><h3>Residential Solar Arrays</h3></div>
-    </div>
-    <div class="eitem e4 sg">
-      <img src="https://images.unsplash.com/photo-1600607687931-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Interiors">
-      <div class="eov"><span class="etag">Interiors</span><h3>Bespoke Living Rooms</h3></div>
-    </div>
-    <div class="eitem e5 sg">
-      <img src="https://images.unsplash.com/photo-1600566753086-00f18efc2291?auto=format&fit=crop&w=800&q=80" alt="Kitchen">
-      <div class="eov"><span class="etag">Interiors</span><h3>Smart Kitchens</h3></div>
-    </div>
-    <div class="eitem e6 sg">
-      <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80" alt="Highrise">
-      <div class="eov"><span class="etag">Real Estate</span><h3>Urban Highrises</h3></div>
-    </div>
-    <div class="eitem e7 sg">
-      <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80" alt="Bedroom">
-      <div class="eov"><span class="etag">Interiors</span><h3>Master Suites</h3></div>
-    </div>
-    <div class="eitem e8 sg">
-      <img src="https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?auto=format&fit=crop&w=800&q=80" alt="Solar Roof">
-      <div class="eov"><span class="etag">Solar</span><h3>Integrated Roof Tech</h3></div>
-    </div>
-    <div class="eitem e9 sg">
-      <img src="https://images.unsplash.com/photo-1600607687644-aac4c15cecb1?auto=format&fit=crop&w=1200&q=80" alt="Minimalist">
-      <div class="eov"><span class="etag">Interiors</span><h3>Minimalist Architecture</h3></div>
-    </div>
-    <div class="eitem e10 sg">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Smart Home">
-      <div class="eov"><span class="etag">Ecosystem</span><h3>Full Smart Integrations</h3></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     FINAL CTA
-     ============================================================ -->
-<section class="fcta">
-  <div class="fwm">INTENTNET</div>
-  <div class="container" style="position:relative;z-index:1;">
-    <h2 class="rv">Planning to Buy an<br>Apartment in Kerala?</h2>
-    <p class="rv" style="transition-delay:.2s">
-      Explore residential projects and compare builders before making
-      a booking decision.
-    </p>
-    <div class="fbtns rv" style="transition-delay:.4s">
-      <a href="explore_apartments.html" class="btn btn-wh">
-        <span class="btn-rip"></span>
-        Explore Apartments
-        <span class="btn-arr"><i class="fa-solid fa-arrow-right"></i></span>
-      </a>
-      <a href="property_guidance.html" class="btn"
-         style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,.28);">
-        <span class="btn-rip"></span>
-        Get Property Guidance
-        <span class="btn-arr" style="background:rgba(255,255,255,.1);color:#fff;">
-          <i class="fa-solid fa-arrow-right"></i>
-        </span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     FOOTER
-     ============================================================ -->
-<footer class="foot">
-  <div class="container">
-    <div class="ftgrid">
-      <div class="ftbrand">
-        <img src="assets/logo/intentnet-logo.png" alt="IntentNet"
-             onerror="this.alt='IntentNet'">
-        <p>IntentNet helps apartment buyers understand Kerala's residential market —
-           with clarity, structure, and verified connections.</p>
-        <div class="ftsoc">
-          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        <div
+          style="position:absolute;top:18px;left:-55px;width:180px;text-align:center;background:#ef4444;color:#fff;padding:8px 0;font-size:0.75rem;font-weight:600;transform:rotate(-45deg);">
+          📍 KOZHIKODE
         </div>
       </div>
 
-      <div class="ftcol">
-        <h5>Explore</h5>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="explore_apartments.html">Explore Apartments</a></li>
-          <li><a href="property_guidance.html">Property Guidance</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
+      <!-- CARD -->
+      <div style="position:relative;border-radius:16px;overflow:hidden;aspect-ratio:1/1;">
+        <img loading="lazy" src="assets/image-cards/thrissur.png" style="width:100%;height:100%;object-fit:cover;">
+
+        <div
+          style="position:absolute;bottom:0;left:0;width:100%;height:40%;background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+        </div>
+
+        <div style="position:absolute;bottom:12px;width:100%;text-align:center;color:#fff;font-size:0.9rem;">
+          Cultural centre · Steady market
+        </div>
+
+        <div
+          style="position:absolute;top:18px;left:-55px;width:180px;text-align:center;background:#ef4444;color:#fff;padding:8px 0;font-size:0.75rem;font-weight:600;transform:rotate(-45deg);">
+          📍 THRISSUR
+        </div>
       </div>
 
-      <div class="ftcol">
-        <h5>Services</h5>
-        <ul>
-          <li><a href="#">Real Estate</a></li>
-          <li><a href="#">Interiors</a></li>
-          <li><a href="#">Solar Solutions</a></li>
-          <li><a href="property_guidance.html">Property Guidance</a></li>
-        </ul>
+      <!-- CARD -->
+      <div style="position:relative;border-radius:16px;overflow:hidden;aspect-ratio:1/1;">
+        <img loading="lazy" src="assets/image-cards/th.png" style="width:100%;height:100%;object-fit:cover;">
+
+        <div
+          style="position:absolute;bottom:0;left:0;width:100%;height:40%;background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+        </div>
+
+        <div style="position:absolute;bottom:12px;width:100%;text-align:center;color:#fff;font-size:0.9rem;">
+          State capital · Diverse options
+        </div>
+
+        <div
+          style="position:absolute;top:18px;left:-55px;width:180px;text-align:center;background:#ef4444;color:#fff;padding:8px 0;font-size:0.75rem;font-weight:600;transform:rotate(-45deg);">
+          📍 TRIVANDRUM
+        </div>
       </div>
 
-      <div class="ftcol ftadr">
-        <h5>Contact</h5>
-        <p>
-          <i class="fa-solid fa-location-dot"></i>
-          3rd Floor, HeadQ Pvt Ltd, Phase 1,
-          HiLITE Business Park, Kozhikode
-        </p>
-        <p>
-          <i class="fa-solid fa-envelope"></i>
-          contact@intentnet.com
-        </p>
+    </div>
+  </section>
+  <!-- ============================================================
+     DARK MARKET INSIGHT
+     ============================================================ -->
+  <section class="insight">
+    <div class="io"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <span class="kicker" style="color:#666;margin-bottom:14px;">Market Overview</span>
+      <h2 class="rv">Kerala Apartment Market Overview</h2>
+      <p class="rv" style="transition-delay:.15s">
+        Premium apartments in Kerala typically range based on location, project scale,
+        developer reputation, and amenities — making comparison critical before booking.
+      </p>
+
+      <div class="istats rv" style="transition-delay:.28s">
+        <div class="istat">
+          <span class="in cnt" data-to="500" data-s="+">500+</span>
+          <span class="il">Verified Partners</span>
+        </div>
+        <div class="istat">
+          <span class="in cnt" data-to="10" data-s="k+">10k+</span>
+          <span class="il">Buyers Guided</span>
+        </div>
+        <div class="istat">
+          <span class="in cnt" data-to="4" data-s="">4</span>
+          <span class="il">Major Cities</span>
+        </div>
+        <div class="istat">
+          <span class="in cnt" data-to="100" data-s="%">100%</span>
+          <span class="il">Verified Listings</span>
+        </div>
+      </div>
+
+      <div class="pbox rv" style="transition-delay:.42s">
+        <div class="pnum">₹80L — ₹2Cr</div>
+        <div class="plbl">Typical premium apartment<br>price range across Kerala</div>
       </div>
     </div>
+  </section>
 
-    <div class="ftbar">
-      <p>&copy; 2026 IntentNet. All rights reserved.</p>
-      <p>Kerala's Property Discovery Platform</p>
+  <!-- ============================================================
+     HOW IT WORKS
+     ============================================================ -->
+  <section class="how">
+    <div class="how-hd rv">
+      <div>
+        <span class="kicker">Simple &amp; Clear</span>
+        <h2>How IntentNet Works</h2>
+      </div>
+      <p>Four structured steps — from sharing your requirement to visiting
+        the right projects. IntentNet guides you every step of the way.</p>
     </div>
-  </div>
-</footer>
 
-<!-- JS loaded at end of body -->
-<script src="main.js"></script>
+    <div class="how-grid">
+      <!-- animated connector line -->
+      <div class="hconn">
+        <div class="hconn-in">
+          <div class="hconn-p"></div>
+        </div>
+      </div>
+
+      <div class="hcard sg">
+        <div class="hbg">01</div>
+        <div class="hic"><i class="fa-solid fa-pen-to-square"></i></div>
+        <span class="htag">Step 01</span>
+        <h3>Share Your Requirement</h3>
+        <p>Tell us your preferred location, budget range, and apartment type.
+          We tailor everything to your needs from day one.</p>
+        <div class="hdots">
+          <div class="hdot active"></div>
+          <div class="hdot"></div>
+          <div class="hdot"></div>
+          <div class="hdot"></div>
+        </div>
+      </div>
+
+      <div class="hcard sg">
+        <div class="hbg">02</div>
+        <div class="hic"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <span class="htag">Step 02</span>
+        <h3>Explore Relevant Projects</h3>
+        <p>IntentNet helps you review suitable residential developments
+          across Kerala — curated to match your criteria.</p>
+        <div class="hdots">
+          <div class="hdot"></div>
+          <div class="hdot active"></div>
+          <div class="hdot"></div>
+          <div class="hdot"></div>
+        </div>
+      </div>
+
+      <div class="hcard sg">
+        <div class="hbg">03</div>
+        <div class="hic"><i class="fa-solid fa-sliders"></i></div>
+        <span class="htag">Step 03</span>
+        <h3>Compare Options</h3>
+        <p>Evaluate builders, amenities, project features, and pricing
+          side by side — with complete transparency.</p>
+        <div class="hdots">
+          <div class="hdot"></div>
+          <div class="hdot"></div>
+          <div class="hdot active"></div>
+          <div class="hdot"></div>
+        </div>
+      </div>
+
+      <div class="hcard sg">
+        <div class="hbg">04</div>
+        <div class="hic"><i class="fa-solid fa-circle-check"></i></div>
+        <span class="htag">Step 04</span>
+        <h3>Visit &amp; Decide</h3>
+        <p>Shortlist properties, plan informed site visits, and make your
+          booking decision with total confidence.</p>
+        <div class="hdots">
+          <div class="hdot"></div>
+          <div class="hdot"></div>
+          <div class="hdot"></div>
+          <div class="hdot active"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     BUILDERS
+     ============================================================ -->
+
+  <section class="builders">
+    <div class="container tc rv">
+      <span class="kicker">Developer Discovery</span>
+
+      <h2 style="font-size:clamp(1.8rem,3vw,2.7rem);margin-top:10px;">
+        Residential Developers in Kerala
+      </h2>
+
+      <p style="color:var(--tm);max-width:480px;margin:12px auto 0;font-size:.95rem;">
+        IntentNet helps buyers explore projects from different developers
+        and compare options.
+      </p>
+    </div>
+
+    <!-- Cards Row -->
+    <div class="bld-g" style="display:flex;flex-wrap:wrap;gap:18px;justify-content:center;
+       margin-top:35px;">
+
+      <!-- Card -->
+      <div style="background:#fff;border-radius:14px;padding:18px;
+         width:18%;min-width:150px;
+         display:flex;flex-direction:column;align-items:center;justify-content:center;
+         box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+
+        <img src="assets/logo/assets.webp" style="width:60px;height:60px;object-fit:contain;margin-bottom:10px;">
+
+        <h4 style="margin:0;font-size:15px;">Asset Homes</h4>
+        <span style="color:#777;font-size:13px;">Kochi · Thrissur</span>
+      </div>
+
+      <div style="background:#fff;border-radius:14px;padding:18px;
+         width:18%;min-width:150px;
+         display:flex;flex-direction:column;align-items:center;justify-content:center;
+         box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+
+        <img src="assets/logo/abad.webp" style="width:60px;height:60px;object-fit:contain;margin-bottom:10px;">
+
+        <h4 style="margin:0;font-size:15px;">ABAD Builders</h4>
+        <span style="color:#777;font-size:13px;">Kochi · Ernakulam</span>
+      </div>
+
+      <div style="background:#fff;border-radius:14px;padding:18px;
+         width:18%;min-width:150px;
+         display:flex;flex-direction:column;align-items:center;justify-content:center;
+         box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+
+        <img src="assets/logo/varma.webp" style="width:80px;height:60px;object-fit:contain;margin-bottom:10px;">
+
+        <h4 style="margin:0;font-size:15px;">Varma Homes</h4>
+        <span style="color:#777;font-size:13px;">Kozhikode</span>
+      </div>
+
+      <div style="background:#fff;border-radius:14px;padding:18px;
+         width:18%;min-width:150px;
+         display:flex;flex-direction:column;align-items:center;justify-content:center;
+         box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+
+        <img src="assets/logo/prestige.webp" style="width:60px;height:60px;object-fit:contain;margin-bottom:10px;">
+
+        <h4 style="margin:0;font-size:15px;">Prestige Group</h4>
+        <span style="color:#777;font-size:13px;">Pan Kerala</span>
+      </div>
+
+      <div style="background:#fff;border-radius:14px;padding:18px;
+         width:18%;min-width:150px;
+         display:flex;flex-direction:column;align-items:center;justify-content:center;
+         box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+
+        <img src="assets/logo/kenthomes.webp" style="width:80px;height:60px;object-fit:contain;margin-bottom:10px;">
+
+        <h4 style="margin:0;font-size:15px;">Kent Constructions</h4>
+        <span style="color:#777;font-size:13px;">Thrissur</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+     ECOSYSTEM GALLERY (bento mosaic)
+     ============================================================ -->
+  <section class="eco">
+    <div class="eco-header rv">
+      <div>
+        <span class="kicker">The Ecosystem</span>
+        <h2>The IntentNet Ecosystem</h2>
+      </div>
+      <p>Real Estate · World-Class Interiors · Advanced Solar Solutions</p>
+    </div>
+
+    <!-- Filter pills -->
+    <div class="eco-filters rv" style="transition-delay:.15s">
+      <span class="eco-f active"><i class="fa-solid fa-border-all"></i>All</span>
+      <span class="eco-f"><i class="fa-solid fa-building"></i>Real Estate</span>
+      <span class="eco-f"><i class="fa-solid fa-couch"></i>Interiors</span>
+      <span class="eco-f"><i class="fa-solid fa-solar-panel"></i>Solar</span>
+    </div>
+
+    <!-- Bento grid -->
+    <div class="eco-g">
+      <div class="eitem e1 sg">
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+          alt="Villa">
+        <div class="eov"><span class="etag">Real Estate</span>
+          <h3>Premium Villas</h3>
+        </div>
+      </div>
+      <div class="eitem e2 sg">
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80"
+          alt="Resort">
+        <div class="eov"><span class="etag">Real Estate</span>
+          <h3>Resort-Style Developments</h3>
+        </div>
+      </div>
+      <div class="eitem e3 sg">
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80"
+          alt="Solar">
+        <div class="eov"><span class="etag">Solar</span>
+          <h3>Residential Solar Arrays</h3>
+        </div>
+      </div>
+      <div class="eitem e4 sg">
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1600607687931-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+          alt="Interiors">
+        <div class="eov"><span class="etag">Interiors</span>
+          <h3>Bespoke Living Rooms</h3>
+        </div>
+      </div>
+      <div class="eitem e5 sg">
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1600566753086-00f18efc2291?auto=format&fit=crop&w=800&q=80"
+          alt="Kitchen">
+        <div class="eov"><span class="etag">Interiors</span>
+          <h3>Smart Kitchens</h3>
+        </div>
+      </div>
+      <div class="eitem e6 sg">
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80"
+          alt="Highrise">
+        <div class="eov"><span class="etag">Real Estate</span>
+          <h3>Urban Highrises</h3>
+        </div>
+      </div>
+      <div class="eitem e7 sg">
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80"
+          alt="Bedroom">
+        <div class="eov"><span class="etag">Interiors</span>
+          <h3>Master Suites</h3>
+        </div>
+      </div>
+      <div class="eitem e8 sg">
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?auto=format&fit=crop&w=800&q=80"
+          alt="Solar Roof">
+        <div class="eov"><span class="etag">Solar</span>
+          <h3>Integrated Roof Tech</h3>
+        </div>
+      </div>
+      <div class="eitem e9 sg">
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1600607687644-aac4c15cecb1?auto=format&fit=crop&w=1200&q=80"
+          alt="Minimalist">
+        <div class="eov"><span class="etag">Interiors</span>
+          <h3>Minimalist Architecture</h3>
+        </div>
+      </div>
+      <div class="eitem e10 sg">
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+          alt="Smart Home">
+        <div class="eov"><span class="etag">Ecosystem</span>
+          <h3>Full Smart Integrations</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     FINAL CTA
+     ============================================================ -->
+  <section class="fcta">
+    <div class="fwm">INTENTNET</div>
+    <div class="container" style="position:relative;z-index:1;">
+      <h2 class="rv">Planning to Buy an<br>Apartment in Kerala?</h2>
+      <p class="rv" style="transition-delay:.2s">
+        Explore residential projects and compare builders before making
+        a booking decision.
+      </p>
+      <div class="fbtns rv" style="transition-delay:.4s">
+        <a href="explore_apartments.html" class="btn btn-wh">
+          <span class="btn-rip"></span>
+          Explore Apartments
+          <span class="btn-arr"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="property_guidance.html" class="btn"
+          style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,.28);">
+          <span class="btn-rip"></span>
+          Get Property Guidance
+          <span class="btn-arr" style="background:rgba(255,255,255,.1);color:#fff;">
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     FOOTER
+     ============================================================ -->
+  <footer class="foot">
+    <div class="container">
+      <div class="ftgrid">
+        <div class="ftbrand">
+          <img src="assets/logo/intentnet.jpeg" alt="IntentNet" onerror="this.alt='IntentNet'">
+          <p>IntentNet helps apartment buyers understand Kerala's residential market —
+            with clarity, structure, and verified connections.</p>
+          <div class="ftsoc">
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="ftcol">
+          <h5>Explore</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="explore_apartments.html">Explore Apartments</a></li>
+            <li><a href="property_guidance.html">Property Guidance</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="ftcol">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#">Real Estate</a></li>
+            <li><a href="#">Interiors</a></li>
+            <li><a href="#">Solar Solutions</a></li>
+            <li><a href="property_guidance.html">Property Guidance</a></li>
+          </ul>
+        </div>
+
+        <div class="ftcol ftadr">
+          <h5>Contact</h5>
+          <p>
+            <i class="fa-solid fa-location-dot"></i>
+            3rd Floor, HeadQ Pvt Ltd, Phase 1,
+            HiLITE Business Park, Kozhikode
+          </p>
+          <p>
+            <i class="fa-solid fa-envelope"></i>
+            contact@intentnet.com
+          </p>
+        </div>
+      </div>
+
+      <div class="ftbar">
+        <p>&copy; 2026 IntentNet. All rights reserved.</p>
+        <p>Kerala's Property Discovery Platform</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS loaded at end of body -->
+  <script src="main.js"></script>
 </body>
+
 </html>

@@ -1,937 +1,1174 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Explore Apartments — IntentNet | Kerala Real Estate</title>
-<link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="styles.css">
-<style>
-/* ============================================================
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Apartments — IntentNet | Kerala Real Estate</title>
+  <link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ============================================================
    EXPLORE APARTMENTS — PAGE STYLES
    Matches the screenshot: white cards, image left, details right,
    grey stats box, sidebar filters
    ============================================================ */
- 
-/* ── PAGE WRAPPER ── */
-.exp-page {
-  background: #f2f2f2;
-  min-height: 100vh;
-}
- 
-/* ── PAGE HEADER (title + breadcrumb) ── */
-.exp-page-header {
-  background: #fff;
-  border-bottom: 1px solid #e8e8e8;
-  padding: 28px 5% 20px;
-}
-.exp-page-header .breadcrumb {
-  font-size: .8rem;
-  color: #aaa;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-.exp-page-header .breadcrumb a { color: #888; transition: color .25s; }
-.exp-page-header .breadcrumb a:hover { color: #000; }
-.exp-page-header .breadcrumb i { font-size: .6rem; }
-.exp-page-header h1 {
-  font-family: 'Outfit', sans-serif;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 700;
-  color: #111;
-  letter-spacing: -.025em;
-}
- 
-/* ── CITY PILLS BAR ── */
-.exp-city-bar {
-  background: #fff;
-  border-bottom: 1px solid #e8e8e8;
-  padding: 14px 5%;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.exp-city-bar .cp-label {
-  font-size: .75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .12em;
-  color: #999;
-  white-space: nowrap;
-  margin-right: 4px;
-}
-.city-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 16px;
-  border-radius: 50px;
-  background: #f5f5f5;
-  border: 1.5px solid #e0e0e0;
-  color: #555;
-  font-family: 'Outfit', sans-serif;
-  font-size: .82rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all .25s;
-  white-space: nowrap;
-  user-select: none;
-}
-.city-pill:hover { background: #ebebeb; border-color: #ccc; color: #111; }
-.city-pill.active { background: #111; border-color: #111; color: #fff; }
-.city-pill i { font-size: .68rem; }
- 
-/* ── MAIN LAYOUT: SIDEBAR + FEED ── */
-.exp-layout {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 0;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 28px 5% 80px;
-  align-items: start;
-}
-@media (max-width: 900px) { .exp-layout { grid-template-columns: 1fr; padding: 20px 4% 60px; } }
- 
-/* ── SIDEBAR ── */
-.exp-sidebar {
-  background: #fff;
-  border-radius: 14px;
-  border: 1px solid #e8e8e8;
-  padding: 24px 20px;
-  position: sticky;
-  top: 130px;
-  margin-right: 22px;
-}
-@media (max-width: 900px) {
-  .exp-sidebar { position: static; margin-right: 0; margin-bottom: 16px; display: none; }
-  .exp-sidebar.open { display: block; }
-}
- 
-/* Mobile filter toggle */
-.exp-filter-toggle {
-  display: none;
-  width: 100%;
-  padding: 13px 18px;
-  background: #fff;
-  color: #111;
-  border: 1.5px solid #ddd;
-  border-radius: 10px;
-  font-family: 'Outfit', sans-serif;
-  font-size: .9rem;
-  font-weight: 600;
-  cursor: pointer;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 12px;
-  transition: border-color .25s;
-}
-.exp-filter-toggle:hover { border-color: #111; }
-@media (max-width: 900px) { .exp-filter-toggle { display: flex; } }
- 
-.exp-sidebar-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #111;
-  padding-bottom: 14px;
-  border-bottom: 1px solid #f0f0f0;
-  margin-bottom: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.exp-sidebar-title button {
-  font-size: .72rem;
-  color: #888;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  transition: color .2s;
-}
-.exp-sidebar-title button:hover { color: #111; }
- 
-.exp-filter-group {
-  margin-bottom: 22px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #f0f0f0;
-}
-.exp-filter-group:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
- 
-.exp-filter-group h3 {
-  font-family: 'Outfit', sans-serif;
-  font-size: .78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .12em;
-  color: #111;
-  margin-bottom: 12px;
-}
-.exp-filter-group .hint {
-  font-size: .74rem;
-  color: #bbb;
-  margin-bottom: 8px;
-}
-.exp-cb {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 7px 8px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: .88rem;
-  color: #444;
-  transition: background .2s;
-  margin-bottom: 2px;
-}
-.exp-cb:hover { background: #f7f7f7; }
-.exp-cb input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-  accent-color: #111;
-  cursor: pointer;
-  flex-shrink: 0;
-  border-radius: 4px;
-}
- 
-/* ── FEED ── */
-.exp-feed-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 18px;
-}
-.exp-feed-header h2 {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #111;
-}
-.exp-result-count {
-  font-size: .84rem;
-  color: #999;
-}
- 
-.exp-feed { display: flex; flex-direction: column; gap: 18px; }
- 
-/* ── PROPERTY CARD (matches screenshot exactly) ── */
-.prop-card {
-  background: #fff;
-  border-radius: 16px;
-  border: 1px solid #e8e8e8;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  transition: box-shadow .4s, transform .4s;
-  cursor: default;
-}
-.prop-card:hover {
-  box-shadow: 0 8px 32px rgba(0,0,0,.1);
-  transform: translateY(-2px);
-}
-@media (max-width: 720px) { .prop-card { grid-template-columns: 1fr; } }
- 
-/* Image side */
-.prop-img-wrap {
-  position: relative;
-  overflow: hidden;
-  background: #eee;
-  min-height: 240px;
-}
-@media (max-width: 720px) { .prop-img-wrap { min-height: 200px; } }
-.prop-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform .7s ease;
-}
-.prop-card:hover .prop-img-wrap img { transform: scale(1.04); }
- 
-/* Badge */
-.prop-badge {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  z-index: 2;
-  background: #111;
-  color: #fff;
-  font-size: .7rem;
-  font-weight: 700;
-  font-family: 'Outfit', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  padding: 5px 12px;
-  border-radius: 6px;
-}
-.prop-badge.green  { background: #1a8a4a; }
-.prop-badge.blue   { background: #1a5aba; }
-.prop-badge.orange { background: #c85a00; }
- 
-/* Details side */
-.prop-details {
-  padding: 28px 28px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-@media (max-width: 480px) { .prop-details { padding: 20px 16px; } }
- 
-.prop-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 14px;
-  margin-bottom: 6px;
-  flex-wrap: wrap;
-}
-.prop-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #111;
-  line-height: 1.2;
-  margin: 0;
-}
-.prop-price {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #111;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.prop-location {
-  font-size: .82rem;
-  color: #888;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-bottom: 16px;
-}
-.prop-location i { color: #bbb; font-size: .75rem; }
- 
-/* Stats box — grey bg, 3 columns, exactly like screenshot */
-.prop-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  background: #f4f4f6;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 16px;
-}
-@media (max-width: 480px) { .prop-stats { grid-template-columns: 1fr 1fr; } }
-.stat-item {
-  padding: 14px 16px;
-  border-right: 1px solid #e8e8e8;
-}
-.stat-item:last-child { border-right: none; }
-.stat-label {
-  font-size: .7rem;
-  color: #aaa;
-  display: block;
-  margin-bottom: 4px;
-  font-weight: 500;
-}
-.stat-value {
-  font-family: 'Outfit', sans-serif;
-  font-size: .92rem;
-  font-weight: 700;
-  color: #111;
-  display: block;
-}
- 
-/* Description */
-.prop-desc {
-  font-size: .88rem;
-  color: #666;
-  line-height: 1.72;
-  margin-bottom: 18px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  flex: 1;
-}
- 
-/* Action buttons — exactly like screenshot */
-.prop-actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: auto;
-}
-.btn-contact {
-  padding: 12px 24px;
-  background: #111;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-family: 'Outfit', sans-serif;
-  font-size: .86rem;
-  font-weight: 700;
-  cursor: pointer;
-  letter-spacing: .02em;
-  transition: background .25s, transform .25s;
-}
-.btn-contact:hover { background: #333; transform: translateY(-1px); }
-.btn-view {
-  padding: 12px 24px;
-  background: #fff;
-  color: #111;
-  border: 1.5px solid #ccc;
-  border-radius: 8px;
-  font-family: 'Outfit', sans-serif;
-  font-size: .86rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: border-color .25s, background .25s;
-}
-.btn-view:hover { border-color: #111; background: #f7f7f7; }
- 
-/* No results */
-.exp-no-results {
-  display: none;
-  text-align: center;
-  padding: 80px 20px;
-  background: #fff;
-  border-radius: 16px;
-  border: 1px solid #e8e8e8;
-}
-.exp-no-results i { font-size: 2.8rem; color: #ddd; margin-bottom: 16px; display: block; }
-.exp-no-results h3 { font-size: 1.15rem; color: #888; margin-bottom: 8px; }
-.exp-no-results p  { font-size: .88rem; color: #bbb; }
- 
-/* Reveal animation compatibility */
-.rv { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
-.rv.on { opacity: 1; transform: none; }
-</style>
+
+    /* ── PAGE WRAPPER ── */
+    .exp-page {
+      background: #f2f2f2;
+      min-height: 100vh;
+    }
+
+    /* ── PAGE HEADER (title + breadcrumb) ── */
+    .exp-page-header {
+      background: #fff;
+      border-bottom: 1px solid #e8e8e8;
+      padding: 28px 5% 20px;
+    }
+
+    .exp-page-header .breadcrumb {
+      font-size: .8rem;
+      color: #aaa;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .exp-page-header .breadcrumb a {
+      color: #888;
+      transition: color .25s;
+    }
+
+    .exp-page-header .breadcrumb a:hover {
+      color: #000;
+    }
+
+    .exp-page-header .breadcrumb i {
+      font-size: .6rem;
+    }
+
+    .exp-page-header h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: #111;
+      letter-spacing: -.025em;
+    }
+
+    /* ── CITY PILLS BAR ── */
+    .exp-city-bar {
+      background: #fff;
+      border-bottom: 1px solid #e8e8e8;
+      padding: 14px 5%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .exp-city-bar .cp-label {
+      font-size: .75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: #999;
+      white-space: nowrap;
+      margin-right: 4px;
+    }
+
+    .city-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      border-radius: 50px;
+      background: #f5f5f5;
+      border: 1.5px solid #e0e0e0;
+      color: #555;
+      font-family: 'Outfit', sans-serif;
+      font-size: .82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .25s;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .city-pill:hover {
+      background: #ebebeb;
+      border-color: #ccc;
+      color: #111;
+    }
+
+    .city-pill.active {
+      background: #111;
+      border-color: #111;
+      color: #fff;
+    }
+
+    .city-pill i {
+      font-size: .68rem;
+    }
+
+    /* ── MAIN LAYOUT: SIDEBAR + FEED ── */
+    .exp-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 0;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 28px 5% 80px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .exp-layout {
+        grid-template-columns: 1fr;
+        padding: 20px 4% 60px;
+      }
+    }
+
+    /* ── SIDEBAR ── */
+    .exp-sidebar {
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid #e8e8e8;
+      padding: 24px 20px;
+      position: sticky;
+      top: 130px;
+      margin-right: 22px;
+    }
+
+    @media (max-width: 900px) {
+      .exp-sidebar {
+        position: static;
+        margin-right: 0;
+        margin-bottom: 16px;
+        display: none;
+      }
+
+      .exp-sidebar.open {
+        display: block;
+      }
+    }
+
+    /* Mobile filter toggle */
+    .exp-filter-toggle {
+      display: none;
+      width: 100%;
+      padding: 13px 18px;
+      background: #fff;
+      color: #111;
+      border: 1.5px solid #ddd;
+      border-radius: 10px;
+      font-family: 'Outfit', sans-serif;
+      font-size: .9rem;
+      font-weight: 600;
+      cursor: pointer;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+      transition: border-color .25s;
+    }
+
+    .exp-filter-toggle:hover {
+      border-color: #111;
+    }
+
+    @media (max-width: 900px) {
+      .exp-filter-toggle {
+        display: flex;
+      }
+    }
+
+    .exp-sidebar-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #111;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #f0f0f0;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .exp-sidebar-title button {
+      font-size: .72rem;
+      color: #888;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      transition: color .2s;
+    }
+
+    .exp-sidebar-title button:hover {
+      color: #111;
+    }
+
+    .exp-filter-group {
+      margin-bottom: 22px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .exp-filter-group:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .exp-filter-group h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: #111;
+      margin-bottom: 12px;
+    }
+
+    .exp-filter-group .hint {
+      font-size: .74rem;
+      color: #bbb;
+      margin-bottom: 8px;
+    }
+
+    .exp-cb {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: .88rem;
+      color: #444;
+      transition: background .2s;
+      margin-bottom: 2px;
+    }
+
+    .exp-cb:hover {
+      background: #f7f7f7;
+    }
+
+    .exp-cb input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: #111;
+      cursor: pointer;
+      flex-shrink: 0;
+      border-radius: 4px;
+    }
+
+    /* ── FEED ── */
+    .exp-feed-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .exp-feed-header h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .exp-result-count {
+      font-size: .84rem;
+      color: #999;
+    }
+
+    .exp-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    /* ── PROPERTY CARD (matches screenshot exactly) ── */
+    .prop-card {
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid #e8e8e8;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      transition: box-shadow .4s, transform .4s;
+      cursor: default;
+    }
+
+    .prop-card:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .1);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 720px) {
+      .prop-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Image side */
+    .prop-img-wrap {
+      position: relative;
+      overflow: hidden;
+      background: #eee;
+      min-height: 240px;
+    }
+
+    @media (max-width: 720px) {
+      .prop-img-wrap {
+        min-height: 200px;
+      }
+    }
+
+    .prop-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .7s ease;
+    }
+
+    .prop-card:hover .prop-img-wrap img {
+      transform: scale(1.04);
+    }
+
+    /* Badge */
+    .prop-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 2;
+      background: #111;
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      padding: 5px 12px;
+      border-radius: 6px;
+    }
+
+    .prop-badge.green {
+      background: #1a8a4a;
+    }
+
+    .prop-badge.blue {
+      background: #1a5aba;
+    }
+
+    .prop-badge.orange {
+      background: #c85a00;
+    }
+
+    /* Details side */
+    .prop-details {
+      padding: 28px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    @media (max-width: 480px) {
+      .prop-details {
+        padding: 20px 16px;
+      }
+    }
+
+    .prop-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+
+    .prop-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #111;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .prop-price {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #111;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .prop-location {
+      font-size: .82rem;
+      color: #888;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 16px;
+    }
+
+    .prop-location i {
+      color: #bbb;
+      font-size: .75rem;
+    }
+
+    /* Stats box — grey bg, 3 columns, exactly like screenshot */
+    .prop-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: #f4f4f6;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 480px) {
+      .prop-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .stat-item {
+      padding: 14px 16px;
+      border-right: 1px solid #e8e8e8;
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-label {
+      font-size: .7rem;
+      color: #aaa;
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    .stat-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: .92rem;
+      font-weight: 700;
+      color: #111;
+      display: block;
+    }
+
+    /* Description */
+    .prop-desc {
+      font-size: .88rem;
+      color: #666;
+      line-height: 1.72;
+      margin-bottom: 18px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 1;
+    }
+
+    /* Action buttons — exactly like screenshot */
+    .prop-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .btn-contact {
+      padding: 12px 24px;
+      background: #111;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: .86rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: .02em;
+      transition: background .25s, transform .25s;
+    }
+
+    .btn-contact:hover {
+      background: #333;
+      transform: translateY(-1px);
+    }
+
+    .btn-view {
+      padding: 12px 24px;
+      background: #fff;
+      color: #111;
+      border: 1.5px solid #ccc;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: .86rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color .25s, background .25s;
+    }
+
+    .btn-view:hover {
+      border-color: #111;
+      background: #f7f7f7;
+    }
+
+    /* No results */
+    .exp-no-results {
+      display: none;
+      text-align: center;
+      padding: 80px 20px;
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid #e8e8e8;
+    }
+
+    .exp-no-results i {
+      font-size: 2.8rem;
+      color: #ddd;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .exp-no-results h3 {
+      font-size: 1.15rem;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .exp-no-results p {
+      font-size: .88rem;
+      color: #bbb;
+    }
+
+    /* Reveal animation compatibility */
+    .rv {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .rv.on {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
 </head>
+
 <body class="page-offset">
- 
-<div class="pbar" id="pbar"></div>
- 
-<!-- ===== NAVBAR (unchanged) ===== -->
-<nav class="navbar" id="navbar">
-  <div class="nt">
-    <a href="index.html" class="nl">
-      <img src="assets/logo/intentnet-logo.png" alt="IntentNet" onerror="this.style.display='none'">
-      <div class="nl-text"><strong>IntentNet</strong><span>Real Estate Platform</span></div>
-    </a>
-    <div class="nav-loc">
-      <i class="fa-solid fa-location-dot pin"></i>
-      <span>Kozhikode, Kerala</span>
-      <i class="fa-solid fa-chevron-down chev"></i>
-    </div>
-    <div class="nr">
-      <div class="nsoc">
-        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+
+  <!-- PAGE LOADER -->
+  <!-- <div class="page-loader" id="pageLoader">
+  <div class="loader-content">
+    <img src="assets/logo/intentnet-logo.png" alt="IntentNet">
+    <div class="loader-spinner"></div>
+  </div>
+</div> -->
+
+  <div class="pbar" id="pbar"></div>
+
+  <!-- ===== NAVBAR (unchanged) ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nt">
+      <a href="index.html" class="nl">
+        <img src="assets/logo/intentnet-logo.png" alt="IntentNet" onerror="this.style.display='none'">
+        <div class="nl-text"><strong>IntentNet</strong><span>Real Estate Platform</span></div>
+      </a>
+      <div class="nav-loc">
+        <i class="fa-solid fa-location-dot pin"></i>
+        <span>Kozhikode, Kerala</span>
+        <i class="fa-solid fa-chevron-down chev"></i>
       </div>
-      <a href="contact.html" class="nav-pill">Get Started</a>
-      <button class="ham" id="ham" aria-label="Open menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-  <div class="nb">
-    <div class="nb-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="explore_apartments.html" class="active">Explore Apartments</a>
-      <a href="property_guidance.html">Property Guidance</a>
-      <a href="contact.html">Contact Us</a>
-    </div>
-  </div>
-</nav>
- 
-<!-- ===== MOBILE MENU (unchanged) ===== -->
-<div class="mob-menu" id="mobMenu">
-  <button class="mob-close" id="mc"><i class="fa-solid fa-xmark"></i></button>
-  <nav class="mob-nav">
-    <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-    <a href="explore_apartments.html"><i class="fa-solid fa-building"></i> Explore Apartments</a>
-    <a href="property_guidance.html"><i class="fa-solid fa-handshake"></i> Property Guidance</a>
-    <a href="about.html"><i class="fa-solid fa-users"></i> About Us</a>
-    <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact Us</a>
-  </nav>
-  <div class="mob-soc">
-    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-  </div>
-</div>
- 
-<!-- ===== PAGE HEADER ===== -->
-<div class="exp-page">
- 
-  <div class="exp-page-header">
-    <div class="breadcrumb">
-      <a href="index.html">Home</a>
-      <i class="fa-solid fa-chevron-right"></i>
-      <a href="#">Property in Kerala</a>
-      <i class="fa-solid fa-chevron-right"></i>
-      <span>Explore Apartments in Kerala</span>
-    </div>
-    <h1>Property for Sale in Kerala</h1>
-  </div>
- 
-  <!-- ===== CITY FILTER PILLS ===== -->
-  <div class="exp-city-bar">
-    <span class="cp-label">City:</span>
-    <span class="city-pill active" data-city="all"><i class="fa-solid fa-border-all"></i> All Cities</span>
-    <span class="city-pill" data-city="kochi"><i class="fa-solid fa-location-dot"></i> Kochi</span>
-    <span class="city-pill" data-city="kozhikode"><i class="fa-solid fa-location-dot"></i> Kozhikode</span>
-    <span class="city-pill" data-city="thrissur"><i class="fa-solid fa-location-dot"></i> Thrissur</span>
-    <span class="city-pill" data-city="thiruvananthapuram"><i class="fa-solid fa-location-dot"></i> Thiruvananthapuram</span>
-  </div>
- 
-  <!-- ===== MAIN LAYOUT ===== -->
-  <div class="exp-layout">
- 
-    <!-- LEFT: SIDEBAR FILTERS -->
-    <div>
-      <!-- Mobile toggle -->
-      <button class="exp-filter-toggle" id="filterToggle">
-        <span><i class="fa-solid fa-sliders"></i>&nbsp; Filters</span>
-        <i class="fa-solid fa-chevron-down" id="filterChev"></i>
-      </button>
- 
-      <aside class="exp-sidebar" id="filterSidebar">
-        <div class="exp-sidebar-title">
-          Filters
-          <button id="clearFilters">Clear All</button>
-        </div>
- 
-        <!-- Budget -->
-        <div class="exp-filter-group">
-          <h3>Budget</h3>
-          <div class="hint">Select Price Range</div>
-          <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="budget" value="0-100">Under ₹1 Crore</label>
-          <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="budget" value="100-200">₹1 Cr – ₹2 Cr</label>
-          <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="budget" value="200-500">₹2 Cr – ₹5 Cr</label>
-          <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="budget" value="500-10000">Above ₹5 Cr</label>
-        </div>
- 
-        <!-- BHK -->
-        <div class="exp-filter-group">
-          <h3>BHK</h3>
-          <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="bhk" value="1">1 BHK</label>
-          <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="bhk" value="2">2 BHK</label>
-          <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="bhk" value="3">3 BHK</label>
-          <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="bhk" value="4">4 BHK</label>
-        </div>
- 
-        <!-- Property Type -->
-        <div class="exp-filter-group">
-          <h3>Property Type</h3>
-          <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="type" value="apartment">Flat / Apartment</label>
-          <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="type" value="villa">Villa / House</label>
-        </div>
- 
-        <!-- Status -->
-        <div class="exp-filter-group">
-          <h3>Status</h3>
-          <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="status" value="ready">Ready to Move</label>
-          <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="status" value="construction">Under Construction</label>
-        </div>
-      </aside>
-    </div>
- 
-    <!-- RIGHT: PROPERTY FEED -->
-    <div>
-      <div class="exp-feed-header rv">
-        <h2 id="feedTitle">Property for Sale in Kerala</h2>
-        <span class="exp-result-count" id="resultCount">Showing 8 properties</span>
-      </div>
- 
-      <div class="exp-feed" id="propertyFeed">
- 
-        <!-- CARD 1 · 3BHK Apartment · Kochi · ₹2.4 Cr · Ready -->
-        <div class="prop-card filter-target" data-budget="240" data-bhk="3" data-type="apartment" data-city="kochi" data-status="ready">
-          <div class="prop-img-wrap">
-            <span class="prop-badge">Verified Builder</span>
-            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=700&q=80" alt="3BHK Marine Drive Kochi">
-          </div>
-          <div class="prop-details">
-            <div class="prop-header">
-              <div>
-                <h2 class="prop-title">3 BHK Apartment / Flat for Sale</h2>
-                <div class="prop-location"><i class="fa-solid fa-location-dot"></i>Marine Drive, Kochi</div>
-              </div>
-              <div class="prop-price">₹ 2.4 Cr</div>
-            </div>
-            <div class="prop-stats">
-              <div class="stat-item"><span class="stat-label">Carpet Area</span><span class="stat-value">1800 sqft</span></div>
-              <div class="stat-item"><span class="stat-label">Status</span><span class="stat-value">Ready to Move</span></div>
-              <div class="stat-item"><span class="stat-label">Floor</span><span class="stat-value">8 out of 15</span></div>
-            </div>
-            <p class="prop-desc">Located on Marine Drive, this premium 3 BHK features luxury interiors, smart home integrations, and unblocked sea views. Close to metro, IT parks and international schools.</p>
-            <div class="prop-actions">
-              <button class="btn-contact">Contact Builder</button>
-              <button class="btn-view">View Details</button>
-            </div>
-          </div>
-        </div>
- 
-        <!-- CARD 2 · 2BHK Apartment · Kochi · ₹1.1 Cr · Ready -->
-        <div class="prop-card filter-target" data-budget="110" data-bhk="2" data-type="apartment" data-city="kochi" data-status="ready">
-          <div class="prop-img-wrap">
-            <span class="prop-badge green">New Launch</span>
-            <img src="https://images.unsplash.com/photo-1600607687931-ce8a6c25118c?auto=format&fit=crop&w=700&q=80" alt="2BHK Edapally Kochi">
-          </div>
-          <div class="prop-details">
-            <div class="prop-header">
-              <div>
-                <h2 class="prop-title">2 BHK Premium Apartment</h2>
-                <div class="prop-location"><i class="fa-solid fa-location-dot"></i>Edapally, Kochi</div>
-              </div>
-              <div class="prop-price">₹ 1.1 Cr</div>
-            </div>
-            <div class="prop-stats">
-              <div class="stat-item"><span class="stat-label">Carpet Area</span><span class="stat-value">1200 sqft</span></div>
-              <div class="stat-item"><span class="stat-label">Status</span><span class="stat-value">Ready to Move</span></div>
-              <div class="stat-item"><span class="stat-label">Furnishing</span><span class="stat-value">Semi-Furnished</span></div>
-            </div>
-            <p class="prop-desc">Stylish 2 BHK in the heart of Edapally with modern interiors, covered parking, and excellent connectivity to Seaport-Airport Road and NH-66.</p>
-            <div class="prop-actions">
-              <button class="btn-contact">Contact Builder</button>
-              <button class="btn-view">View Details</button>
-            </div>
-          </div>
-        </div>
- 
-        <!-- CARD 3 · 4BHK Villa · Kozhikode · ₹3.8 Cr · Under Construction -->
-        <div class="prop-card filter-target" data-budget="380" data-bhk="4" data-type="villa" data-city="kozhikode" data-status="construction">
-          <div class="prop-img-wrap">
-            <span class="prop-badge green">New Launch</span>
-            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=700&q=80" alt="4BHK Villa Kozhikode">
-          </div>
-          <div class="prop-details">
-            <div class="prop-header">
-              <div>
-                <h2 class="prop-title">4 BHK Luxury Villa for Sale</h2>
-                <div class="prop-location"><i class="fa-solid fa-location-dot"></i>Chevayur, Kozhikode</div>
-              </div>
-              <div class="prop-price">₹ 3.8 Cr</div>
-            </div>
-            <div class="prop-stats">
-              <div class="stat-item"><span class="stat-label">Carpet Area</span><span class="stat-value">3200 sqft</span></div>
-              <div class="stat-item"><span class="stat-label">Status</span><span class="stat-value">Under Construction</span></div>
-              <div class="stat-item"><span class="stat-label">Transaction</span><span class="stat-value">New Property</span></div>
-            </div>
-            <p class="prop-desc">Exclusive gated community villa in Chevayur with private garden, solar rooftop system, home theatre, and designer interiors. Expected possession by late 2026.</p>
-            <div class="prop-actions">
-              <button class="btn-contact">Contact Builder</button>
-              <button class="btn-view">View Details</button>
-            </div>
-          </div>
-        </div>
- 
-        <!-- CARD 4 · 3BHK Apartment · Kozhikode · ₹1.6 Cr · Under Construction -->
-        <div class="prop-card filter-target" data-budget="160" data-bhk="3" data-type="apartment" data-city="kozhikode" data-status="construction">
-          <div class="prop-img-wrap">
-            <span class="prop-badge blue">Featured</span>
-            <img src="https://images.unsplash.com/photo-1600566753086-00f18efc2291?auto=format&fit=crop&w=700&q=80" alt="3BHK Kozhikode">
-          </div>
-          <div class="prop-details">
-            <div class="prop-header">
-              <div>
-                <h2 class="prop-title">3 BHK Apartment for Sale</h2>
-                <div class="prop-location"><i class="fa-solid fa-location-dot"></i>Calicut Beach Road, Kozhikode</div>
-              </div>
-              <div class="prop-price">₹ 1.6 Cr</div>
-            </div>
-            <div class="prop-stats">
-              <div class="stat-item"><span class="stat-label">Carpet Area</span><span class="stat-value">1550 sqft</span></div>
-              <div class="stat-item"><span class="stat-label">Status</span><span class="stat-value">Under Construction</span></div>
-              <div class="stat-item"><span class="stat-label">Possession</span><span class="stat-value">Mar 2027</span></div>
-            </div>
-            <p class="prop-desc">3 BHK steps from Calicut Beach. Sea-facing units available. Premium construction quality with rooftop amenity deck, gym, and children's play area.</p>
-            <div class="prop-actions">
-              <button class="btn-contact">Contact Builder</button>
-              <button class="btn-view">View Details</button>
-            </div>
-          </div>
-        </div>
- 
-        <!-- CARD 5 · 2BHK Apartment · Thrissur · ₹95 L · Ready -->
-        <div class="prop-card filter-target" data-budget="95" data-bhk="2" data-type="apartment" data-city="thrissur" data-status="ready">
-          <div class="prop-img-wrap">
-            <span class="prop-badge">Ready to Move</span>
-            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=700&q=80" alt="2BHK Thrissur">
-          </div>
-          <div class="prop-details">
-            <div class="prop-header">
-              <div>
-                <h2 class="prop-title">2 BHK Premium Apartment</h2>
-                <div class="prop-location"><i class="fa-solid fa-location-dot"></i>Punkunnam, Thrissur</div>
-              </div>
-              <div class="prop-price">₹ 95 L</div>
-            </div>
-            <div class="prop-stats">
-              <div class="stat-item"><span class="stat-label">Carpet Area</span><span class="stat-value">1100 sqft</span></div>
-              <div class="stat-item"><span class="stat-label">Status</span><span class="stat-value">Ready to Move</span></div>
-              <div class="stat-item"><span class="stat-label">Furnishing</span><span class="stat-value">Semi-Furnished</span></div>
-            </div>
-            <p class="prop-desc">Spacious 2 BHK in Punkunnam with modular kitchen, premium fittings, and Vastu-compliant architecture. Excellent connectivity to Thrissur city centre and Ring Road.</p>
-            <div class="prop-actions">
-              <button class="btn-contact">Contact Builder</button>
-              <button class="btn-view">View Details</button>
-            </div>
-          </div>
-        </div>
- 
-        <!-- CARD 6 · 3BHK Villa · Thrissur · ₹2.2 Cr · Ready -->
-        <div class="prop-card filter-target" data-budget="220" data-bhk="3" data-type="villa" data-city="thrissur" data-status="ready">
-          <div class="prop-img-wrap">
-            <span class="prop-badge">Verified Builder</span>
-            <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=700&q=80" alt="Villa Thrissur">
-          </div>
-          <div class="prop-details">
-            <div class="prop-header">
-              <div>
-                <h2 class="prop-title">3 BHK Independent Villa</h2>
-                <div class="prop-location"><i class="fa-solid fa-location-dot"></i>Ollur, Thrissur</div>
-              </div>
-              <div class="prop-price">₹ 2.2 Cr</div>
-            </div>
-            <div class="prop-stats">
-              <div class="stat-item"><span class="stat-label">Carpet Area</span><span class="stat-value">2000 sqft</span></div>
-              <div class="stat-item"><span class="stat-label">Status</span><span class="stat-value">Ready to Move</span></div>
-              <div class="stat-item"><span class="stat-label">Plot Area</span><span class="stat-value">6 Cents</span></div>
-            </div>
-            <p class="prop-desc">Well-designed 3 BHK villa in peaceful Ollur with private compound, car porch, and lush landscaping. Ideal for families seeking privacy near Thrissur city.</p>
-            <div class="prop-actions">
-              <button class="btn-contact">Contact Builder</button>
-              <button class="btn-view">View Details</button>
-            </div>
-          </div>
-        </div>
- 
-        <!-- CARD 7 · 3BHK Villa · Thiruvananthapuram · ₹2.8 Cr · Ready -->
-        <div class="prop-card filter-target" data-budget="280" data-bhk="3" data-type="villa" data-city="thiruvananthapuram" data-status="ready">
-          <div class="prop-img-wrap">
-            <span class="prop-badge orange">Featured</span>
-            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=700&q=80" alt="Villa Thiruvananthapuram">
-          </div>
-          <div class="prop-details">
-            <div class="prop-header">
-              <div>
-                <h2 class="prop-title">3 BHK Contemporary Villa</h2>
-                <div class="prop-location"><i class="fa-solid fa-location-dot"></i>Kowdiar, Thiruvananthapuram</div>
-              </div>
-              <div class="prop-price">₹ 2.8 Cr</div>
-            </div>
-            <div class="prop-stats">
-              <div class="stat-item"><span class="stat-label">Carpet Area</span><span class="stat-value">2400 sqft</span></div>
-              <div class="stat-item"><span class="stat-label">Status</span><span class="stat-value">Ready to Move</span></div>
-              <div class="stat-item"><span class="stat-label">Special</span><span class="stat-value">Solar Equipped</span></div>
-            </div>
-            <p class="prop-desc">Beautifully styled 3 BHK villa with complete 10kW solar roof panel system installed. Move-in ready with clear title. Experience sustainable luxury in Kowdiar.</p>
-            <div class="prop-actions">
-              <button class="btn-contact">Contact Builder</button>
-              <button class="btn-view">View Details</button>
-            </div>
-          </div>
-        </div>
- 
-        <!-- CARD 8 · 2BHK Apartment · Thiruvananthapuram · ₹75 L · Construction -->
-        <div class="prop-card filter-target" data-budget="75" data-bhk="2" data-type="apartment" data-city="thiruvananthapuram" data-status="construction">
-          <div class="prop-img-wrap">
-            <span class="prop-badge green">New Launch</span>
-            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=700&q=80" alt="2BHK Pattom">
-          </div>
-          <div class="prop-details">
-            <div class="prop-header">
-              <div>
-                <h2 class="prop-title">2 BHK Apartment for Sale</h2>
-                <div class="prop-location"><i class="fa-solid fa-location-dot"></i>Pattom, Thiruvananthapuram</div>
-              </div>
-              <div class="prop-price">₹ 75 L</div>
-            </div>
-            <div class="prop-stats">
-              <div class="stat-item"><span class="stat-label">Carpet Area</span><span class="stat-value">950 sqft</span></div>
-              <div class="stat-item"><span class="stat-label">Status</span><span class="stat-value">Under Construction</span></div>
-              <div class="stat-item"><span class="stat-label">Possession</span><span class="stat-value">Jun 2027</span></div>
-            </div>
-            <p class="prop-desc">Affordable 2 BHK in Pattom — Trivandrum's most sought-after zone. Walking distance to Pattom Junction, premium schools, and key government offices.</p>
-            <div class="prop-actions">
-              <button class="btn-contact">Contact Builder</button>
-              <button class="btn-view">View Details</button>
-            </div>
-          </div>
-        </div>
- 
-      </div><!-- /exp-feed -->
- 
-      <!-- No results state -->
-      <div class="exp-no-results" id="noResults">
-        <i class="fa-solid fa-building-circle-xmark"></i>
-        <h3>No properties match your filters</h3>
-        <p>Try adjusting your filters or selecting a different city.</p>
-      </div>
- 
-    </div><!-- /feed column -->
-  </div><!-- /exp-layout -->
- 
-</div><!-- /exp-page -->
- 
-<!-- ===== FINAL CTA (unchanged) ===== -->
-<section class="fcta">
-  <div class="fwm">INTENTNET</div>
-  <div class="container" style="position:relative;z-index:1;">
-    <h2 class="rv">Need Help Choosing the Right Property?</h2>
-    <p class="rv" style="transition-delay:.2s">Our property guidance team helps you compare options and decide with full confidence.</p>
-    <div class="fbtns rv" style="transition-delay:.4s">
-      <a href="property_guidance.html" class="btn btn-wh"><span class="btn-rip"></span>Get Property Guidance<span class="btn-arr"><i class="fa-solid fa-arrow-right"></i></span></a>
-      <a href="contact.html" class="btn" style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,.28);"><span class="btn-rip"></span>Contact Us<span class="btn-arr" style="background:rgba(255,255,255,.1);color:#fff;"><i class="fa-solid fa-arrow-right"></i></span></a>
-    </div>
-  </div>
-</section>
- 
-<!-- ===== FOOTER (unchanged) ===== -->
-<footer class="foot">
-  <div class="container">
-    <div class="ftgrid">
-      <div class="ftbrand">
-        <img src="assets/logo/intentnet-logo.png" alt="IntentNet" onerror="this.alt='IntentNet'">
-        <p>IntentNet helps apartment buyers understand Kerala's residential market — with clarity, structure, and verified connections.</p>
-        <div class="ftsoc">
+      <div class="nr">
+        <div class="nsoc">
           <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
           <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
           <a href="#"><i class="fa-brands fa-instagram"></i></a>
           <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
         </div>
-      </div>
-      <div class="ftcol">
-        <h5>Explore</h5>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="explore_apartments.html">Explore Apartments</a></li>
-          <li><a href="property_guidance.html">Property Guidance</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="ftcol">
-        <h5>Services</h5>
-        <ul>
-          <li><a href="#">Real Estate</a></li>
-          <li><a href="#">Interiors</a></li>
-          <li><a href="#">Solar Solutions</a></li>
-          <li><a href="property_guidance.html">Property Guidance</a></li>
-        </ul>
-      </div>
-      <div class="ftcol ftadr">
-        <h5>Contact</h5>
-        <p><i class="fa-solid fa-location-dot"></i>3rd Floor, HeadQ Pvt Ltd, Phase 1, HiLITE Business Park, Kozhikode</p>
-        <p><i class="fa-solid fa-envelope"></i>contact@intentnet.com</p>
+        <a href="contact.html" class="nav-pill">Get Started</a>
+        <button class="ham" id="ham" aria-label="Open menu"><span></span><span></span><span></span></button>
       </div>
     </div>
-    <div class="ftbar">
-      <p>&copy; 2026 IntentNet. All rights reserved.</p>
-      <p>Kerala's Property Discovery Platform</p>
+    <div class="nb">
+      <div class="nb-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="explore_apartments.html" class="active">Explore Apartments</a>
+        <a href="property_guidance.html">Property Guidance</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== MOBILE MENU (unchanged) ===== -->
+  <div class="mob-menu" id="mobMenu">
+    <button class="mob-close" id="mc"><i class="fa-solid fa-xmark"></i></button>
+    <nav class="mob-nav">
+      <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="explore_apartments.html"><i class="fa-solid fa-building"></i> Explore Apartments</a>
+      <a href="property_guidance.html"><i class="fa-solid fa-handshake"></i> Property Guidance</a>
+      <a href="about.html"><i class="fa-solid fa-users"></i> About Us</a>
+      <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+    </nav>
+    <div class="mob-soc">
+      <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
     </div>
   </div>
-</footer>
- 
-<script src="main.js"></script>
-<script>
-/* ── CITY PILLS ─────────────────────────────────────── */
-let activeCityPill = 'all';
-const cityLabels = {
-  all: 'Property for Sale in Kerala',
-  kochi: 'Property for Sale in Kochi',
-  kozhikode: 'Property for Sale in Kozhikode',
-  thrissur: 'Property for Sale in Thrissur',
-  thiruvananthapuram: 'Property for Sale in Thiruvananthapuram'
-};
- 
-document.querySelectorAll('.city-pill').forEach(pill => {
-  pill.addEventListener('click', () => {
-    document.querySelectorAll('.city-pill').forEach(p => p.classList.remove('active'));
-    pill.classList.add('active');
-    activeCityPill = pill.dataset.city;
-    document.getElementById('feedTitle').textContent = cityLabels[activeCityPill] || cityLabels.all;
-    runFilters();
-  });
-});
- 
-/* ── MOBILE SIDEBAR TOGGLE ──────────────────────────── */
-const filterToggle  = document.getElementById('filterToggle');
-const filterSidebar = document.getElementById('filterSidebar');
-const filterChev    = document.getElementById('filterChev');
-if (filterToggle) {
-  filterToggle.addEventListener('click', () => {
-    filterSidebar.classList.toggle('open');
-    filterChev.style.transform = filterSidebar.classList.contains('open') ? 'rotate(180deg)' : '';
-  });
-}
- 
-/* ── FILTER ENGINE ──────────────────────────────────── */
-const filterCBs = document.querySelectorAll('.filter-cb');
-const cards     = document.querySelectorAll('.filter-target');
-const noRes     = document.getElementById('noResults');
-const resCnt    = document.getElementById('resultCount');
- 
-function runFilters() {
-  const sel = { budget: [], bhk: [], type: [], status: [] };
-  filterCBs.forEach(cb => {
-    if (cb.checked) sel[cb.dataset.category].push(cb.value);
-  });
- 
-  let visible = 0;
-  cards.forEach(card => {
-    const b = parseFloat(card.dataset.budget);
-    const show =
-      (activeCityPill === 'all' || card.dataset.city === activeCityPill) &&
-      (!sel.budget.length || sel.budget.some(r => {
-        const [mn, mx] = r.split('-').map(Number);
-        return b >= mn && b <= mx;
-      })) &&
-      (!sel.bhk.length    || sel.bhk.includes(card.dataset.bhk)) &&
-      (!sel.type.length   || sel.type.includes(card.dataset.type)) &&
-      (!sel.status.length || sel.status.includes(card.dataset.status));
- 
-    card.style.display = show ? '' : 'none';
-    if (show) visible++;
-  });
- 
-  resCnt.textContent = `Showing ${visible} propert${visible === 1 ? 'y' : 'ies'}`;
-  noRes.style.display = visible === 0 ? 'block' : 'none';
-}
- 
-filterCBs.forEach(cb => cb.addEventListener('change', runFilters));
- 
-document.getElementById('clearFilters').addEventListener('click', () => {
-  filterCBs.forEach(cb => cb.checked = false);
-  document.querySelectorAll('.city-pill').forEach(p => p.classList.remove('active'));
-  document.querySelector('.city-pill[data-city="all"]').classList.add('active');
-  activeCityPill = 'all';
-  document.getElementById('feedTitle').textContent = cityLabels.all;
-  runFilters();
-});
- 
-/* ── REVEAL OBSERVER ───────────────────────────────── */
-const ro = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); ro.unobserve(e.target); } });
-}, { threshold: 0.08 });
-document.querySelectorAll('.rv').forEach(el => ro.observe(el));
-</script>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <div class="exp-page">
+
+    <div class="exp-page-header">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <a href="#">Property in Kerala</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span>Explore Apartments in Kerala</span>
+      </div>
+      <h1>Property for Sale in Kerala</h1>
+    </div>
+
+    <!-- ===== CITY FILTER PILLS ===== -->
+    <div class="exp-city-bar">
+      <span class="cp-label">City:</span>
+      <span class="city-pill active" data-city="all"><i class="fa-solid fa-border-all"></i> All Cities</span>
+      <span class="city-pill" data-city="kochi"><i class="fa-solid fa-location-dot"></i> Kochi</span>
+      <span class="city-pill" data-city="kozhikode"><i class="fa-solid fa-location-dot"></i> Kozhikode</span>
+      <span class="city-pill" data-city="thrissur"><i class="fa-solid fa-location-dot"></i> Thrissur</span>
+      <span class="city-pill" data-city="thiruvananthapuram"><i class="fa-solid fa-location-dot"></i>
+        Thiruvananthapuram</span>
+    </div>
+
+    <!-- ===== MAIN LAYOUT ===== -->
+    <div class="exp-layout">
+
+      <!-- LEFT: SIDEBAR FILTERS -->
+      <div>
+        <!-- Mobile toggle -->
+        <button class="exp-filter-toggle" id="filterToggle">
+          <span><i class="fa-solid fa-sliders"></i>&nbsp; Filters</span>
+          <i class="fa-solid fa-chevron-down" id="filterChev"></i>
+        </button>
+
+        <aside class="exp-sidebar" id="filterSidebar">
+          <div class="exp-sidebar-title">
+            Filters
+            <button id="clearFilters">Clear All</button>
+          </div>
+
+          <!-- Budget -->
+          <div class="exp-filter-group">
+            <h3>Budget</h3>
+            <div class="hint">Select Price Range</div>
+            <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="budget" value="0-100">Under ₹1
+              Crore</label>
+            <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="budget" value="100-200">₹1 Cr
+              – ₹2 Cr</label>
+            <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="budget" value="200-500">₹2 Cr
+              – ₹5 Cr</label>
+            <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="budget"
+                value="500-10000">Above ₹5 Cr</label>
+          </div>
+
+          <!-- BHK -->
+          <div class="exp-filter-group">
+            <h3>BHK</h3>
+            <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="bhk" value="1">1 BHK</label>
+            <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="bhk" value="2">2 BHK</label>
+            <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="bhk" value="3">3 BHK</label>
+            <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="bhk" value="4">4 BHK</label>
+          </div>
+
+          <!-- Property Type -->
+          <div class="exp-filter-group">
+            <h3>Property Type</h3>
+            <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="type" value="apartment">Flat /
+              Apartment</label>
+            <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="type" value="villa">Villa /
+              House</label>
+          </div>
+
+          <!-- Status -->
+          <div class="exp-filter-group">
+            <h3>Status</h3>
+            <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="status" value="ready">Ready to
+              Move</label>
+            <label class="exp-cb"><input type="checkbox" class="filter-cb" data-category="status"
+                value="construction">Under Construction</label>
+          </div>
+        </aside>
+      </div>
+
+      <!-- RIGHT: PROPERTY FEED -->
+      <div>
+        <div class="exp-feed-header rv">
+          <h2 id="feedTitle">Property for Sale in Kerala</h2>
+          <span class="exp-result-count" id="resultCount">Showing 8 properties</span>
+        </div>
+
+        <div class="exp-feed" id="propertyFeed">
+
+          <!-- CARD 1 · 3BHK Apartment · Kochi · ₹2.4 Cr · Ready -->
+          <div class="prop-card filter-target" data-budget="240" data-bhk="3" data-type="apartment" data-city="kochi"
+            data-status="ready">
+            <div class="prop-img-wrap">
+              <span class="prop-badge">Verified Builder</span>
+              <img loading="lazy"
+                src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=700&q=80"
+                alt="3BHK Marine Drive Kochi">
+            </div>
+            <div class="prop-details">
+              <div class="prop-header">
+                <div>
+                  <h2 class="prop-title">3 BHK Apartment / Flat for Sale</h2>
+                  <div class="prop-location"><i class="fa-solid fa-location-dot"></i>Marine Drive, Kochi</div>
+                </div>
+                <div class="prop-price">₹ 2.4 Cr</div>
+              </div>
+              <div class="prop-stats">
+                <div class="stat-item"><span class="stat-label">Carpet Area</span><span class="stat-value">1800
+                    sqft</span></div>
+                <div class="stat-item"><span class="stat-label">Status</span><span class="stat-value">Ready to
+                    Move</span></div>
+                <div class="stat-item"><span class="stat-label">Floor</span><span class="stat-value">8 out of 15</span>
+                </div>
+              </div>
+              <p class="prop-desc">Located on Marine Drive, this premium 3 BHK features luxury interiors, smart home
+                integrations, and unblocked sea views. Close to metro, IT parks and international schools.</p>
+              <div class="prop-actions">
+                <button class="btn-contact">Contact Builder</button>
+                <button class="btn-view">View Details</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 2 · 2BHK Apartment · Kochi · ₹1.1 Cr · Ready -->
+          <div class="prop-card filter-target" data-budget="110" data-bhk="2" data-type="apartment" data-city="kochi"
+            data-status="ready">
+            <div class="prop-img-wrap">
+              <span class="prop-badge green">New Launch</span>
+              <img loading="lazy"
+                src="https://images.unsplash.com/photo-1600607687931-ce8a6c25118c?auto=format&fit=crop&w=700&q=80"
+                alt="2BHK Edapally Kochi">
+            </div>
+            <div class="prop-details">
+              <div class="prop-header">
+                <div>
+                  <h2 class="prop-title">2 BHK Premium Apartment</h2>
+                  <div class="prop-location"><i class="fa-solid fa-location-dot"></i>Edapally, Kochi</div>
+                </div>
+                <div class="prop-price">₹ 1.1 Cr</div>
+              </div>
+              <div class="prop-stats">
+                <div class="stat-item"><span class="stat-label">Carpet Area</span><span class="stat-value">1200
+                    sqft</span></div>
+                <div class="stat-item"><span class="stat-label">Status</span><span class="stat-value">Ready to
+                    Move</span></div>
+                <div class="stat-item"><span class="stat-label">Furnishing</span><span
+                    class="stat-value">Semi-Furnished</span></div>
+              </div>
+              <p class="prop-desc">Stylish 2 BHK in the heart of Edapally with modern interiors, covered parking, and
+                excellent connectivity to Seaport-Airport Road and NH-66.</p>
+              <div class="prop-actions">
+                <button class="btn-contact">Contact Builder</button>
+                <button class="btn-view">View Details</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 3 · 4BHK Villa · Kozhikode · ₹3.8 Cr · Under Construction -->
+          <div class="prop-card filter-target" data-budget="380" data-bhk="4" data-type="villa" data-city="kozhikode"
+            data-status="construction">
+            <div class="prop-img-wrap">
+              <span class="prop-badge green">New Launch</span>
+              <img loading="lazy"
+                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=700&q=80"
+                alt="4BHK Villa Kozhikode">
+            </div>
+            <div class="prop-details">
+              <div class="prop-header">
+                <div>
+                  <h2 class="prop-title">4 BHK Luxury Villa for Sale</h2>
+                  <div class="prop-location"><i class="fa-solid fa-location-dot"></i>Chevayur, Kozhikode</div>
+                </div>
+                <div class="prop-price">₹ 3.8 Cr</div>
+              </div>
+              <div class="prop-stats">
+                <div class="stat-item"><span class="stat-label">Carpet Area</span><span class="stat-value">3200
+                    sqft</span></div>
+                <div class="stat-item"><span class="stat-label">Status</span><span class="stat-value">Under
+                    Construction</span></div>
+                <div class="stat-item"><span class="stat-label">Transaction</span><span class="stat-value">New
+                    Property</span></div>
+              </div>
+              <p class="prop-desc">Exclusive gated community villa in Chevayur with private garden, solar rooftop
+                system, home theatre, and designer interiors. Expected possession by late 2026.</p>
+              <div class="prop-actions">
+                <button class="btn-contact">Contact Builder</button>
+                <button class="btn-view">View Details</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 4 · 3BHK Apartment · Kozhikode · ₹1.6 Cr · Under Construction -->
+          <div class="prop-card filter-target" data-budget="160" data-bhk="3" data-type="apartment"
+            data-city="kozhikode" data-status="construction">
+            <div class="prop-img-wrap">
+              <span class="prop-badge blue">Featured</span>
+              <img loading="lazy"
+                src="https://images.unsplash.com/photo-1600566753086-00f18efc2291?auto=format&fit=crop&w=700&q=80"
+                alt="3BHK Kozhikode">
+            </div>
+            <div class="prop-details">
+              <div class="prop-header">
+                <div>
+                  <h2 class="prop-title">3 BHK Apartment for Sale</h2>
+                  <div class="prop-location"><i class="fa-solid fa-location-dot"></i>Calicut Beach Road, Kozhikode</div>
+                </div>
+                <div class="prop-price">₹ 1.6 Cr</div>
+              </div>
+              <div class="prop-stats">
+                <div class="stat-item"><span class="stat-label">Carpet Area</span><span class="stat-value">1550
+                    sqft</span></div>
+                <div class="stat-item"><span class="stat-label">Status</span><span class="stat-value">Under
+                    Construction</span></div>
+                <div class="stat-item"><span class="stat-label">Possession</span><span class="stat-value">Mar
+                    2027</span></div>
+              </div>
+              <p class="prop-desc">3 BHK steps from Calicut Beach. Sea-facing units available. Premium construction
+                quality with rooftop amenity deck, gym, and children's play area.</p>
+              <div class="prop-actions">
+                <button class="btn-contact">Contact Builder</button>
+                <button class="btn-view">View Details</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 5 · 2BHK Apartment · Thrissur · ₹95 L · Ready -->
+          <div class="prop-card filter-target" data-budget="95" data-bhk="2" data-type="apartment" data-city="thrissur"
+            data-status="ready">
+            <div class="prop-img-wrap">
+              <span class="prop-badge">Ready to Move</span>
+              <img loading="lazy"
+                src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=700&q=80"
+                alt="2BHK Thrissur">
+            </div>
+            <div class="prop-details">
+              <div class="prop-header">
+                <div>
+                  <h2 class="prop-title">2 BHK Premium Apartment</h2>
+                  <div class="prop-location"><i class="fa-solid fa-location-dot"></i>Punkunnam, Thrissur</div>
+                </div>
+                <div class="prop-price">₹ 95 L</div>
+              </div>
+              <div class="prop-stats">
+                <div class="stat-item"><span class="stat-label">Carpet Area</span><span class="stat-value">1100
+                    sqft</span></div>
+                <div class="stat-item"><span class="stat-label">Status</span><span class="stat-value">Ready to
+                    Move</span></div>
+                <div class="stat-item"><span class="stat-label">Furnishing</span><span
+                    class="stat-value">Semi-Furnished</span></div>
+              </div>
+              <p class="prop-desc">Spacious 2 BHK in Punkunnam with modular kitchen, premium fittings, and
+                Vastu-compliant architecture. Excellent connectivity to Thrissur city centre and Ring Road.</p>
+              <div class="prop-actions">
+                <button class="btn-contact">Contact Builder</button>
+                <button class="btn-view">View Details</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 6 · 3BHK Villa · Thrissur · ₹2.2 Cr · Ready -->
+          <div class="prop-card filter-target" data-budget="220" data-bhk="3" data-type="villa" data-city="thrissur"
+            data-status="ready">
+            <div class="prop-img-wrap">
+              <span class="prop-badge">Verified Builder</span>
+              <img loading="lazy"
+                src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=700&q=80"
+                alt="Villa Thrissur">
+            </div>
+            <div class="prop-details">
+              <div class="prop-header">
+                <div>
+                  <h2 class="prop-title">3 BHK Independent Villa</h2>
+                  <div class="prop-location"><i class="fa-solid fa-location-dot"></i>Ollur, Thrissur</div>
+                </div>
+                <div class="prop-price">₹ 2.2 Cr</div>
+              </div>
+              <div class="prop-stats">
+                <div class="stat-item"><span class="stat-label">Carpet Area</span><span class="stat-value">2000
+                    sqft</span></div>
+                <div class="stat-item"><span class="stat-label">Status</span><span class="stat-value">Ready to
+                    Move</span></div>
+                <div class="stat-item"><span class="stat-label">Plot Area</span><span class="stat-value">6 Cents</span>
+                </div>
+              </div>
+              <p class="prop-desc">Well-designed 3 BHK villa in peaceful Ollur with private compound, car porch, and
+                lush landscaping. Ideal for families seeking privacy near Thrissur city.</p>
+              <div class="prop-actions">
+                <button class="btn-contact">Contact Builder</button>
+                <button class="btn-view">View Details</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 7 · 3BHK Villa · Thiruvananthapuram · ₹2.8 Cr · Ready -->
+          <div class="prop-card filter-target" data-budget="280" data-bhk="3" data-type="villa"
+            data-city="thiruvananthapuram" data-status="ready">
+            <div class="prop-img-wrap">
+              <span class="prop-badge orange">Featured</span>
+              <img loading="lazy"
+                src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=700&q=80"
+                alt="Villa Thiruvananthapuram">
+            </div>
+            <div class="prop-details">
+              <div class="prop-header">
+                <div>
+                  <h2 class="prop-title">3 BHK Contemporary Villa</h2>
+                  <div class="prop-location"><i class="fa-solid fa-location-dot"></i>Kowdiar, Thiruvananthapuram</div>
+                </div>
+                <div class="prop-price">₹ 2.8 Cr</div>
+              </div>
+              <div class="prop-stats">
+                <div class="stat-item"><span class="stat-label">Carpet Area</span><span class="stat-value">2400
+                    sqft</span></div>
+                <div class="stat-item"><span class="stat-label">Status</span><span class="stat-value">Ready to
+                    Move</span></div>
+                <div class="stat-item"><span class="stat-label">Special</span><span class="stat-value">Solar
+                    Equipped</span></div>
+              </div>
+              <p class="prop-desc">Beautifully styled 3 BHK villa with complete 10kW solar roof panel system installed.
+                Move-in ready with clear title. Experience sustainable luxury in Kowdiar.</p>
+              <div class="prop-actions">
+                <button class="btn-contact">Contact Builder</button>
+                <button class="btn-view">View Details</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 8 · 2BHK Apartment · Thiruvananthapuram · ₹75 L · Construction -->
+          <div class="prop-card filter-target" data-budget="75" data-bhk="2" data-type="apartment"
+            data-city="thiruvananthapuram" data-status="construction">
+            <div class="prop-img-wrap">
+              <span class="prop-badge green">New Launch</span>
+              <img loading="lazy"
+                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=700&q=80"
+                alt="2BHK Pattom">
+            </div>
+            <div class="prop-details">
+              <div class="prop-header">
+                <div>
+                  <h2 class="prop-title">2 BHK Apartment for Sale</h2>
+                  <div class="prop-location"><i class="fa-solid fa-location-dot"></i>Pattom, Thiruvananthapuram</div>
+                </div>
+                <div class="prop-price">₹ 75 L</div>
+              </div>
+              <div class="prop-stats">
+                <div class="stat-item"><span class="stat-label">Carpet Area</span><span class="stat-value">950
+                    sqft</span></div>
+                <div class="stat-item"><span class="stat-label">Status</span><span class="stat-value">Under
+                    Construction</span></div>
+                <div class="stat-item"><span class="stat-label">Possession</span><span class="stat-value">Jun
+                    2027</span></div>
+              </div>
+              <p class="prop-desc">Affordable 2 BHK in Pattom — Trivandrum's most sought-after zone. Walking distance to
+                Pattom Junction, premium schools, and key government offices.</p>
+              <div class="prop-actions">
+                <button class="btn-contact">Contact Builder</button>
+                <button class="btn-view">View Details</button>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /exp-feed -->
+
+        <!-- No results state -->
+        <div class="exp-no-results" id="noResults">
+          <i class="fa-solid fa-building-circle-xmark"></i>
+          <h3>No properties match your filters</h3>
+          <p>Try adjusting your filters or selecting a different city.</p>
+        </div>
+
+      </div><!-- /feed column -->
+    </div><!-- /exp-layout -->
+
+  </div><!-- /exp-page -->
+
+  <!-- ===== FINAL CTA (unchanged) ===== -->
+  <section class="fcta">
+    <div class="fwm">INTENTNET</div>
+    <div class="container" style="position:relative;z-index:1;">
+      <h2 class="rv">Need Help Choosing the Right Property?</h2>
+      <p class="rv" style="transition-delay:.2s">Our property guidance team helps you compare options and decide with
+        full confidence.</p>
+      <div class="fbtns rv" style="transition-delay:.4s">
+        <a href="property_guidance.html" class="btn btn-wh"><span class="btn-rip"></span>Get Property Guidance<span
+            class="btn-arr"><i class="fa-solid fa-arrow-right"></i></span></a>
+        <a href="contact.html" class="btn"
+          style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,.28);"><span
+            class="btn-rip"></span>Contact Us<span class="btn-arr"
+            style="background:rgba(255,255,255,.1);color:#fff;"><i class="fa-solid fa-arrow-right"></i></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER (unchanged) ===== -->
+  <footer class="foot">
+    <div class="container">
+      <div class="ftgrid">
+        <div class="ftbrand">
+          <img src="assets/logo/intentnet.jpeg" alt="IntentNet" onerror="this.alt='IntentNet'">
+          <p>IntentNet helps apartment buyers understand Kerala's residential market — with clarity, structure, and
+            verified connections.</p>
+          <div class="ftsoc">
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="ftcol">
+          <h5>Explore</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="explore_apartments.html">Explore Apartments</a></li>
+            <li><a href="property_guidance.html">Property Guidance</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="ftcol">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#">Real Estate</a></li>
+            <li><a href="#">Interiors</a></li>
+            <li><a href="#">Solar Solutions</a></li>
+            <li><a href="property_guidance.html">Property Guidance</a></li>
+          </ul>
+        </div>
+        <div class="ftcol ftadr">
+          <h5>Contact</h5>
+          <p><i class="fa-solid fa-location-dot"></i>3rd Floor, HeadQ Pvt Ltd, Phase 1, HiLITE Business Park, Kozhikode
+          </p>
+          <p><i class="fa-solid fa-envelope"></i>contact@intentnet.com</p>
+        </div>
+      </div>
+      <div class="ftbar">
+        <p>&copy; 2026 IntentNet. All rights reserved.</p>
+        <p>Kerala's Property Discovery Platform</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    /* ── CITY PILLS ─────────────────────────────────────── */
+    let activeCityPill = 'all';
+    const cityLabels = {
+      all: 'Property for Sale in Kerala',
+      kochi: 'Property for Sale in Kochi',
+      kozhikode: 'Property for Sale in Kozhikode',
+      thrissur: 'Property for Sale in Thrissur',
+      thiruvananthapuram: 'Property for Sale in Thiruvananthapuram'
+    };
+
+    document.querySelectorAll('.city-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.city-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        activeCityPill = pill.dataset.city;
+        document.getElementById('feedTitle').textContent = cityLabels[activeCityPill] || cityLabels.all;
+        runFilters();
+      });
+    });
+
+    /* ── MOBILE SIDEBAR TOGGLE ──────────────────────────── */
+    const filterToggle = document.getElementById('filterToggle');
+    const filterSidebar = document.getElementById('filterSidebar');
+    const filterChev = document.getElementById('filterChev');
+    if (filterToggle) {
+      filterToggle.addEventListener('click', () => {
+        filterSidebar.classList.toggle('open');
+        filterChev.style.transform = filterSidebar.classList.contains('open') ? 'rotate(180deg)' : '';
+      });
+    }
+
+    /* ── FILTER ENGINE ──────────────────────────────────── */
+    const filterCBs = document.querySelectorAll('.filter-cb');
+    const cards = document.querySelectorAll('.filter-target');
+    const noRes = document.getElementById('noResults');
+    const resCnt = document.getElementById('resultCount');
+
+    function runFilters() {
+      const sel = { budget: [], bhk: [], type: [], status: [] };
+      filterCBs.forEach(cb => {
+        if (cb.checked) sel[cb.dataset.category].push(cb.value);
+      });
+
+      let visible = 0;
+      cards.forEach(card => {
+        const b = parseFloat(card.dataset.budget);
+        const show =
+          (activeCityPill === 'all' || card.dataset.city === activeCityPill) &&
+          (!sel.budget.length || sel.budget.some(r => {
+            const [mn, mx] = r.split('-').map(Number);
+            return b >= mn && b <= mx;
+          })) &&
+          (!sel.bhk.length || sel.bhk.includes(card.dataset.bhk)) &&
+          (!sel.type.length || sel.type.includes(card.dataset.type)) &&
+          (!sel.status.length || sel.status.includes(card.dataset.status));
+
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      resCnt.textContent = `Showing ${visible} propert${visible === 1 ? 'y' : 'ies'}`;
+      noRes.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    filterCBs.forEach(cb => cb.addEventListener('change', runFilters));
+
+    document.getElementById('clearFilters').addEventListener('click', () => {
+      filterCBs.forEach(cb => cb.checked = false);
+      document.querySelectorAll('.city-pill').forEach(p => p.classList.remove('active'));
+      document.querySelector('.city-pill[data-city="all"]').classList.add('active');
+      activeCityPill = 'all';
+      document.getElementById('feedTitle').textContent = cityLabels.all;
+      runFilters();
+    });
+
+    /* ── REVEAL OBSERVER ───────────────────────────────── */
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); ro.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.rv').forEach(el => ro.observe(el));
+  </script>
 </body>
+
 </html>

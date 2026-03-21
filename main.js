@@ -49,19 +49,11 @@ if (hamBtn && mobMenu && mcBtn) {
   });
 }
 
-/* ── HERO BACKGROUND — local first, Unsplash fallback ──────── */
+/* ── HERO BACKGROUND — Optimized Unsplash Version ──────── */
 (function () {
   const bg = document.getElementById('heroBg');
   if (!bg) return;
-  const probe = new Image();
-  probe.onload = () => {
-    bg.style.backgroundImage = "url('assets/test.jpg')";
-  };
-  probe.onerror = () => {
-    bg.style.backgroundImage =
-      "url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=90')";
-  };
-  probe.src = 'assets/luxury.jpg';
+  bg.style.backgroundImage = "url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=90')";
   bg.style.backgroundSize     = 'cover';
   bg.style.backgroundPosition = 'center';
 })();
@@ -183,4 +175,12 @@ document.querySelectorAll('.eco-f').forEach(btn => {
       item.style.transition = 'opacity .4s, transform .4s';
     });
   });
+});
+
+/* ── PAGE LOADER ──────── */
+window.addEventListener('load', () => {
+  const loader = document.getElementById('pageLoader');
+  if (loader) {
+    setTimeout(() => loader.classList.add('hidden'), 500);
+  }
 });
